@@ -80,7 +80,7 @@
         <!--Sign View Controller-->
         <scene sceneID="iaN-2a-yOL">
             <objects>
-                <viewController id="07Q-pa-t8W" customClass="SignViewController" customModule="elog_ver0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignViewController" id="07Q-pa-t8W" customClass="SignViewController" customModule="elog_ver0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hun-fC-f4d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
