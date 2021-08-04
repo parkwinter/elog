@@ -15,6 +15,7 @@ class SignViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        isUser = UserManger.shared.isUser
 
         if isUser {
             topLabel.text = "회원님 환영합니다!!"
