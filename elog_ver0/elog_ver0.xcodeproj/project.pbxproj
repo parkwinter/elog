@@ -56,6 +56,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53097CE426BABEE0006E7219 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		53097CE526BABEE8006E7219 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76E9F8362652050100CD1D9A /* ViewController.swift */,
+				76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */,
+				76558EF62656F89700F3FDB1 /* MenuViewController.swift */,
+				76E9F84C26521B5100CD1D9A /* WriteViewController.swift */,
+				76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */,
+				76E9F84A265215A000CD1D9A /* CreateDiaryViewController.swift */,
+				76E9F84826520DB400CD1D9A /* SignViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		53097CE626BABEF0006E7219 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53097CE726BABEF6006E7219 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				53097CE126BABA6F006E7219 /* UserManager.swift */,
+				76E9F8322652050100CD1D9A /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		58D65A462D27C9DF3E519B3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,17 +122,12 @@
 		76E9F8312652050100CD1D9A /* elog_ver0 */ = {
 			isa = PBXGroup;
 			children = (
-				76E9F8322652050100CD1D9A /* AppDelegate.swift */,
-				53097CE126BABA6F006E7219 /* UserManager.swift */,
+				53097CE726BABEF6006E7219 /* Core */,
+				53097CE626BABEF0006E7219 /* Model */,
+				53097CE526BABEE8006E7219 /* Controller */,
+				53097CE426BABEE0006E7219 /* View */,
 				76E9F8342652050100CD1D9A /* SceneDelegate.swift */,
-				76E9F8362652050100CD1D9A /* ViewController.swift */,
 				76E9F8382652050100CD1D9A /* Main.storyboard */,
-				76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */,
-				76558EF62656F89700F3FDB1 /* MenuViewController.swift */,
-				76E9F84C26521B5100CD1D9A /* WriteViewController.swift */,
-				76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */,
-				76E9F84A265215A000CD1D9A /* CreateDiaryViewController.swift */,
-				76E9F84826520DB400CD1D9A /* SignViewController.swift */,
 				76E9F83B2652050200CD1D9A /* Assets.xcassets */,
 				76E9F83D2652050200CD1D9A /* LaunchScreen.storyboard */,
 				76E9F8402652050200CD1D9A /* Info.plist */,

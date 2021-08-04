@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="88.392857142857139"/>
+            <point key="canvasLocation" x="913" y="88"/>
         </scene>
         <!--Sign View Controller-->
         <scene sceneID="iaN-2a-yOL">
@@ -143,11 +143,12 @@
                     <navigationItem key="navigationItem" id="7jR-Rz-vMX"/>
                     <connections>
                         <outlet property="topLabel" destination="uWg-Ef-Lvs" id="37B-Vg-Wry"/>
+                        <segue destination="fvc-ba-rM3" kind="show" id="AWV-01-y3Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZj-Oh-d5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="88"/>
+            <point key="canvasLocation" x="1641" y="88"/>
         </scene>
         <!--Create Diary View Controller-->
         <scene sceneID="MoQ-ap-qqN">
@@ -217,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HD2-Ix-vqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="750"/>
+            <point key="canvasLocation" x="912" y="818"/>
         </scene>
         <!--Write View Controller-->
         <scene sceneID="9th-ab-eky">
@@ -280,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnP-OD-Cs0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="750"/>
+            <point key="canvasLocation" x="1641" y="818"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="jrf-mf-pFM">
@@ -433,7 +434,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQ6-Se-dLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579.7101449275362" y="1407.5892857142856"/>
+            <point key="canvasLocation" x="1675" y="1468"/>
         </scene>
         <!--Image Edit View Controller-->
         <scene sceneID="aXF-rn-Eqd">
@@ -448,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLh-7c-amC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686" y="1408"/>
+            <point key="canvasLocation" x="913" y="1468"/>
         </scene>
         <!--오프라인 글 가져오기-->
         <scene sceneID="kzE-kh-hH5">
@@ -470,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJS-QC-YSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="88"/>
+            <point key="canvasLocation" x="2443" y="88"/>
         </scene>
         <!--Monthly View Controller-->
         <scene sceneID="k5p-Tm-Ddw">
@@ -511,7 +512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9SH-y2-ic7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="750"/>
+            <point key="canvasLocation" x="2443" y="818"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H6h-aG-D9T">
@@ -529,9 +530,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tst-RV-wgU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="88"/>
+            <point key="canvasLocation" x="93" y="88"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="AWV-01-y3Z"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="87" height="90"/>
         <image name="2" width="83" height="82"/>
