@@ -16,10 +16,11 @@ class ViewController: UIViewController {
 
     @IBAction func onTapButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "SignViewController") as! UIViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignViewController") as! SignViewController
 
-        present(viewController, animated: true) {}
-        print("hello")
+        viewController.isUser = true
+
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }
