@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (5.4.3)
+  - AlamofireNetworkActivityIndicator (3.1.0):
+    - Alamofire (~> 5.1)
+  - BTNavigationDropdownMenu (0.7)
+  - DropDown (2.3.13)
+  - Floaty (4.2.0)
+  - Mantis (0.52)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireNetworkActivityIndicator
+  - BTNavigationDropdownMenu
+  - DropDown
+  - Floaty (~> 4.2.0)
+  - Mantis (~> 0.28)
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - BTNavigationDropdownMenu
+    - DropDown
+    - Floaty
+    - Mantis
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireNetworkActivityIndicator: 6564782bd7b9e6c430ae67d9277af01907b01ca4
+  BTNavigationDropdownMenu: 57a72c74dc211db3564f5be168f4f7643491a7de
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
+  Mantis: 0fb7056ad8fbe61e0c195b483d73591a06bcae09
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 9e61e3fdd1071a32e8b2a7c6e84ae32280993dc4
+
+COCOAPODS: 1.10.1

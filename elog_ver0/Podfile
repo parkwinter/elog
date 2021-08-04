@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+target 'elog_ver0' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for elog_ver0
+  pod 'Alamofire'
+  pod 'AlamofireNetworkActivityIndicator'
+  pod 'SnapKit'
+  pod 'Floaty', '~> 4.2.0'
+  pod 'DropDown'
+  pod 'BTNavigationDropdownMenu'
+  pod 'Mantis', '~> 0.28'
+
+end
