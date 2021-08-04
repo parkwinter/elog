@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53097CE226BABA6F006E7219 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CE126BABA6F006E7219 /* UserManager.swift */; };
+		53097CE926BABF4C006E7219 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CE826BABF4C006E7219 /* NetworkManager.swift */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		53097CE126BABA6F006E7219 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		53097CE826BABF4C006E7219 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				53097CE126BABA6F006E7219 /* UserManager.swift */,
 				76E9F8322652050100CD1D9A /* AppDelegate.swift */,
+				53097CE826BABF4C006E7219 /* NetworkManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				53097CE226BABA6F006E7219 /* UserManager.swift in Sources */,
 				76E9F8372652050100CD1D9A /* ViewController.swift in Sources */,
 				76E9F84B265215A000CD1D9A /* CreateDiaryViewController.swift in Sources */,
+				53097CE926BABF4C006E7219 /* NetworkManager.swift in Sources */,
 				76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */,
 				76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */,
 				76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */,
