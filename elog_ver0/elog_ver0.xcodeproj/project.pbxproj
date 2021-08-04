@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		53097CE226BABA6F006E7219 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CE126BABA6F006E7219 /* UserManager.swift */; };
 		53097CE926BABF4C006E7219 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CE826BABF4C006E7219 /* NetworkManager.swift */; };
+		53097CEB26BACA45006E7219 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CEA26BACA45006E7219 /* Users.swift */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		53097CE126BABA6F006E7219 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		53097CE826BABF4C006E7219 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		53097CEA26BACA45006E7219 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		53097CE626BABEF0006E7219 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				53097CEA26BACA45006E7219 /* Users.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				53097CE226BABA6F006E7219 /* UserManager.swift in Sources */,
 				76E9F8372652050100CD1D9A /* ViewController.swift in Sources */,
 				76E9F84B265215A000CD1D9A /* CreateDiaryViewController.swift in Sources */,
+				53097CEB26BACA45006E7219 /* Users.swift in Sources */,
 				53097CE926BABF4C006E7219 /* NetworkManager.swift in Sources */,
 				76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */,
 				76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */,

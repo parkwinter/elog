@@ -12,7 +12,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NetworkManager.getUserInfos()
+        NetworkManager.getUserInfos { users in
+            if let userArray = users?.result {
+                print(userArray[0].email)
+                UserManger.shared.id = userArray[0].email
+            }
+        }
     }
 
     @IBAction func onTapButton(_ sender: Any) {
