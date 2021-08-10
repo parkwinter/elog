@@ -13,5 +13,8 @@ target 'elog_ver0' do
   pod 'DropDown'
   pod 'BTNavigationDropdownMenu'
   pod 'Mantis', '~> 0.28'
-
+  pod 'HSCycleGalleryView', :git =>
+  'https://github.com/parkwinter/HSCycleGalleryView.git', :commit =>
+  '52718ced5558778cea351f169f36cc81b067ffc6'
+#  '9c33e824e21a06a0f3c436246865c8964c180184'
 end

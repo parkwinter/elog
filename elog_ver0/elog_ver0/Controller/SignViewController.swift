@@ -27,7 +27,26 @@ class SignViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func createButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "CreateDiaryViewController")
 
+
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    
+    @IBAction func carouselButton(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "CreateViewController")
+
+
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     /*
     // MARK: - Navigation
 

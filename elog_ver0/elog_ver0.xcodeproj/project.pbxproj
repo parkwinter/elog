@@ -13,6 +13,9 @@
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
+		765D22D126C2EF7A00EAEF5B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22D026C2EF7A00EAEF5B /* CreateViewController.swift */; };
+		765D22D826C2FB6D00EAEF5B /* PagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22D626C2FB6D00EAEF5B /* PagerCell.swift */; };
+		765D22D926C2FB6D00EAEF5B /* PagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765D22D726C2FB6D00EAEF5B /* PagerCell.xib */; };
 		76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8322652050100CD1D9A /* AppDelegate.swift */; };
 		76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8342652050100CD1D9A /* SceneDelegate.swift */; };
 		76E9F8372652050100CD1D9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8362652050100CD1D9A /* ViewController.swift */; };
@@ -32,6 +35,9 @@
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
+		765D22D026C2EF7A00EAEF5B /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		765D22D626C2FB6D00EAEF5B /* PagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerCell.swift; sourceTree = "<group>"; };
+		765D22D726C2FB6D00EAEF5B /* PagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerCell.xib; sourceTree = "<group>"; };
 		76E9F82F2652050100CD1D9A /* elog_ver0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elog_ver0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E9F8322652050100CD1D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76E9F8342652050100CD1D9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 				76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */,
 				76E9F84A265215A000CD1D9A /* CreateDiaryViewController.swift */,
 				76E9F84826520DB400CD1D9A /* SignViewController.swift */,
+				765D22D026C2EF7A00EAEF5B /* CreateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +102,8 @@
 				53097CE126BABA6F006E7219 /* UserManager.swift */,
 				76E9F8322652050100CD1D9A /* AppDelegate.swift */,
 				53097CE826BABF4C006E7219 /* NetworkManager.swift */,
+				765D22D626C2FB6D00EAEF5B /* PagerCell.swift */,
+				765D22D726C2FB6D00EAEF5B /* PagerCell.xib */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E9F83F2652050200CD1D9A /* LaunchScreen.storyboard in Resources */,
+				765D22D926C2FB6D00EAEF5B /* PagerCell.xib in Resources */,
 				76E9F83C2652050200CD1D9A /* Assets.xcassets in Resources */,
 				76E9F83A2652050100CD1D9A /* Main.storyboard in Resources */,
 			);
@@ -269,10 +279,12 @@
 				76E9F8372652050100CD1D9A /* ViewController.swift in Sources */,
 				76E9F84B265215A000CD1D9A /* CreateDiaryViewController.swift in Sources */,
 				53097CEB26BACA45006E7219 /* Users.swift in Sources */,
+				765D22D826C2FB6D00EAEF5B /* PagerCell.swift in Sources */,
 				53097CE926BABF4C006E7219 /* NetworkManager.swift in Sources */,
 				76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */,
 				76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */,
 				76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */,
+				765D22D126C2EF7A00EAEF5B /* CreateViewController.swift in Sources */,
 				76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */,
 				76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */,
 				76E9F84926520DB400CD1D9A /* SignViewController.swift in Sources */,

@@ -180,6 +180,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BTNavigationDropdownMenu/BTNavigationDropdownMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/HSCycleGalleryView/HSCycleGalleryView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Mantis/Mantis.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
@@ -189,6 +190,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/BTNavigationDropdownMenu/BTNavigationDropdownMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/HSCycleGalleryView/HSCycleGalleryView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Mantis/Mantis.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
 fi
