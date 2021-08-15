@@ -11,7 +11,7 @@
 import UIKit
 import HSCycleGalleryView
 
-class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
+class CreateViewController: UIViewController {
     
     
     @IBOutlet weak var pageControl: UIPageControl!
@@ -30,7 +30,15 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(navigationItemTapped))
 
         // carousel ui init
-        pager.register(cellClass: PagerCell.self, forCellReuseIdentifier: "PagerCell")
+
+        // 이거는 프로그래밍 코드로만 cell 을 생성했을 때 사용
+        // pager.register(cellClass: PagerCell.self, forCellReuseIdentifier: "PagerCell")
+
+        // 이거는 xib 로 만들었을 때, xib 파일 이름을 명시해줘야 함.
+        pager.register(nib: UINib(nibName: "PagerCell", bundle: nil),
+                       forCellReuseIdentifier: "PagerCell")
+
+
         pager.delegate = self
         pagerContainer.addSubview(pager)
         pager.reloadData()
@@ -40,12 +48,12 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
         super.viewWillAppear(animated)
         print("viewWillAppear")
 
-        NetworkManager.getAllNote(userId: UserManger.shared.id!) { [weak self] allNoteResponse in
-            guard let self = self else { return }
-            let notes = allNoteResponse?.result ?? []
-            self.notes = notes
-
-        }
+//        NetworkManager.getAllNote(userId: UserManger.shared.id ?? "") { [weak self] allNoteResponse in
+//            guard let self = self else { return }
+//            let notes = allNoteResponse?.result ?? []
+//            self.notes = notes
+//
+//        }
 
     }
 
@@ -53,24 +61,6 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
         print("add button!!!")
         showCreateNoteAlert()
 
-    }
-    
-    func changePageControl(currentIndex: Int) {
-        pageControl.currentPage = currentIndex
-    }
-    
-    func numberOfItemInCycleGalleryView(_ cycleGalleryView: HSCycleGalleryView) -> Int {
-        let count = 3
-        pageControl.numberOfPages = count
-        pageControl.isHidden = !(count > 1)
-        return count
-    }
-    
-    func cycleGalleryView(_ cycleGalleryView: HSCycleGalleryView, cellForItemAtIndex index: Int) -> UICollectionViewCell {
-        let cell = cycleGalleryView.dequeueReusableCell(withIdentifier: "PagerCell", for: IndexPath(item: index, section: 0)) as! PagerCell
-        
-        cell.backgroundColor = UIColor.black
-        return cell
     }
 
     func showCreateNoteAlert() {
@@ -110,6 +100,28 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
             print(noteResponse)
         }
 
+    }
+
+}
+
+
+extension CreateViewController: HSCycleGalleryViewDelegate {
+    func changePageControl(currentIndex: Int) {
+        pageControl.currentPage = currentIndex
+    }
+
+    func numberOfItemInCycleGalleryView(_ cycleGalleryView: HSCycleGalleryView) -> Int {
+        let count = notes.count
+        pageControl.numberOfPages = count
+        pageControl.isHidden = !(count > 1)
+        return count
+    }
+
+    func cycleGalleryView(_ cycleGalleryView: HSCycleGalleryView, cellForItemAtIndex index: Int) -> UICollectionViewCell {
+        let cell = cycleGalleryView.dequeueReusableCell(withIdentifier: "PagerCell", for: IndexPath(item: index, section: 0)) as! PagerCell
+
+//        cell.backgroundColor = UIColor.black
+        return cell
     }
 
 }

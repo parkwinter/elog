@@ -33,7 +33,7 @@ public class HSCycleGalleryView: UIView {
     }
     
     private var collectionView: UICollectionView!
-    private let groupCount = 200
+    private let groupCount = 1
     private var indexArr = [Int]()
     private var dataNum: Int = 0
 
