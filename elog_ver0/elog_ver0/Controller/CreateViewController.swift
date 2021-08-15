@@ -19,6 +19,8 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
     @IBOutlet weak var pagerContainer: UIView!
     
     let pager = HSCycleGalleryView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
+
+    var notes: [Note] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,13 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
+
+        NetworkManager.getAllNote(userId: UserManger.shared.id!) { [weak self] allNoteResponse in
+            guard let self = self else { return }
+            let notes = allNoteResponse?.result ?? []
+            self.notes = notes
+
+        }
 
     }
 

@@ -42,15 +42,31 @@ class NetworkManager {
                    headers: headers)
             .response { response in // Closure
                 if let data = response.data {
-                    let noteReponse = try? JSONDecoder().decode(NoteResponse.self, from: data)
+                    let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
 
-                    completionHandler(noteReponse)
+                    completionHandler(response)
 
                 } else {
                     completionHandler(nil)
                 }
             }
     }
+
+    static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {
+        // http://3.34.116.127/app/notes?userId=1
+        AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
+            if let data = response.data {
+//                let text = String(decoding: data, as: UTF8.self)
+                let response = try? JSONDecoder().decode(AllNoteResponse.self, from: data)
+
+                completionHandler(response)
+
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+
 }
 
 

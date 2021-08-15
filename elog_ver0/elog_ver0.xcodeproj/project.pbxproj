@@ -11,6 +11,7 @@
 		53097CE926BABF4C006E7219 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CE826BABF4C006E7219 /* NetworkManager.swift */; };
 		53097CEB26BACA45006E7219 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CEA26BACA45006E7219 /* Users.swift */; };
 		5397E56E26C8BA3800E63679 /* NoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5397E56D26C8BA3800E63679 /* NoteResponse.swift */; };
+		5397E57026C8C4BC00E63679 /* AllNoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -34,6 +35,7 @@
 		53097CE826BABF4C006E7219 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		53097CEA26BACA45006E7219 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		5397E56D26C8BA3800E63679 /* NoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteResponse.swift; sourceTree = "<group>"; };
+		5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoteResponse.swift; sourceTree = "<group>"; };
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				53097CEA26BACA45006E7219 /* Users.swift */,
 				5397E56D26C8BA3800E63679 /* NoteResponse.swift */,
+				5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				765D22D126C2EF7A00EAEF5B /* CreateViewController.swift in Sources */,
 				76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */,
 				76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */,
+				5397E57026C8C4BC00E63679 /* AllNoteResponse.swift in Sources */,
 				76E9F84926520DB400CD1D9A /* SignViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
