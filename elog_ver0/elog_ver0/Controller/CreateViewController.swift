@@ -23,11 +23,27 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigationItemTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(navigationItemTapped))
+
         // carousel ui init
         pager.register(cellClass: PagerCell.self, forCellReuseIdentifier: "PagerCell")
         pager.delegate = self
         pagerContainer.addSubview(pager)
         pager.reloadData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+
+    }
+
+    @objc func navigationItemTapped() {
+        print("add button!!!")
+        showCreateNoteAlert()
+
     }
     
     func changePageControl(currentIndex: Int) {
@@ -47,6 +63,44 @@ class CreateViewController: UIViewController, HSCycleGalleryViewDelegate {
         cell.backgroundColor = UIColor.black
         return cell
     }
-    
+
+    func showCreateNoteAlert() {
+        // https://stackoverflow.com/questions/26567413/get-input-value-from-textfield-in-ios-alert-in-swift
+
+        let alert = UIAlertController(title: "노트 제목을 입력해주세요",
+                                      message: "나만의 노트 이름을 만들어 볼까요?",
+                                      preferredStyle: .alert)
+
+        alert.addTextField { textField in textField.text = "나의 일기장" }
+
+/*
+         이걸 축약한 형태 입니다.
+        alert.addTextField(configurationHandler: { textField in
+            textField.text = "나의 일기장"
+        })
+*/
+        let action = UIAlertAction(title: "생성하기", style: .default) { [weak alert] _ in
+            let textField = alert?.textFields![0]
+            let title = textField?.text ?? ""
+            print("생성하기가 눌렸습니다. \(title)")
+
+            // 생성하기 함수 호출
+            self.createNote(title: title)
+        }
+
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func createNote(title: String) {
+        let email = UserManger.shared.email ?? ""
+
+        print("API 호출: createNote()")
+        NetworkManager.createNote(title: title, email: email) { noteResponse in
+            print("API Response 도착")
+            print(noteResponse)
+        }
+
+    }
 
 }
