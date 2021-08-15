@@ -108,10 +108,18 @@
 				53097CE126BABA6F006E7219 /* UserManager.swift */,
 				76E9F8322652050100CD1D9A /* AppDelegate.swift */,
 				53097CE826BABF4C006E7219 /* NetworkManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5397E57626C8D2F400E63679 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				765D22D626C2FB6D00EAEF5B /* PagerCell.swift */,
 				765D22D726C2FB6D00EAEF5B /* PagerCell.xib */,
 			);
-			path = Core;
+			name = Cell;
+			path = Core/Cell;
 			sourceTree = "<group>";
 		};
 		58D65A462D27C9DF3E519B3D /* Frameworks */ = {
@@ -146,6 +154,7 @@
 				53097CE726BABEF6006E7219 /* Core */,
 				53097CE626BABEF0006E7219 /* Model */,
 				53097CE526BABEE8006E7219 /* Controller */,
+				5397E57626C8D2F400E63679 /* Cell */,
 				53097CE426BABEE0006E7219 /* View */,
 				76E9F8342652050100CD1D9A /* SceneDelegate.swift */,
 				76E9F8382652050100CD1D9A /* Main.storyboard */,

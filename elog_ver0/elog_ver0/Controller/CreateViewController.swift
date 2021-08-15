@@ -41,12 +41,24 @@ class CreateViewController: UIViewController {
 
         pager.delegate = self
         pagerContainer.addSubview(pager)
-        pager.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
+        loadNotes()
+
+    }
+
+    func loadNotes() {
+        // 아래 API 가 동작을 안하기 때문에 임시로 데이터를 넣어줬습니다.
+        notes = [
+            Note(title: "임시 노트1", image: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg"),
+            Note(title: "임시 노트2", image: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"),
+            Note(title: "임시 노트3", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png"),
+            Note(title: "임시 노트4", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU"),
+            Note(title: "임시 노트5", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU"),
+        ]
 
 //        NetworkManager.getAllNote(userId: UserManger.shared.id ?? "") { [weak self] allNoteResponse in
 //            guard let self = self else { return }
@@ -54,6 +66,10 @@ class CreateViewController: UIViewController {
 //            self.notes = notes
 //
 //        }
+
+
+        // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
+        pager.reloadData()
 
     }
 
@@ -95,9 +111,10 @@ class CreateViewController: UIViewController {
         let email = UserManger.shared.email ?? ""
 
         print("API 호출: createNote()")
-        NetworkManager.createNote(title: title, email: email) { noteResponse in
+        NetworkManager.createNote(title: title, email: email) { [weak self] noteResponse in
             print("API Response 도착")
             print(noteResponse)
+            self?.loadNotes()
         }
 
     }
@@ -120,8 +137,20 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
     func cycleGalleryView(_ cycleGalleryView: HSCycleGalleryView, cellForItemAtIndex index: Int) -> UICollectionViewCell {
         let cell = cycleGalleryView.dequeueReusableCell(withIdentifier: "PagerCell", for: IndexPath(item: index, section: 0)) as! PagerCell
 
-//        cell.backgroundColor = UIColor.black
+        let note = notes[index]
+
+        cell.setImage(url: note.image)
+        cell.titleLabel.text = note.title
+
+
         return cell
+    }
+
+    // 클릭 이벤트 함수
+    func cycleGalleryView(_ cycleGalleryView: HSCycleGalleryView, didSelectItemCell cell: UICollectionViewCell, at Index: Int) {
+        print("\(Index)번 째 Cell 이 클릭되었습니다.")
+        let note = notes[Index]
+        print("제목: \(note.title)")
     }
 
 }
