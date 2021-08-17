@@ -6,6 +6,17 @@ PODS:
   - DropDown (2.3.13)
   - Floaty (4.2.0)
   - HSCycleGalleryView (1.2.0)
+  - KakaoSDKAuth (2.5.2):
+    - KakaoSDKCommon (= 2.5.2)
+  - KakaoSDKCommon (2.5.2):
+    - KakaoSDKCommon/Common (= 2.5.2)
+    - KakaoSDKCommon/Network (= 2.5.2)
+  - KakaoSDKCommon/Common (2.5.2)
+  - KakaoSDKCommon/Network (2.5.2):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.5.2)
+  - KakaoSDKUser (2.5.2):
+    - KakaoSDKAuth (= 2.5.2)
   - Mantis (0.52)
   - SnapKit (5.0.1)
 
@@ -16,6 +27,9 @@ DEPENDENCIES:
   - DropDown
   - Floaty (~> 4.2.0)
   - HSCycleGalleryView (from `https://github.com/parkwinter/HSCycleGalleryView.git`, commit `52718ced5558778cea351f169f36cc81b067ffc6`)
+  - KakaoSDKAuth
+  - KakaoSDKCommon
+  - KakaoSDKUser
   - Mantis (~> 0.28)
   - SnapKit
 
@@ -26,6 +40,9 @@ SPEC REPOS:
     - BTNavigationDropdownMenu
     - DropDown
     - Floaty
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
     - Mantis
     - SnapKit
 
@@ -46,9 +63,12 @@ SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   HSCycleGalleryView: 5101435175a26d08f1c062cf6cb245f58f09b425
+  KakaoSDKAuth: 81715662c03e4c8c1a140f293e9fd6fd68b2e9dd
+  KakaoSDKCommon: 887e22f7aa4647bd0a7d1397512fc5f6211b83d6
+  KakaoSDKUser: b79c1a18da69681de7c9d3fa59e83c37b711ce7e
   Mantis: 0fb7056ad8fbe61e0c195b483d73591a06bcae09
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 725a8e3fbaa1e68984a2b347d3160efbf1784a3f
+PODFILE CHECKSUM: 2a90d4a200ea839503e1315fa48135821b47946f
 
 COCOAPODS: 1.10.1

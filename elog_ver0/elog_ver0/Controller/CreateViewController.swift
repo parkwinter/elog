@@ -27,7 +27,7 @@ class CreateViewController: UIViewController {
 
         // https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigationItemTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(navigationItemTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(navigationItemTapped))
 
         // carousel ui init
 
@@ -82,8 +82,8 @@ class CreateViewController: UIViewController {
     func showCreateNoteAlert() {
         // https://stackoverflow.com/questions/26567413/get-input-value-from-textfield-in-ios-alert-in-swift
 
-        let alert = UIAlertController(title: "노트 제목을 입력해주세요",
-                                      message: "나만의 노트 이름을 만들어 볼까요?",
+        let alert = UIAlertController(title: "노트 제목 정해줘 !",
+                                      message: "ex. 2021 일기장",
                                       preferredStyle: .alert)
 
         alert.addTextField { textField in textField.text = "나의 일기장" }

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import KakaoSDKAuth
+import KakaoSDKUser
+import KakaoSDKCommon
 
 class SignViewController: UIViewController {
 
@@ -27,6 +30,22 @@ class SignViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func loginKakao(_ sender: Any) {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            print("오잉")
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+
+                    //do something
+                    _ = oauthToken
+                }
+            }
+        }
+    }
     
     @IBAction func createButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -56,5 +75,7 @@ class SignViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }

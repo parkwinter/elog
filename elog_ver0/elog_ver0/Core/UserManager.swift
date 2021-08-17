@@ -20,5 +20,7 @@ class UserManger {
     var password: String?
     var name: String?
     var email: String?
+    
+    
  
 }

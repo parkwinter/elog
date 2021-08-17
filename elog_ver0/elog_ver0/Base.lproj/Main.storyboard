@@ -125,6 +125,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmy-vQ-I5b">
+                                <rect key="frame" x="56" y="573" width="303" height="45"/>
+                                <state key="normal" title="Button" image="kakao_login_medium_wide"/>
+                                <connections>
+                                    <action selector="loginKakao:" destination="07Q-pa-t8W" eventType="touchUpInside" id="PLA-y7-Hxn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cw5-S4-R9k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -132,10 +139,14 @@
                             <constraint firstItem="xxh-fY-kQP" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="2i5-dG-nVT"/>
                             <constraint firstItem="uWg-Ef-Lvs" firstAttribute="centerX" secondItem="Cw5-S4-R9k" secondAttribute="centerX" id="4OS-6t-pBc"/>
                             <constraint firstItem="P6x-D7-Y97" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="ExL-DG-km8"/>
+                            <constraint firstItem="Cw5-S4-R9k" firstAttribute="bottom" secondItem="gmy-vQ-I5b" secondAttribute="bottom" constant="244" id="Rno-qX-yyZ"/>
                             <constraint firstItem="P6x-D7-Y97" firstAttribute="top" secondItem="myX-Yg-sRe" secondAttribute="bottom" constant="23" id="Y4L-eS-fyQ"/>
+                            <constraint firstItem="gmy-vQ-I5b" firstAttribute="leading" secondItem="Cw5-S4-R9k" secondAttribute="leading" constant="56" id="YQo-O7-Ae5"/>
                             <constraint firstItem="myX-Yg-sRe" firstAttribute="top" secondItem="xxh-fY-kQP" secondAttribute="bottom" constant="85" id="et4-ra-vgI"/>
                             <constraint firstItem="xxh-fY-kQP" firstAttribute="top" secondItem="Cw5-S4-R9k" secondAttribute="top" constant="177" id="fcu-SS-ura"/>
+                            <constraint firstItem="Cw5-S4-R9k" firstAttribute="trailing" secondItem="gmy-vQ-I5b" secondAttribute="trailing" constant="55" id="mWe-zR-tZ4"/>
                             <constraint firstItem="myX-Yg-sRe" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="pmB-Ue-4k4"/>
+                            <constraint firstItem="gmy-vQ-I5b" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="xKc-sJ-Ha1"/>
                             <constraint firstItem="uWg-Ef-Lvs" firstAttribute="top" secondItem="Cw5-S4-R9k" secondAttribute="top" constant="80" id="zmK-9G-NC0"/>
                         </constraints>
                     </view>
@@ -148,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZj-Oh-d5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="88"/>
+            <point key="canvasLocation" x="1640.5797101449277" y="87.723214285714278"/>
         </scene>
         <!--Create View Controller-->
         <scene sceneID="qW6-VY-tbO">
@@ -593,6 +604,7 @@
         <image name="4" width="94" height="93"/>
         <image name="5" width="80" height="67"/>
         <image name="cameraimage" width="634" height="964"/>
+        <image name="kakao_login_medium_wide" width="300" height="45"/>
         <image name="monthly" width="600" height="584"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -6,14 +6,26 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import KakaoSDKAuth
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    // kakaoSDKAuth 추가할 때 같이 추가한 것
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+            return AuthController.handleOpenUrl(url: url)
+        }
 
-
+        return false
+    }
+    
+    // kakaoSDKCommon 추가할 때 같이 추가한 것
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        KakaoSDKCommon.initSDK(appKey: "4c8bb57e8ac1d1a6f8de6333b5cf8649")
         return true
     }
 
