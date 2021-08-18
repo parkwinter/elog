@@ -15,15 +15,13 @@ class ViewController: UIViewController {
         NetworkManager.getUserInfos { users in
             if let userArray = users?.result {
                 print(userArray[0].email)
-                UserManger.shared.id = userArray[0].email
+//                UserManger.shared.id = userArray[0].email
             }
         }
     }
 
     @IBAction func onTapButton(_ sender: Any) {
-
-        UserManger.shared.isUser = true
-
+ 
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "SignViewController")
 

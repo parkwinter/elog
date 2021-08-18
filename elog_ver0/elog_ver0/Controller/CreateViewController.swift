@@ -108,7 +108,8 @@ class CreateViewController: UIViewController {
     }
 
     func createNote(title: String) {
-        let email = UserManger.shared.email ?? ""
+        // FIXME: Remove email
+        let email = ""
 
         print("API 호출: createNote()")
         NetworkManager.createNote(title: title, email: email) { [weak self] noteResponse in

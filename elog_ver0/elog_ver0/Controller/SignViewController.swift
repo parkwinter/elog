@@ -35,27 +35,28 @@ class SignViewController: UIViewController {
 
     @IBAction func loginKakao(_ sender: Any) {
         if UserApi.isKakaoTalkLoginAvailable() {
-            print("오잉")
-            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+            UserApi.shared.loginWithKakaoTalk { [weak self] oauthToken, error in
                 if let error = error {
                     print(error)
                     return
                 }
 
                 print("loginWithKakaoTalk() success.")
+                self?.updateUserInfo()
 
                 //do something
                 _ = oauthToken
 
             }
         } else {
-            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+            UserApi.shared.loginWithKakaoAccount { [weak self] oauthToken, error in
                 if let error = error {
                     print(error)
                     return
                 }
 
                 print("loginWithKakaoAccount() success.")
+                self?.updateUserInfo()
 
                 //do something
                 _ = oauthToken
@@ -63,7 +64,15 @@ class SignViewController: UIViewController {
             }
         }
     }
-    
+
+    func updateUserInfo() {
+        UserApi.shared.me { user, error in
+            print("save user info")
+            UserManger.shared.user = user
+            self.enterCreateViewController()
+        }
+    }
+
     @IBAction func createButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "CreateDiaryViewController")
@@ -75,24 +84,15 @@ class SignViewController: UIViewController {
     
     
     @IBAction func carouselButton(_ sender: Any) {
-        
+        enterCreateViewController()
+    }
+
+    func enterCreateViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "CreateViewController")
 
-
-
         navigationController?.pushViewController(viewController, animated: true)
-    }
-    /*
-     // MARK: - Navigation
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
+    }
 
 }
