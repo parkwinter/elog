@@ -29,20 +29,37 @@ class SignViewController: UIViewController {
         // 로그인 정보를 보여주는 무언가!
         // Do any additional setup after loading the view.
     }
-    
+
+
+    // 코드 정리 단축키: control + i
+
     @IBAction func loginKakao(_ sender: Any) {
-        if (UserApi.isKakaoTalkLoginAvailable()) {
+        if UserApi.isKakaoTalkLoginAvailable() {
             print("오잉")
-            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
                 if let error = error {
                     print(error)
+                    return
                 }
-                else {
-                    print("loginWithKakaoTalk() success.")
 
-                    //do something
-                    _ = oauthToken
+                print("loginWithKakaoTalk() success.")
+
+                //do something
+                _ = oauthToken
+
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                if let error = error {
+                    print(error)
+                    return
                 }
+
+                print("loginWithKakaoAccount() success.")
+
+                //do something
+                _ = oauthToken
+
             }
         }
     }
@@ -67,14 +84,14 @@ class SignViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     
 
