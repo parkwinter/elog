@@ -120,6 +120,18 @@ class CreateViewController: UIViewController {
 
     }
 
+    func getRandomImageURL(with index: Int) -> String {
+        let imageList = [
+            "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",
+            "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU"
+        ]
+
+        let imageIndex = index % imageList.count
+        return imageList[imageIndex]
+    }
 }
 
 
@@ -139,6 +151,11 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         let cell = cycleGalleryView.dequeueReusableCell(withIdentifier: "PagerCell", for: IndexPath(item: index, section: 0)) as! PagerCell
 
         let note = notes[index]
+
+
+        // 랜덤한 이미지를 클라이언트에서 구현해야 할 경우에는 이 코드를 사용하세요.
+        // let imageUrl = getRandomImageURL(with: index)
+        // cell.setImage(url: imageUrl)
 
         cell.setImage(url: note.image)
         cell.titleLabel.text = note.title
