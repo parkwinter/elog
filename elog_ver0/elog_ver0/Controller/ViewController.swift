@@ -18,6 +18,13 @@ class ViewController: UIViewController {
 //                UserManger.shared.id = userArray[0].email
             }
         }
+        
+        // 노트조회 테스트 -> 안됨
+        NetworkManager.getAllNoteTest(userId: "1") { allNoteTest in
+           if let noteArray = allNoteTest?.result {
+                print(noteArray[0].title)
+            }
+        }
     }
 
     @IBAction func onTapButton(_ sender: Any) {

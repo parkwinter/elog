@@ -500,21 +500,6 @@
             </objects>
             <point key="canvasLocation" x="1675" y="1468"/>
         </scene>
-        <!--Image Edit View Controller-->
-        <scene sceneID="aXF-rn-Eqd">
-            <objects>
-                <viewController id="RGO-cv-I37" customClass="ImageEditViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1Vl-Vg-qpS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="696-8T-db3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LLh-7c-amC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="913" y="1468"/>
-        </scene>
         <!--오프라인 글 가져오기-->
         <scene sceneID="kzE-kh-hH5">
             <objects>

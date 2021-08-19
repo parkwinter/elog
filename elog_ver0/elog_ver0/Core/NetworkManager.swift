@@ -54,12 +54,13 @@ class NetworkManager {
 
     static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {
         // http://3.34.116.127/app/notes?userId=1
+        
         AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
             if let data = response.data {
 //                let text = String(decoding: data, as: UTF8.self)
-                let response = try? JSONDecoder().decode(AllNoteResponse.self, from: data)
+                let notes = try? JSONDecoder().decode(AllNoteResponse.self, from: data)
 
-                completionHandler(response)
+                completionHandler(notes)
 
             } else {
                 completionHandler(nil)
@@ -67,6 +68,22 @@ class NetworkManager {
         }
     }
 
+    
+    static func getAllNoteTest(userId: String, completionHandler: @escaping (AllNoteTest?) -> Void) {
+        // http://3.34.116.127/app/notes?userId=1
+        
+        AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
+            if let data = response.data {
+//                let text = String(decoding: data, as: UTF8.self)
+                let notes = try? JSONDecoder().decode(AllNoteTest.self, from: data)
+
+                completionHandler(notes)
+
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
 }
 
 

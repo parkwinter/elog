@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/sunwoo/project/elog/elog_ver0/elog_ver0/Controller/ImageEditViewController.swift">
+      location = "group:../../../../Desktop/ImageCropViewController.swift">
    </FileRef>
    <FileRef
-      location = "group:/Users/sunwoo/project/elog/elog_ver0/elog_ver0/Controller/ImageCropViewController.swift">
+      location = "group:../../../../Desktop/ImageEditViewController.swift">
    </FileRef>
    <FileRef
       location = "group:elog_ver0.xcodeproj">

@@ -8,17 +8,20 @@
 import Foundation
 
 // MARK: - NoteResponse
-struct AllNoteResponse: Codable {
+struct AllNoteTest: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: [Note]
+    let result: [NoteT]
 }
 
 // MARK: - Result
-struct Note: Codable {
+//json -> swift 돌려보니까 엄청 김,, 아마 creted_at 때문인듯
+struct NoteT: Codable {
     let title: String
-    let image: String
+    let created_at :String
+    let img : String
+    let id : Int
   
 }
 
@@ -39,3 +42,4 @@ struct Note: Codable {
 //            "img": null,
 //            "id": 8
 //        },
+

@@ -24,3 +24,14 @@ struct User: Codable {
     let email: String
     let name: String
 }
+
+//"result": [
+//        {
+//            "email": "sss",
+//            "name": "sss"
+//        },
+//        {
+//            "email": "hhh",
+//            "name": "hhh"
+//        }
+//    ]
