@@ -12,15 +12,15 @@ struct AllNoteTest: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: [NoteT]
+    let result: [Note]
 }
 
 // MARK: - Result
-//json -> swift 돌려보니까 엄청 김,, 아마 creted_at 때문인듯
-struct NoteT: Codable {
+//json -> swift 돌려보니까 엄청 김,, 아마 creted_at 또는 img=null 때문인듯
+struct Note: Codable {
     let title: String
     let created_at :String
-    let img : String
+    let img : String?
     let id : Int
   
 }

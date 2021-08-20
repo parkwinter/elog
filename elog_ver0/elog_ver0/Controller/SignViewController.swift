@@ -46,7 +46,7 @@ class SignViewController: UIViewController {
 
                 //do something
                 _ = oauthToken
-
+                print(oauthToken)
             }
         } else {
             UserApi.shared.loginWithKakaoAccount { [weak self] oauthToken, error in

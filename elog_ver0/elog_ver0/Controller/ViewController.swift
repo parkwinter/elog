@@ -19,10 +19,11 @@ class ViewController: UIViewController {
             }
         }
         
-        // 노트조회 테스트 -> 안됨
+        // 노트조회 테스트 -> 안됨 -> 엥 성공
         NetworkManager.getAllNoteTest(userId: "1") { allNoteTest in
            if let noteArray = allNoteTest?.result {
                 print(noteArray[0].title)
+            //은지노트라고 잘 받아옴
             }
         }
     }

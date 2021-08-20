@@ -12,11 +12,11 @@ struct AllNoteResponse: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: [Note]
+    let result: [NoteT]
 }
 
 // MARK: - Result
-struct Note: Codable {
+struct NoteT: Codable {
     let title: String
     let image: String
   

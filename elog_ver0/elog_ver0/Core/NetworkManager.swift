@@ -17,6 +17,7 @@ class NetworkManager {
         // 클로져
 
         AF.request(baseURL + "/app/users").response { response in // Closure
+            print(response)
             if let data = response.data {
 //                let text = String(decoding: data, as: UTF8.self)
                 let users = try? JSONDecoder().decode(Users.self, from: data)
@@ -43,7 +44,7 @@ class NetworkManager {
             .response { response in // Closure
                 if let data = response.data {
                     let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
-
+                    
                     completionHandler(response)
 
                 } else {
@@ -72,14 +73,21 @@ class NetworkManager {
     static func getAllNoteTest(userId: String, completionHandler: @escaping (AllNoteTest?) -> Void) {
         // http://3.34.116.127/app/notes?userId=1
         
+        
+        //AF query string 찾아보기
+        print(baseURL + "/app/notes" + "?userId=\(userId)")
         AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
+            
+            print(response)
+            
             if let data = response.data {
+                print("1")
 //                let text = String(decoding: data, as: UTF8.self)
                 let notes = try? JSONDecoder().decode(AllNoteTest.self, from: data)
-
                 completionHandler(notes)
 
             } else {
+                print("2")
                 completionHandler(nil)
             }
         }

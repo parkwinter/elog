@@ -47,26 +47,42 @@ class CreateViewController: UIViewController {
         super.viewWillAppear(animated)
         print("viewWillAppear")
         loadNotes()
+        
 
     }
 
     func loadNotes() {
         // 아래 API 가 동작을 안하기 때문에 임시로 데이터를 넣어줬습니다.
-        notes = [
-            Note(title: "임시 노트1", image: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg"),
-            Note(title: "임시 노트2", image: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"),
-            Note(title: "임시 노트3", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png"),
-            Note(title: "임시 노트4", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU"),
-            Note(title: "임시 노트5", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU"),
-        ]
+//        notes = [
+//            Note(title: "임시 노트1", image: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg"),
+//            Note(title: "임시 노트2", image: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"),
+//            Note(title: "임시 노트3", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png"),
+//            Note(title: "임시 노트4", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU"),
+//            Note(title: "임시 노트5", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU"),
+//        ]
 
-//        NetworkManager.getAllNote(userId: UserManger.shared.id ?? "") { [weak self] allNoteResponse in
+        
+//        NetworkManager.getAllNote(userId: "1") { [weak self] allNoteResponse in
 //            guard let self = self else { return }
 //            let notes = allNoteResponse?.result ?? []
 //            self.notes = notes
+//            
+//            print(notes)
 //
 //        }
 
+        NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
+            guard let self = self else { return }
+            let notes = allNoteTest?.result ?? []
+            self.notes = notes
+            print("전체 노트들 : ")
+            print(notes)
+            print("노트 제목들만 : ")
+            for i in 0..<notes.count{
+                print(notes[i].title)
+            }
+            
+        }
 
         // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
         pager.reloadData()
@@ -114,17 +130,21 @@ class CreateViewController: UIViewController {
         print("API 호출: createNote()")
         NetworkManager.createNote(title: title, email: email) { [weak self] noteResponse in
             print("API Response 도착")
-            print(noteResponse)
+            //print(noteResponse)
             self?.loadNotes()
         }
 
     }
 
+    //이미지 왜 버벅이지?
     func getRandomImageURL(with index: Int) -> String {
         let imageList = [
-            "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",
-            "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png",
+            "https://drive.google.com/uc?id=1LCVzJpKrg_pB9yht4fQqTA2x8jgXOLGk",
+            "https://drive.google.com/uc?id=1J3-xbc_3EZJqXStVWbGlfb-_4KmidSt1",
+            "https://drive.google.com/uc?id=15uZm6KadmbK9l5sY-qw1ApUC3PS9fAfN",
+            //"https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",
+            //"https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg",
+            //"https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU"
         ]
@@ -154,12 +174,11 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
 
 
         // 랜덤한 이미지를 클라이언트에서 구현해야 할 경우에는 이 코드를 사용하세요.
-        // let imageUrl = getRandomImageURL(with: index)
-        // cell.setImage(url: imageUrl)
+         let imageUrl = getRandomImageURL(with: index)
+         cell.setImage(url: imageUrl)
 
-        cell.setImage(url: note.image)
+        //cell.setImage(url: note.image)
         cell.titleLabel.text = note.title
-
 
         return cell
     }
