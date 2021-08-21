@@ -10,7 +10,7 @@ import UIKit
 class PagerCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +19,7 @@ class PagerCell: UICollectionViewCell {
 
     func setImage(url: String) {
         imageView.imageFromServerURL(urlString: url, PlaceHolderImage: nil)
+    }
+    @IBAction func titleButtonTapped(_ sender: Any) {
     }
 }

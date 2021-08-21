@@ -26,7 +26,7 @@ class CreateViewController: UIViewController {
         super.viewDidLoad()
 
         // https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigationItemTapped))
+        //        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigationItemTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(navigationItemTapped))
 
         // carousel ui init
@@ -53,39 +53,56 @@ class CreateViewController: UIViewController {
 
     func loadNotes() {
         // 아래 API 가 동작을 안하기 때문에 임시로 데이터를 넣어줬습니다.
-//        notes = [
-//            Note(title: "임시 노트1", image: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg"),
-//            Note(title: "임시 노트2", image: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"),
-//            Note(title: "임시 노트3", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png"),
-//            Note(title: "임시 노트4", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU"),
-//            Note(title: "임시 노트5", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU"),
-//        ]
+        notes = [
+            Note(title: "임시 노트1",
+                 created_at: "",
+                 img: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",
+                 id: 0),
+            Note(title: "임시 노트2",
+                 created_at: "",
+                 img: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg",
+                 id: 1),
+            Note(title: "임시 노트3",
+                 created_at: "",
+                 img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png",
+                 id: 2),
+            Note(title: "임시 노트4",
+                 created_at: "",
+                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU",
+                 id: 3),
+            Note(title: "임시 노트5",
+                 created_at: "",
+                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU",
+                 id: 4),
+        ]
 
+        // 아래 Network Manager 로 할 경우에는 reloadData 가 두번 불리지 않게 지워주세요.
+        self.pager.reloadData()
         
-//        NetworkManager.getAllNote(userId: "1") { [weak self] allNoteResponse in
-//            guard let self = self else { return }
-//            let notes = allNoteResponse?.result ?? []
-//            self.notes = notes
-//            
-//            print(notes)
-//
-//        }
+        //        NetworkManager.getAllNote(userId: "1") { [weak self] allNoteResponse in
+        //            guard let self = self else { return }
+        //            let notes = allNoteResponse?.result ?? []
+        //            self.notes = notes
+        //
+        //            print(notes)
+        //
+        //        }
 
-        NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
-            guard let self = self else { return }
-            let notes = allNoteTest?.result ?? []
-            self.notes = notes
-            print("전체 노트들 : ")
-            print(notes)
-            print("노트 제목들만 : ")
-            for i in 0..<notes.count{
-                print(notes[i].title)
-            }
-
-            // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
-            self.pager.reloadData()
-            
-        }
+        //        NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
+        //            guard let self = self else { return }
+        //            let notes = allNoteTest?.result ?? []
+        //            self.notes = notes
+        //            print("전체 노트들 : ")
+        //            print(notes)
+        //            print("노트 제목들만 : ")
+        //            for i in 0..<notes.count{
+        //                print(notes[i].title)
+        //            }
+        //
+        //            // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
+        //            self.pager.reloadData()
+        //
+        //        }
 
 
     }
@@ -105,12 +122,12 @@ class CreateViewController: UIViewController {
 
         alert.addTextField { textField in textField.text = "나의 일기장" }
 
-/*
+        /*
          이걸 축약한 형태 입니다.
-        alert.addTextField(configurationHandler: { textField in
-            textField.text = "나의 일기장"
-        })
-*/
+         alert.addTextField(configurationHandler: { textField in
+         textField.text = "나의 일기장"
+         })
+         */
         let action = UIAlertAction(title: "생성하기", style: .default) { [weak alert] _ in
             let textField = alert?.textFields![0]
             let title = textField?.text ?? ""
@@ -175,11 +192,11 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
 
 
         // 랜덤한 이미지를 클라이언트에서 구현해야 할 경우에는 이 코드를 사용하세요.
-         let imageUrl = getRandomImageURL(with: index)
-         cell.setImage(url: imageUrl)
+        let imageUrl = getRandomImageURL(with: index)
+        cell.setImage(url: imageUrl)
 
         //cell.setImage(url: note.image)
-        cell.titleLabel.text = note.title
+        cell.titleButton.setTitle(note.title, for: .normal)
 
         return cell
     }

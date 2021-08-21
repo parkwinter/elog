@@ -78,13 +78,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		53097CE426BABEE0006E7219 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		53097CE526BABEE8006E7219 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +168,6 @@
 				53097CE626BABEF0006E7219 /* Model */,
 				53097CE526BABEE8006E7219 /* Controller */,
 				5397E57626C8D2F400E63679 /* Cell */,
-				53097CE426BABEE0006E7219 /* View */,
 				76E9F8342652050100CD1D9A /* SceneDelegate.swift */,
 				76E9F8382652050100CD1D9A /* Main.storyboard */,
 				76E9F83B2652050200CD1D9A /* Assets.xcassets */,

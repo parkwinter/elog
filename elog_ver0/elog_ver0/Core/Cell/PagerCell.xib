@@ -19,32 +19,35 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-dA-fQK">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T89-bD-fF9">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDo-Fx-kWt">
                         <rect key="frame" x="0.0" y="160" width="200" height="40"/>
-                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="0.29732983730000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="0.097736515410000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="Qoq-4K-Xqt"/>
+                            <constraint firstAttribute="height" constant="40" id="ir6-EU-mtl"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="titleButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="GSM-PP-IdH"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bx5-dA-fQK" secondAttribute="trailing" id="58C-fx-Jzj"/>
-                <constraint firstItem="T89-bD-fF9" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="FJq-Ke-Qpd"/>
-                <constraint firstItem="T89-bD-fF9" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="OJr-Rf-CUX"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="T89-bD-fF9" secondAttribute="bottom" id="Se8-cQ-qrp"/>
+                <constraint firstAttribute="trailing" secondItem="mDo-Fx-kWt" secondAttribute="trailing" id="6bg-9u-hRz"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="mDo-Fx-kWt" secondAttribute="bottom" id="IDO-uB-Qvt"/>
                 <constraint firstItem="bx5-dA-fQK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ucc-8Q-1Mh"/>
+                <constraint firstItem="mDo-Fx-kWt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="X7r-6U-bOd"/>
                 <constraint firstAttribute="bottom" secondItem="bx5-dA-fQK" secondAttribute="bottom" id="aRF-PS-Mji"/>
                 <constraint firstItem="bx5-dA-fQK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="swc-9S-UKy"/>
             </constraints>
             <size key="customSize" width="197" height="191"/>
             <connections>
                 <outlet property="imageView" destination="bx5-dA-fQK" id="Pj7-a3-gbJ"/>
-                <outlet property="titleLabel" destination="T89-bD-fF9" id="5d3-fu-JXE"/>
+                <outlet property="titleButton" destination="mDo-Fx-kWt" id="aYF-AF-WZL"/>
             </connections>
             <point key="canvasLocation" x="244.20289855072465" y="114.84375"/>
         </collectionViewCell>
