@@ -56,6 +56,33 @@ class NetworkManager {
             }
     }
 
+
+    // TODO: Edit Note 에 맞게 수정해야 합니다. 임시로 만들었습니다.
+    static func editNote(title: String, email: String, completionHandler: @escaping (NoteResponse?) -> Void) {
+
+        let parameter: [String: String] = ["title": title, "email": email]
+
+        // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+        let headers = HTTPHeaders()
+
+        AF.request(baseURL + "/app/note",
+                   method: .post,
+                   parameters: parameter,
+                   headers: headers)
+            .response { response in // Closure
+
+                print(response.data?.toString() ?? "")
+                if let data = response.data {
+                    let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
+
+                    completionHandler(response)
+
+                } else {
+                    completionHandler(nil)
+                }
+            }
+    }
+
     static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {
         // http://3.34.116.127/app/notes?userId=1
         

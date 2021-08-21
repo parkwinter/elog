@@ -18,7 +18,7 @@ struct AllNoteTest: Codable {
 // MARK: - Result
 //json -> swift 돌려보니까 엄청 김,, 아마 creted_at 또는 img=null 때문인듯
 struct Note: Codable {
-    let title: String
+    var title: String
     let created_at :String
     let img : String?
     let id : Int

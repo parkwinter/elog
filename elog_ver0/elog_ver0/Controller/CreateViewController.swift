@@ -141,12 +141,52 @@ class CreateViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+
+    func showEditNoteAlert(note: Note) {
+        let alert = UIAlertController(title: "노트 제목 수정해줘 !",
+                                      message: "ex. 2021 일기장",
+                                      preferredStyle: .alert)
+
+        alert.addTextField { textField in textField.text = note.title }
+
+        let action1 = UIAlertAction(title: "수정하기", style: .default) { [weak alert] _ in
+            let textField = alert?.textFields![0]
+            let title = textField?.text ?? ""
+            print("수정하기가 눌렸습니다. \(title)")
+            var note = note // let 은 변경이 불가해서 var 로 만들어서 아래서 title 을 변경해줍니다.
+            note.title = title
+            // 생성하기 함수 호출
+            self.editNote(note: note)
+        }
+
+        let action2 = UIAlertAction(title: "취소하기", style: .cancel) { _ in
+            print("취소 되었습니다.")
+        }
+
+        alert.addAction(action1)
+        alert.addAction(action2)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+
     func createNote(title: String) {
         // FIXME: Remove email
         let email = ""
 
         print("API 호출: createNote()")
         NetworkManager.createNote(title: title, email: email) { [weak self] noteResponse in
+            print("API Response 도착")
+            //print(noteResponse)
+            self?.loadNotes()
+        }
+    }
+
+    func editNote(note: Note) {
+        // TODO: 이메일 지우고 edit Note 로 바꿔줘야 함
+        let email = ""
+
+        print("API 호출: editNote()")
+        NetworkManager.editNote(title: "", email: email) { [weak self] noteResponse in
             print("API Response 도착")
             //print(noteResponse)
             self?.loadNotes()
@@ -199,7 +239,7 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         cell.titleButton.setTitle(note.title, for: .normal)
 
         cell.titleButtonAction = { [weak self] in
-             print("버튼이 클릭되었습니다.")
+            self?.showEditNoteAlert(note: note)
         }
 
         return cell
