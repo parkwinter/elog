@@ -17,6 +17,7 @@ PODS:
     - KakaoSDKCommon/Common (= 2.5.2)
   - KakaoSDKUser (2.5.2):
     - KakaoSDKAuth (= 2.5.2)
+  - Kingfisher (6.3.1)
   - Mantis (0.52)
   - SnapKit (5.0.1)
 
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - Kingfisher
   - Mantis (~> 0.28)
   - SnapKit
 
@@ -43,6 +45,7 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - Kingfisher
     - Mantis
     - SnapKit
 
@@ -66,9 +69,10 @@ SPEC CHECKSUMS:
   KakaoSDKAuth: 81715662c03e4c8c1a140f293e9fd6fd68b2e9dd
   KakaoSDKCommon: 887e22f7aa4647bd0a7d1397512fc5f6211b83d6
   KakaoSDKUser: b79c1a18da69681de7c9d3fa59e83c37b711ce7e
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   Mantis: 0fb7056ad8fbe61e0c195b483d73591a06bcae09
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 2a90d4a200ea839503e1315fa48135821b47946f
+PODFILE CHECKSUM: b0fca0a4ea2a59c9895bdb1d83f59e95c1e42a0d
 
 COCOAPODS: 1.10.1
