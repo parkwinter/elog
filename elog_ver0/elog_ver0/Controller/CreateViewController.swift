@@ -81,11 +81,12 @@ class CreateViewController: UIViewController {
             for i in 0..<notes.count{
                 print(notes[i].title)
             }
+
+            // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
+            self.pager.reloadData()
             
         }
 
-        // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
-        pager.reloadData()
 
     }
 
