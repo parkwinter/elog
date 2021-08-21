@@ -290,7 +290,7 @@
         <!--Write View Controller-->
         <scene sceneID="9th-ab-eky">
             <objects>
-                <viewController id="HEK-q3-D57" customClass="WriteViewController" customModule="elog_ver0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HEK-q3-D57" customClass="WriteViewController" customModule="elog_ver0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CMi-PL-Dgf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

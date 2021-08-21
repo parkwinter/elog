@@ -250,6 +250,11 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         print("\(Index)번 째 Cell 이 클릭되었습니다.")
         let note = notes[Index]
         print("제목: \(note.title)")
+
+
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "WriteViewController")
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }
