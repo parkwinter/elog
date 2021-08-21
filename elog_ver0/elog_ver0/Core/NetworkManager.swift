@@ -17,7 +17,8 @@ class NetworkManager {
         // 클로져
 
         AF.request(baseURL + "/app/users").response { response in // Closure
-            print(response)
+
+            print(response.data?.toString() ?? "")
             if let data = response.data {
 //                let text = String(decoding: data, as: UTF8.self)
                 let users = try? JSONDecoder().decode(Users.self, from: data)
@@ -42,6 +43,8 @@ class NetworkManager {
                    parameters: parameter,
                    headers: headers)
             .response { response in // Closure
+
+                print(response.data?.toString() ?? "")
                 if let data = response.data {
                     let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
                     
@@ -56,7 +59,10 @@ class NetworkManager {
     static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {
         // http://3.34.116.127/app/notes?userId=1
         
+        
         AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
+
+            print(response.data?.toString() ?? "")
             if let data = response.data {
 //                let text = String(decoding: data, as: UTF8.self)
                 let notes = try? JSONDecoder().decode(AllNoteResponse.self, from: data)
@@ -78,7 +84,7 @@ class NetworkManager {
         print(baseURL + "/app/notes" + "?userId=\(userId)")
         AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
             
-            print(response)
+            print(response.data?.toString() ?? "")
             
             if let data = response.data {
                 print("1")
