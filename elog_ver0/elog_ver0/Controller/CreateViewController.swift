@@ -252,6 +252,19 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         print("제목: \(note.title)")
 
 
+        // 데이터 전달 방법 1, 직접 주입해주는 방법
+        //        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        //        let viewController = storyboard.instantiateViewController(withIdentifier: "WriteViewController")
+        //
+        //        let writeViewController = viewController as! WriteViewController
+        //
+        //        writeViewController.note = note
+        //        navigationController?.pushViewController(writeViewController, animated: true)
+
+
+        // 데이터 전달 방법 2, 싱글톤으로 넣어주기
+        UserManger.shared.currentNote = note
+
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "WriteViewController")
         navigationController?.pushViewController(viewController, animated: true)

@@ -10,12 +10,14 @@ import Floaty
 import DropDown
 import BTNavigationDropdownMenu
 
-class WriteViewController: UIViewController , FloatyDelegate{
+class WriteViewController: UIViewController, FloatyDelegate {
 
     var floaty = Floaty()
     
     let transiton = SlideInTransition()
     var topView: UIView?
+
+    var note: Note? = UserManger.shared.currentNote
     
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -38,8 +40,7 @@ class WriteViewController: UIViewController , FloatyDelegate{
     }
     
     func beforeTransition() {
-        let title = "노트제목"
-        self.title = title
+        self.title = note?.title
     }
     
     func transitionToNew(_ menuType: MenuType) {

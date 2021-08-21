@@ -55,4 +55,6 @@ class UserManger {
     var hasThumbnailImage: Bool {
         user?.properties?["isDefaultImage"] == "true"
     }
+
+    var currentNote: Note?
 }
