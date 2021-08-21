@@ -12,6 +12,8 @@ class PagerCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleButton: UIButton!
 
+    var titleButtonAction: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +22,9 @@ class PagerCell: UICollectionViewCell {
     func setImage(url: String) {
         imageView.imageFromServerURL(urlString: url, PlaceHolderImage: nil)
     }
+
     @IBAction func titleButtonTapped(_ sender: Any) {
+        titleButtonAction?()
+        
     }
 }

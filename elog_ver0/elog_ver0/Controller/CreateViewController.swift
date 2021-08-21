@@ -198,6 +198,10 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         //cell.setImage(url: note.image)
         cell.titleButton.setTitle(note.title, for: .normal)
 
+        cell.titleButtonAction = { [weak self] in
+             print("버튼이 클릭되었습니다.")
+        }
+
         return cell
     }
 
