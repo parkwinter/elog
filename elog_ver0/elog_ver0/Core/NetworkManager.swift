@@ -83,24 +83,24 @@ class NetworkManager {
             }
     }
 
-    static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {
-        // http://3.34.116.127/app/notes?userId=1
-        
-        
-        AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
-
-            print(response.data?.toString() ?? "")
-            if let data = response.data {
-//                let text = String(decoding: data, as: UTF8.self)
-                let notes = try? JSONDecoder().decode(AllNoteResponse.self, from: data)
-
-                completionHandler(notes)
-
-            } else {
-                completionHandler(nil)
-            }
-        }
-    }
+//    static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {
+//        // http://3.34.116.127/app/notes?userId=1
+//
+//
+//        AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
+//
+//            print(response.data?.toString() ?? "")
+//            if let data = response.data {
+////                let text = String(decoding: data, as: UTF8.self)
+//                let notes = try? JSONDecoder().decode(AllNoteResponse.self, from: data)
+//
+//                completionHandler(notes)
+//
+//            } else {
+//                completionHandler(nil)
+//            }
+//        }
+//    }
 
     
     static func getAllNoteTest(userId: String, completionHandler: @escaping (AllNoteTest?) -> Void) {
@@ -118,6 +118,31 @@ class NetworkManager {
 //                let text = String(decoding: data, as: UTF8.self)
                 let notes = try? JSONDecoder().decode(AllNoteTest.self, from: data)
                 completionHandler(notes)
+
+            } else {
+                print("2")
+                completionHandler(nil)
+            }
+        }
+    }
+    
+    
+    static func getAllWritings(noteIdx: Int, completionHandler: @escaping (AllWritings?) -> Void) {
+        // http://3.34.116.127/app/notes/:noteIdx/posts
+        //3.34.116.127/app/notes/2/posts
+        
+        
+        //AF query string 찾아보기
+        print(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts")
+        AF.request(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts").response { response in // Closure
+            
+            print(response.data?.toString() ?? "")
+            
+            if let data = response.data {
+//                let text = String(decoding: data, as: UTF8.self)
+                let writings = try? JSONDecoder().decode(AllWritings.self, from: data)
+                completionHandler(writings)
+                print("writings networkmanager에서 잘 받아왔습니다~")
 
             } else {
                 print("2")
