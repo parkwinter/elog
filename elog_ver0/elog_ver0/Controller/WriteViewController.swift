@@ -20,17 +20,23 @@ class WriteViewController: UIViewController, FloatyDelegate{
     var note: Note? = UserManger.shared.currentNote
     var writings : [Writing] = []
     
+    
     @IBOutlet weak var noteTitle: UILabel!
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         layoutFAB()
         //floaty.addDragging()
+        
+        loadWritings()
+        
+        
         beforeTransition()
         //hideKeyboard()
 
-        loadWritings()
+        
     }
 
 
@@ -47,6 +53,9 @@ class WriteViewController: UIViewController, FloatyDelegate{
     func beforeTransition() {
         self.title = note?.title
         noteTitle.text = note?.title
+        textView.text="안녕! 무엇을 더 입력할까?"
+        textView.text.append("\n\n")
+        
     }
     
     func transitionToNew(_ menuType: MenuType) {
@@ -140,8 +149,9 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("content only : ")
             for i in 0..<writings.count{
                 print(writings[i].content)
+                self.textView.text.append("\n" + writings[i].content)
             }
-            
+     
             
             //pager 안써서 무시?
             // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.

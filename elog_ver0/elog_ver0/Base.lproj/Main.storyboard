@@ -346,6 +346,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noteTitle" destination="xcz-oK-zQI" id="lu3-A3-msW"/>
+                        <outlet property="textView" destination="3Lr-bR-guc" id="XWQ-pn-hYr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnP-OD-Cs0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
