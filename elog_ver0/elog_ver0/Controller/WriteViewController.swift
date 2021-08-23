@@ -19,6 +19,8 @@ class WriteViewController: UIViewController, FloatyDelegate {
 
     var note: Note? = UserManger.shared.currentNote
     
+    @IBOutlet weak var noteTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +44,7 @@ class WriteViewController: UIViewController, FloatyDelegate {
     
     func beforeTransition() {
         self.title = note?.title
+        noteTitle.text = note?.title
     }
     
     func transitionToNew(_ menuType: MenuType) {

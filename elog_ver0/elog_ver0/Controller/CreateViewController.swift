@@ -53,56 +53,56 @@ class CreateViewController: UIViewController {
 
     func loadNotes() {
         // 아래 API 가 동작을 안하기 때문에 임시로 데이터를 넣어줬습니다.
-        notes = [
-            Note(title: "임시 노트1",
-                 created_at: "",
-                 img: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",
-                 id: 0),
-            Note(title: "임시 노트2",
-                 created_at: "",
-                 img: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg",
-                 id: 1),
-            Note(title: "임시 노트3",
-                 created_at: "",
-                 img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png",
-                 id: 2),
-            Note(title: "임시 노트4",
-                 created_at: "",
-                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU",
-                 id: 3),
-            Note(title: "임시 노트5",
-                 created_at: "",
-                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU",
-                 id: 4),
-        ]
+//        notes = [
+//            Note(title: "임시 노트1",
+//                 created_at: "",
+//                 img: "https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",
+//                 id: 0),
+//            Note(title: "임시 노트2",
+//                 created_at: "",
+//                 img: "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg",
+//                 id: 1),
+//            Note(title: "임시 노트3",
+//                 created_at: "",
+//                 img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Book.svg/1200px-Book.svg.png",
+//                 id: 2),
+//            Note(title: "임시 노트4",
+//                 created_at: "",
+//                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1tsNyinr3i1ABbUqS8SouEmRJvH2XcBq2g&usqp=CAU",
+//                 id: 3),
+//            Note(title: "임시 노트5",
+//                 created_at: "",
+//                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5IihBujgFhc843Y1CkhQUts8iqXUryJafQ&usqp=CAU",
+//                 id: 4),
+//        ]
 
         // 아래 Network Manager 로 할 경우에는 reloadData 가 두번 불리지 않게 지워주세요.
-        self.pager.reloadData()
+        //self.pager.reloadData()
         
-        //        NetworkManager.getAllNote(userId: "1") { [weak self] allNoteResponse in
-        //            guard let self = self else { return }
-        //            let notes = allNoteResponse?.result ?? []
-        //            self.notes = notes
-        //
-        //            print(notes)
-        //
-        //        }
+                NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
+                    guard let self = self else { return }
+                    let notes = allNoteTest?.result ?? []
+                    self.notes = notes
+        
+                    print(notes)
+        
+                }
 
-        //        NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
-        //            guard let self = self else { return }
-        //            let notes = allNoteTest?.result ?? []
-        //            self.notes = notes
-        //            print("전체 노트들 : ")
-        //            print(notes)
-        //            print("노트 제목들만 : ")
-        //            for i in 0..<notes.count{
-        //                print(notes[i].title)
-        //            }
-        //
-        //            // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
-        //            self.pager.reloadData()
-        //
-        //        }
+                NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
+                    guard let self = self else { return }
+                    let notes = allNoteTest?.result ?? []
+                    self.notes = notes
+                    print("전체 노트들 : ")
+                    print(notes)
+                    print("노트 제목들만 : ")
+                    for i in 0..<notes.count{
+                        print(notes[i].title)
+                    }
+        
+                    // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
+                    self.pager.reloadData()
+        
+                }
 
 
     }
@@ -194,7 +194,7 @@ class CreateViewController: UIViewController {
 
     }
 
-    //이미지 왜 버벅이지?
+    //이미지 왜 버벅이지? -> kingfisher로 문제해결 완료
     func getRandomImageURL(with index: Int) -> String {
         let imageList = [
             "https://drive.google.com/uc?id=1LCVzJpKrg_pB9yht4fQqTA2x8jgXOLGk",

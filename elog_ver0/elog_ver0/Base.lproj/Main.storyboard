@@ -153,7 +153,6 @@
                     <navigationItem key="navigationItem" id="7jR-Rz-vMX"/>
                     <connections>
                         <outlet property="topLabel" destination="uWg-Ef-Lvs" id="37B-Vg-Wry"/>
-                        <segue destination="4iX-XQ-4ld" kind="show" id="mHL-2e-o83"/>
                         <segue destination="dyq-XR-V2l" kind="show" id="1cc-Q2-VKO"/>
                     </connections>
                 </viewController>
@@ -261,7 +260,7 @@
                                 <state key="normal" title="Button" image="4"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oT-kr-vgd">
-                                <rect key="frame" x="109" y="161" width="196" height="20"/>
+                                <rect key="frame" x="109" y="117" width="196" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="나만의 노트를 생성해보세요 !">
                                         <attributes>
@@ -285,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HD2-Ix-vqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="818"/>
+            <point key="canvasLocation" x="3148" y="88"/>
         </scene>
         <!--Write View Controller-->
         <scene sceneID="9th-ab-eky">
@@ -295,20 +294,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcz-oK-zQI">
-                                <rect key="frame" x="20" y="75" width="90" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="noteTitle" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcz-oK-zQI">
+                                <rect key="frame" x="20" y="75" width="38.5" height="12.5"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="&quot; 노트 제목 &quot;">
+                                    <fragment content="노트제목">
                                         <attributes>
-                                            <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="18" name="AppleSDGothicNeo-Medium"/>
+                                            <font key="NSFont" size="11" name=".AppleSDGothicNeoI-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBi-ue-fLG">
-                                <rect key="frame" x="20" y="105" width="118" height="14"/>
+                                <rect key="frame" x="20" y="95.5" width="118" height="14"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2021.05.19 WED">
                                         <attributes>
@@ -345,10 +344,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="noteTitle" destination="xcz-oK-zQI" id="lu3-A3-msW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnP-OD-Cs0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="818"/>
+            <point key="canvasLocation" x="990" y="818"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="jrf-mf-pFM">
