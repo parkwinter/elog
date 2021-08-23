@@ -10,7 +10,7 @@ import Floaty
 import DropDown
 import BTNavigationDropdownMenu
 
-class WriteViewController: UIViewController, FloatyDelegate {
+class WriteViewController: UIViewController, FloatyDelegate{
 
     var floaty = Floaty()
     
@@ -27,7 +27,7 @@ class WriteViewController: UIViewController, FloatyDelegate {
         layoutFAB()
         //floaty.addDragging()
         beforeTransition()
-        hideKeyboard()
+        //hideKeyboard()
 
     }
 
@@ -100,9 +100,10 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         //
         //      }
 
+        
         floaty.hasShadow = false
         //floaty.addItem(title: "I got a title")
-        //floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon"))
+//        floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon"))
         floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon")) { item in
             let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
