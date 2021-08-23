@@ -18,6 +18,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
     var topView: UIView?
 
     var note: Note? = UserManger.shared.currentNote
+    var writings : [Writing] = []
     
     @IBOutlet weak var noteTitle: UILabel!
     
@@ -29,6 +30,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
         beforeTransition()
         //hideKeyboard()
 
+        loadWritings()
     }
 
 
@@ -127,6 +129,25 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
     }
     
     
-    
+    func loadWritings(){
+        print("Writings 로드 시작~!")
+        
+        NetworkManager.getAllWritings(noteIdx: note!.id) { [weak self] allWritings in
+            guard let self = self else { return }
+            let writings = allWritings?.result ?? []
+            self.writings = writings
+            print("전체 글 : \(writings)")
+            print("content only : ")
+            for i in 0..<writings.count{
+                print(writings[i].content)
+            }
+            
+            
+            //pager 안써서 무시?
+            // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
+//            self.pager.reloadData()
+
+        }
+    }
     
 }

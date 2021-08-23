@@ -21,6 +21,7 @@ class CreateViewController: UIViewController {
     let pager = HSCycleGalleryView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
 
     var notes: [Note] = []
+    var writings : [Writing] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,14 +80,6 @@ class CreateViewController: UIViewController {
         // 아래 Network Manager 로 할 경우에는 reloadData 가 두번 불리지 않게 지워주세요.
         //self.pager.reloadData()
         
-                NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
-                    guard let self = self else { return }
-                    let notes = allNoteTest?.result ?? []
-                    self.notes = notes
-        
-                    print(notes)
-        
-                }
 
                 NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
                     guard let self = self else { return }
@@ -250,6 +243,7 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         print("\(Index)번 째 Cell 이 클릭되었습니다.")
         let note = notes[Index]
         print("제목: \(note.title)")
+        
 
 
         // 데이터 전달 방법 1, 직접 주입해주는 방법

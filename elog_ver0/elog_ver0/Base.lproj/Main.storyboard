@@ -318,7 +318,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="어떤 걸 기록해볼까 ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Lr-bR-guc">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="textView" text="어떤 걸 기록해볼까 ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Lr-bR-guc">
                                 <rect key="frame" x="20" y="189" width="347" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
