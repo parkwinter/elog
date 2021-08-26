@@ -107,9 +107,12 @@ class NetworkManager {
         // http://3.34.116.127/app/notes?userId=1
         
         
+        // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTk5NTQ5NjkyLCJleHAiOjE2MzEwODU2OTIsInN1YiI6InVzZXJJbmZvIn0.mbnu91lpaefAXbJYjfcnxMHIbNsjYgtqx9TIWeW-yng"])
+        
         //AF query string 찾아보기
         print(baseURL + "/app/notes" + "?userId=\(userId)")
-        AF.request(baseURL + "/app/notes" + "?userId=\(userId)").response { response in // Closure
+        AF.request(baseURL + "/app/notes" + "?userId=\(userId)", headers: headers).response { response in // Closure
             
             print(response.data?.toString() ?? "")
             
