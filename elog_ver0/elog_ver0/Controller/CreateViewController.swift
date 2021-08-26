@@ -164,10 +164,10 @@ class CreateViewController: UIViewController {
 
     func createNote(title: String) {
         // FIXME: Remove email
-        let email = ""
+        let userId = "1"
 
         print("API 호출: createNote()")
-        NetworkManager.createNote(title: title, email: email) { [weak self] noteResponse in
+        NetworkManager.createNote(title: title, userId: userId) { [weak self] noteResponse in
             print("API Response 도착")
             //print(noteResponse)
             self?.loadNotes()

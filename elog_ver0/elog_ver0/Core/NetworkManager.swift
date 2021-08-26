@@ -31,14 +31,16 @@ class NetworkManager {
         }
     }
 
-    static func createNote(title: String, email: String, completionHandler: @escaping (NoteResponse?) -> Void) {
+    static func createNote(title: String, userId: String, completionHandler: @escaping (NoteResponse?) -> Void) {
 
-        let parameter: [String: String] = ["title": title, "email": email]
+        let parameter: [String: String] = ["title": title]
 
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
-        let headers = HTTPHeaders()
-
-        AF.request(baseURL + "/app/note",
+        //let headers = HTTPHeaders()
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTk5NTQ5NjkyLCJleHAiOjE2MzEwODU2OTIsInN1YiI6InVzZXJJbmZvIn0.mbnu91lpaefAXbJYjfcnxMHIbNsjYgtqx9TIWeW-yng"])
+       
+        
+        AF.request(baseURL + "/app/note" + "?userId=\(userId)",
                    method: .post,
                    parameters: parameter,
                    headers: headers)
@@ -135,9 +137,11 @@ class NetworkManager {
         //3.34.116.127/app/notes/2/posts
         
         
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTk5NTQ5NjkyLCJleHAiOjE2MzEwODU2OTIsInN1YiI6InVzZXJJbmZvIn0.mbnu91lpaefAXbJYjfcnxMHIbNsjYgtqx9TIWeW-yng"])
+        
         //AF query string 찾아보기
         print(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts")
-        AF.request(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts").response { response in // Closure
+        AF.request(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts", headers: headers).response { response in // Closure
             
             print(response.data?.toString() ?? "")
             
