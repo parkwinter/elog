@@ -40,6 +40,15 @@ class WriteViewController: UIViewController, FloatyDelegate{
     }
 
 
+    @IBAction func onClick(_ sender: Any) {
+        print("저장! 버튼 클릭하였습니당")
+        let newWritings = textView.text ?? ""
+        print(newWritings)
+        
+        putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
+        
+    }
+    
     @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
         menuViewController.didTapMenuType = { menuType in
@@ -159,5 +168,21 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 
         }
     }
+    
+    func putWritings(title: String?, subtitle: String?, content: String, img: String?){
+        print("Writings 추가 하기~!")
+        
+        let note_id = note?.id
+        let newWritings = textView.text ?? ""
+        let content = newWritings
+        
+        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img ?? "", note_id: note_id!){  allWritings in
+            print("note에 글 추가 api 도착")
+            
+//            self?.loadWritings()
+        }
+            
+
+        }
     
 }

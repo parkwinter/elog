@@ -157,6 +157,34 @@ class NetworkManager {
             }
         }
     }
+    
+    
+    static func createWritings(title: String, subtitle: String, content: String, img: String, note_id: Int, completionHandler: @escaping (NoteResponse?) -> Void) {
+
+        let parameter: [String: String] = ["title": title, "subtitle": subtitle, "content": content, "img": img]
+
+        // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+        //let headers = HTTPHeaders()
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTk5NTQ5NjkyLCJleHAiOjE2MzEwODU2OTIsInN1YiI6InVzZXJJbmZvIn0.mbnu91lpaefAXbJYjfcnxMHIbNsjYgtqx9TIWeW-yng"])
+       
+        
+        AF.request(baseURL + "/app/post" + "?note_id=\(note_id)",
+                   method: .post,
+                   parameters: parameter,
+                   headers: headers)
+            .response { response in // Closure
+
+                print(response.data?.toString() ?? "")
+                if let data = response.data {
+                    let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
+                    
+                    completionHandler(response)
+
+                } else {
+                    completionHandler(nil)
+                }
+            }
+    }
 }
 
 

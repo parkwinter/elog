@@ -295,11 +295,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="noteTitle" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcz-oK-zQI">
-                                <rect key="frame" x="20" y="75" width="38.5" height="12.5"/>
+                                <rect key="frame" x="20" y="75" width="38.5" height="13.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="노트제목">
                                         <attributes>
-                                            <font key="NSFont" size="11" name=".AppleSDGothicNeoI-Regular"/>
+                                            <font key="NSFont" metaFont="smallSystem"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -307,7 +307,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBi-ue-fLG">
-                                <rect key="frame" x="20" y="95.5" width="118" height="14"/>
+                                <rect key="frame" x="20" y="96.5" width="118" height="14"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2021.05.19 WED">
                                         <attributes>
@@ -326,6 +326,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-3E-Kps">
+                                <rect key="frame" x="126" y="431" width="162" height="34"/>
+                                <state key="normal" title="저장!">
+                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClick:" destination="HEK-q3-D57" eventType="touchUpInside" id="jqS-bO-L35"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m5b-qR-iJs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -334,7 +343,11 @@
                             <constraint firstItem="xcz-oK-zQI" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="31" id="OYl-01-qU3"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="top" secondItem="xcz-oK-zQI" secondAttribute="bottom" constant="8" symbolic="YES" id="Tog-Nx-L5i"/>
                             <constraint firstItem="xcz-oK-zQI" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="20" id="Wst-31-gQa"/>
+                            <constraint firstItem="gPw-3E-Kps" firstAttribute="centerX" secondItem="CMi-PL-Dgf" secondAttribute="centerX" id="fcM-2n-73V"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="gPw-3E-Kps" secondAttribute="trailing" constant="166" id="nk0-SX-POx"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="20" id="v7P-Sz-kWn"/>
+                            <constraint firstItem="gPw-3E-Kps" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="166" id="w0T-Xh-K3U"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="bottom" secondItem="gPw-3E-Kps" secondAttribute="bottom" constant="397" id="zVc-0z-OpN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ggu-UB-ATb">
@@ -351,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnP-OD-Cs0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="818"/>
+            <point key="canvasLocation" x="989.85507246376824" y="817.63392857142856"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="jrf-mf-pFM">

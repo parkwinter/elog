@@ -121,6 +121,7 @@ class CreateViewController: UIViewController {
          textField.text = "나의 일기장"
          })
          */
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
         let action = UIAlertAction(title: "생성하기", style: .default) { [weak alert] _ in
             let textField = alert?.textFields![0]
             let title = textField?.text ?? ""
@@ -129,7 +130,7 @@ class CreateViewController: UIViewController {
             // 생성하기 함수 호출
             self.createNote(title: title)
         }
-
+        alert.addAction(cancel)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
