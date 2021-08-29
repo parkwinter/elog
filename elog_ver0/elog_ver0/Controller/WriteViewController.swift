@@ -24,6 +24,9 @@ class WriteViewController: UIViewController, FloatyDelegate{
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -128,6 +131,18 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            
+            
+            //카메라 사용가능한지 체크
+//            guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+//            let imagePickerController = UIImagePickerController()
+//            imagePickerController.sourceType = .camera
+////            imagePickerController.delegate = self
+//            imagePickerController.allowsEditing = false
+//            self.present(imagePickerController, animated: true)
+            
+            //imagePickerController.allowsEditing = true // 촬영 후 편집할 수 있는 부분이 나온다.
+        
         }
         
         
@@ -138,8 +153,11 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondViewController = storyboard.instantiateViewController(withIdentifier: "UIImagePickerController") as! UIImagePickerController
+            let secondViewController = storyboard.instantiateViewController(withIdentifier: "imagePickerController") as! ImagePickerController
             self.present(secondViewController, animated: true, completion: nil)
+            
+            
+            
             
         }
         //floaty.addItem(item: item)

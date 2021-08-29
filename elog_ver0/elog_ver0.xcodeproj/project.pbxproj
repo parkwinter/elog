@@ -24,7 +24,7 @@
 		765D22D926C2FB6D00EAEF5B /* PagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765D22D726C2FB6D00EAEF5B /* PagerCell.xib */; };
 		765D22DB26CEE2A400EAEF5B /* AllNoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22DA26CEE2A400EAEF5B /* AllNoteTest.swift */; };
 		765D22DF26D407BB00EAEF5B /* AllWritings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22DE26D407BB00EAEF5B /* AllWritings.swift */; };
-		76A5A26126DBE501006BD153 /* UIImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A5A26026DBE501006BD153 /* UIImagePickerController.swift */; };
+		76A5A26126DBE501006BD153 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A5A26026DBE501006BD153 /* ImagePickerController.swift */; };
 		76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8322652050100CD1D9A /* AppDelegate.swift */; };
 		76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8342652050100CD1D9A /* SceneDelegate.swift */; };
 		76E9F8372652050100CD1D9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8362652050100CD1D9A /* ViewController.swift */; };
@@ -55,7 +55,7 @@
 		765D22D726C2FB6D00EAEF5B /* PagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerCell.xib; sourceTree = "<group>"; };
 		765D22DA26CEE2A400EAEF5B /* AllNoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoteTest.swift; sourceTree = "<group>"; };
 		765D22DE26D407BB00EAEF5B /* AllWritings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWritings.swift; sourceTree = "<group>"; };
-		76A5A26026DBE501006BD153 /* UIImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerController.swift; sourceTree = "<group>"; };
+		76A5A26026DBE501006BD153 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		76E9F82F2652050100CD1D9A /* elog_ver0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elog_ver0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E9F8322652050100CD1D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76E9F8342652050100CD1D9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				76E9F84A265215A000CD1D9A /* CreateDiaryViewController.swift */,
 				76E9F84826520DB400CD1D9A /* SignViewController.swift */,
 				765D22D026C2EF7A00EAEF5B /* CreateViewController.swift */,
-				76A5A26026DBE501006BD153 /* UIImagePickerController.swift */,
+				76A5A26026DBE501006BD153 /* ImagePickerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 			files = (
 				76E9F84D26521B5100CD1D9A /* WriteViewController.swift in Sources */,
 				53097CE226BABA6F006E7219 /* UserManager.swift in Sources */,
-				76A5A26126DBE501006BD153 /* UIImagePickerController.swift in Sources */,
+				76A5A26126DBE501006BD153 /* ImagePickerController.swift in Sources */,
 				765D22DF26D407BB00EAEF5B /* AllWritings.swift in Sources */,
 				76E9F8372652050100CD1D9A /* ViewController.swift in Sources */,
 				53F1F8AE26CD3043007BB8FB /* Int+Extension.swift in Sources */,

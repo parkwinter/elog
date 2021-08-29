@@ -367,6 +367,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="bWS-0f-a6I" id="Grd-nU-gT4"/>
                         <outlet property="noteTitle" destination="xcz-oK-zQI" id="lu3-A3-msW"/>
                         <outlet property="textView" destination="3Lr-bR-guc" id="XWQ-pn-hYr"/>
                         <segue destination="Wil-s5-Lqg" kind="presentation" id="UZL-KE-fBr"/>
@@ -610,13 +611,28 @@
         <!--Image Picker Controller-->
         <scene sceneID="lbM-Um-JMT">
             <objects>
-                <viewController storyboardIdentifier="UIImagePickerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wil-s5-Lqg" customClass="UIImagePickerController" customModule="elog_ver0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imagePickerController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wil-s5-Lqg" customClass="ImagePickerController" customModule="elog_ver0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDh-Eu-8mD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imageView2" translatesAutoresizingMaskIntoConstraints="NO" id="xD8-Vg-pdL">
+                                <rect key="frame" x="67" y="200" width="280" height="280"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="d4c-b6-2XV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="centerX" secondItem="d4c-b6-2XV" secondAttribute="centerX" id="MfH-pf-iEk"/>
+                            <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="xD8-Vg-pdL" secondAttribute="trailing" constant="67" id="QEi-Xa-8qi"/>
+                            <constraint firstItem="d4c-b6-2XV" firstAttribute="bottom" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="328" id="pWZ-Oh-MfJ"/>
+                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="67" id="q30-jo-Xsa"/>
+                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="top" secondItem="d4c-b6-2XV" secondAttribute="top" constant="200" id="zdB-Lt-uBr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView2" destination="xD8-Vg-pdL" id="qWs-Td-K55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJW-jx-1j8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
