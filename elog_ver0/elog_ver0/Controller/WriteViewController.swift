@@ -129,10 +129,18 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        
+        
         floaty.addItem("갤러리", icon: UIImage(named: "folderIcon")) { item in
-            let alert = UIAlertController(title: "안녕", message: "여기 갤러리 켜질거야", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+//            let alert = UIAlertController(title: "안녕", message: "여기 갤러리 켜질거야", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+            
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let secondViewController = storyboard.instantiateViewController(withIdentifier: "UIImagePickerController") as! UIImagePickerController
+            self.present(secondViewController, animated: true, completion: nil)
+            
         }
         //floaty.addItem(item: item)
         //floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
