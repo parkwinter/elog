@@ -156,9 +156,14 @@ class CreateViewController: UIViewController {
         let action2 = UIAlertAction(title: "취소하기", style: .cancel) { _ in
             print("취소 되었습니다.")
         }
+        
+        let action3 = UIAlertAction(title: "삭제하기", style: .default) { [weak alert] _ in
+            print("삭제하기 버튼 눌렸습니다.")
+        }
 
         alert.addAction(action1)
         alert.addAction(action2)
+        alert.addAction(action3)
         self.present(alert, animated: true, completion: nil)
     }
 
