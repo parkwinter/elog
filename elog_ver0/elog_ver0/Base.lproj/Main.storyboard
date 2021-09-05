@@ -360,9 +360,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ggu-UB-ATb">
-                        <barButtonItem key="rightBarButtonItem" title="o o o" id="Is4-3D-4qY">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Is4-3D-4qY">
                             <connections>
-                                <action selector="didTapMenu:" destination="HEK-q3-D57" id="wFd-26-vA2"/>
+                                <action selector="didTapSave:" destination="HEK-q3-D57" id="5Rd-15-y7T"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

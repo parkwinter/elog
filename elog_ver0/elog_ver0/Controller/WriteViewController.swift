@@ -42,25 +42,33 @@ class WriteViewController: UIViewController, FloatyDelegate{
         
     }
 
-
-    @IBAction func onClick(_ sender: Any) {
-        print("저장! 버튼 클릭하였습니당")
+    //기존 저장! 버튼 (floaty 때문에 안먹음)
+//    @IBAction func onClick(_ sender: Any) {
+//        print("저장! 버튼 클릭하였습니당")
+//        let newWritings = textView.text ?? ""
+//        print(newWritings)
+//
+//        putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
+//
+//    }
+    
+    @IBAction func didTapSave(_ sender: Any) {
+        print("저장버튼 클릭되었습니다.")
         let newWritings = textView.text ?? ""
         print(newWritings)
         
         putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
-        
     }
     
-    @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
-        guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
-        menuViewController.didTapMenuType = { menuType in
-            self.transitionToNew(menuType)
-        }
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
-    }
+//    @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
+//        guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
+//        menuViewController.didTapMenuType = { menuType in
+//            self.transitionToNew(menuType)
+//        }
+//        menuViewController.modalPresentationStyle = .overCurrentContext
+//        menuViewController.transitioningDelegate = self
+//        present(menuViewController, animated: true)
+//    }
     
     func beforeTransition() {
         self.title = note?.title
@@ -70,33 +78,33 @@ class WriteViewController: UIViewController, FloatyDelegate{
         
     }
     
-    func transitionToNew(_ menuType: MenuType) {
-        // title 표시하는 부분
-        let title = String(describing: menuType).capitalized
-        self.title = title
-
-        topView?.removeFromSuperview()
-        switch menuType {
-        //            case .profile:
-        //                // Storyboard에서 뷰 컨트롤러에서 identifier가 미리 설정이 되어있어야 한다.
-        //                let webPage = self.storyboard?.instantiateViewController(withIdentifier: "MonthlyViewController")
-        //                // B 컨트롤러 뷰로 넘어간다.
-        //                self.present(webPage!, animated: true, completion: nil)
-        //            let view = UIView()
-        //            view.backgroundColor = .yellow
-        //            view.frame = self.view.bounds
-        //            self.view.addSubview(view)
-        //            self.topView = view
-        //        case .camera:
-        //            let view = UIView()
-        //            view.backgroundColor = .blue
-        //            view.frame = self.view.bounds
-        //            self.view.addSubview(view)
-        //            self.topView = view
-        default:
-            break
-        }
-    }
+//    func transitionToNew(_ menuType: MenuType) {
+//        // title 표시하는 부분
+//        let title = String(describing: menuType).capitalized
+//        self.title = title
+//
+//        topView?.removeFromSuperview()
+//        switch menuType {
+//        //            case .profile:
+//        //                // Storyboard에서 뷰 컨트롤러에서 identifier가 미리 설정이 되어있어야 한다.
+//        //                let webPage = self.storyboard?.instantiateViewController(withIdentifier: "MonthlyViewController")
+//        //                // B 컨트롤러 뷰로 넘어간다.
+//        //                self.present(webPage!, animated: true, completion: nil)
+//        //            let view = UIView()
+//        //            view.backgroundColor = .yellow
+//        //            view.frame = self.view.bounds
+//        //            self.view.addSubview(view)
+//        //            self.topView = view
+//        //        case .camera:
+//        //            let view = UIView()
+//        //            view.backgroundColor = .blue
+//        //            view.frame = self.view.bounds
+//        //            self.view.addSubview(view)
+//        //            self.topView = view
+//        default:
+//            break
+//        }
+//    }
 
 }
 
