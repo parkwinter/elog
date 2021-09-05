@@ -60,20 +60,22 @@ class NetworkManager {
 
 
     // TODO: Edit Note 에 맞게 수정해야 합니다. 임시로 만들었습니다.
-    static func editNote(title: String, email: String, completionHandler: @escaping (NoteResponse?) -> Void) {
+    static func editNote(title: String, img: String, noteId: Int,completionHandler: @escaping (NoteResponse?) -> Void) {
 
-        let parameter: [String: String] = ["title": title, "email": email]
+        let parameter: [String: String] = ["title": title, "img": img]
 
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
-        let headers = HTTPHeaders()
-
-        AF.request(baseURL + "/app/note",
-                   method: .post,
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        
+        
+        AF.request(baseURL + "/app/note" + "?noteIdx=\(noteId)",
+                   method: .patch,
                    parameters: parameter,
                    headers: headers)
             .response { response in // Closure
 
                 print(response.data?.toString() ?? "")
+                print("networkManager의 editNote 실행 완료")
                 if let data = response.data {
                     let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
 
@@ -83,6 +85,7 @@ class NetworkManager {
                     completionHandler(nil)
                 }
             }
+        
     }
 
 //    static func getAllNote(userId: String, completionHandler: @escaping (AllNoteResponse?) -> Void) {

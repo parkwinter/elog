@@ -182,11 +182,12 @@ class CreateViewController: UIViewController {
 
     func editNote(note: Note) {
         // TODO: 이메일 지우고 edit Note 로 바꿔줘야 함
-        let email = ""
+        let img = "empty"
 
         print("API 호출: editNote()")
-        NetworkManager.editNote(title: "", email: email) { [weak self] noteResponse in
-            print("API Response 도착")
+        
+        NetworkManager.editNote(title: note.title, img: img, noteId: note.id) { [weak self] noteResponse in
+            print("editNote API Response 도착")
             //print(noteResponse)
             self?.loadNotes()
         }
