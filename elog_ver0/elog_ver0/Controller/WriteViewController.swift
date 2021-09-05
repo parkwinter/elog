@@ -22,6 +22,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
     
     
     @IBOutlet weak var noteTitle: UILabel!
+    @IBOutlet weak var noteDate: UILabel!
     @IBOutlet weak var textView: UITextView!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -73,6 +74,8 @@ class WriteViewController: UIViewController, FloatyDelegate{
     func beforeTransition() {
         self.title = note?.title
         noteTitle.text = note?.title
+        self.noteDate.text = note?.created_at
+        
         textView.text="안녕! 무엇을 더 입력할까?"
         textView.text.append("\n\n")
         

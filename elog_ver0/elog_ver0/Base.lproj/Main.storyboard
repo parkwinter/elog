@@ -306,7 +306,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBi-ue-fLG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="noteDate" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBi-ue-fLG">
                                 <rect key="frame" x="20" y="96.5" width="118" height="14"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2021.05.19 WED">
@@ -368,6 +368,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="bWS-0f-a6I" id="Grd-nU-gT4"/>
+                        <outlet property="noteDate" destination="HBi-ue-fLG" id="lgb-kV-m5z"/>
                         <outlet property="noteTitle" destination="xcz-oK-zQI" id="lu3-A3-msW"/>
                         <outlet property="textView" destination="3Lr-bR-guc" id="XWQ-pn-hYr"/>
                         <segue destination="Wil-s5-Lqg" kind="presentation" id="UZL-KE-fBr"/>
