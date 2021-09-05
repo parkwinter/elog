@@ -37,10 +37,10 @@ class NetworkManager {
 
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTk5NTQ5NjkyLCJleHAiOjE2MzEwODU2OTIsInN1YiI6InVzZXJJbmZvIn0.mbnu91lpaefAXbJYjfcnxMHIbNsjYgtqx9TIWeW-yng"])
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
        
         
-        AF.request(baseURL + "/app/note" + "?userId=\(userId)",
+        AF.request(baseURL + "/app/note" ,
                    method: .post,
                    parameters: parameter,
                    headers: headers)
@@ -110,7 +110,7 @@ class NetworkManager {
         
         
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
-        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNTk5NTQ5NjkyLCJleHAiOjE2MzEwODU2OTIsInN1YiI6InVzZXJJbmZvIn0.mbnu91lpaefAXbJYjfcnxMHIbNsjYgtqx9TIWeW-yng"])
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
         
         //AF query string 찾아보기
         print(baseURL + "/app/notes" + "?userId=\(userId)")
