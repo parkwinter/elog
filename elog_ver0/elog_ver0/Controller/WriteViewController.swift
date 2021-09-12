@@ -54,6 +54,13 @@ class WriteViewController: UIViewController, FloatyDelegate{
 
         putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
 
+        let alert = UIAlertController(title: "초기생성 완료~!", message: "",
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default) { _ in
+            print("초기생성 완료 확인 버튼 눌림")
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
         
         
     }
@@ -64,7 +71,13 @@ class WriteViewController: UIViewController, FloatyDelegate{
         print(newWritings)
         
         updateWritings(change: newWritings)
-        
+        let alert = UIAlertController(title: "저장 완료~!", message: "",
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default) { _ in
+            print("저장완료 확인 버튼 눌림")
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
 //    @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
