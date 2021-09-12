@@ -92,8 +92,8 @@ class WriteViewController: UIViewController, FloatyDelegate{
     
     func beforeTransition() {
         self.title = note?.title
-        noteTitle.text = note?.title
-        self.noteDate.text = note?.created_at
+        noteTitle?.text = note?.title
+        self.noteDate?.text = note?.created_at
     
         
         print("========================")
@@ -193,6 +193,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondViewController = storyboard.instantiateViewController(withIdentifier: "imagePickerController") as! ImagePickerController
+            secondViewController.delegate = self
             self.present(secondViewController, animated: true, completion: nil)
             
             
@@ -228,7 +229,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             if writings.count == 0 {
                 self.textView.text="안녕! 무엇을 더 입력할까?\n"
             } else {
-                self.textView.text=""
+                self.textView?.text=""
             }
     //        textView.text="안녕! 무엇을 더 입력할까?"
 //            self.textView.text.append("\n\n")
@@ -239,7 +240,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 print(writings[i].content)
                 print(writings[i].id)
 //                self.textView.text.append("\n" + writings[i].content)
-                self.textView.text.append(writings[i].content)
+                self.textView?.text.append(writings[i].content)
                 UserManger.shared.currentWriting = writings[i]
                 
             }
@@ -288,4 +289,24 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 //            self?.loadWritings()
         }
     
+    func onUserAction(data: String){
+        print("data received : \(data)")
+    }
+    
+    func onUserAction2(data: UIImage) {
+        print("image received: \(data)")
+        imageView?.image = data
+       
+        
+    }
+}
+
+
+extension WriteViewController: AddImageDelegate {
+    func addImage(image: UIImage) {
+        print("delegate 불러옴~")
+        self.dismiss(animated: true){
+            self.imageView.image = image
+        }
+    }
 }

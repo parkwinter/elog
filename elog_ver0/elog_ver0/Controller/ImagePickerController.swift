@@ -7,13 +7,17 @@
 
 import UIKit
 
+protocol AddImageDelegate {
+    func addImage(image: UIImage)
+}
+
 class ImagePickerController: UIViewController{
     
+    var delegate: AddImageDelegate?
     
     @IBOutlet weak var imageView2: UIImageView!
-    let vc = WriteViewController()
-   
-    
+    let vcbefore = WriteViewController()
+        
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
@@ -28,6 +32,7 @@ class ImagePickerController: UIViewController{
         imageView2.addGestureRecognizer(tapGestureRecognizer)
 
         
+        
        //photoL()
 
         // Do any additional setup after loading the view.
@@ -41,7 +46,19 @@ class ImagePickerController: UIViewController{
     }
     
     @IBAction func btn1onClick(_ sender: Any) {
-        print("btn1onClick")
+        print("btn1onClick (그대로 버튼)")
+//        vcbefore.imageView?.image = imageView2.image
+        
+        vcbefore.onUserAction(data: "hey~")
+        vcbefore.onUserAction2(data: imageView2.image!)
+        
+//        guard let pvc = self.presentingViewController else { return }
+//
+//        self.dismiss(animated: true) {
+//            self.present(WriteViewController(), animated: true, completion: nil)
+//        }
+        
+        delegate?.addImage(image: imageView2.image!)
     }
     
     @IBAction func btn2onClick(_ sender: Any) {
@@ -71,9 +88,9 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
 
             imageView2.image = image
             
-//            vc.imageView!.image = image
-
-
+//            vc.imageView!.image = imagevc.imageView?.image = image
+            
+            
         }
 
         picker.dismiss(animated: true, completion: nil)
