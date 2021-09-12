@@ -188,6 +188,34 @@ class NetworkManager {
                 }
             }
     }
+    
+    
+    static func deleteNote(noteIdx: Int, completionHandler: @escaping (NoteResponse?) -> Void) {
+
+        let parameter: [String: Int] = ["noteIdx": noteIdx]
+
+        // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+        //let headers = HTTPHeaders()
+        let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+       
+        
+        AF.request(baseURL + "/app/note" + "/\(noteIdx)" + "/status",
+                   method: .patch,
+                   parameters: parameter,
+                   headers: headers)
+            .response { response in // Closure
+
+                print(response.data?.toString() ?? "")
+                if let data = response.data {
+                    let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
+
+                    completionHandler(response)
+
+                } else {
+                    completionHandler(nil)
+                }
+            }
+    }
 }
 
 

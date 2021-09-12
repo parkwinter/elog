@@ -159,7 +159,12 @@ class CreateViewController: UIViewController {
         }
         
         let action3 = UIAlertAction(title: "삭제하기", style: .default) { [weak alert] _ in
+            var note = note
+            let noteIdx = note.id
+            self.deleteNote(noteIdx: noteIdx)
             print("삭제하기 버튼 눌렸습니다.")
+            
+            
         }
 
         alert.addAction(action1)
@@ -168,7 +173,21 @@ class CreateViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    
+    
+    func deleteNote(noteIdx: Int) {
+        
+        
 
+        print("API 호출: deleteNote()")
+        NetworkManager.deleteNote(noteIdx: noteIdx) { [weak self]
+            noteResponse in
+                print("deleteNote API Response 도착")
+                
+                self?.loadNotes()
+        }
+    }
+    
     func createNote(title: String) {
         // FIXME: Remove email
         let userId = "1"
