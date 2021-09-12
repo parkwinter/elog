@@ -662,27 +662,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imageView2" translatesAutoresizingMaskIntoConstraints="NO" id="xD8-Vg-pdL">
-                                <rect key="frame" x="67" y="200" width="280" height="280"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="imageView2" image="selectimage" translatesAutoresizingMaskIntoConstraints="NO" id="xD8-Vg-pdL">
+                                <rect key="frame" x="107" y="160" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="BRS-Q5-dfG"/>
+                                    <constraint firstAttribute="height" constant="200" id="NwJ-PA-bwV"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btn1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2A-B1-ndc">
+                                <rect key="frame" x="76" y="461" width="262" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="4Wb-zA-a37"/>
+                                    <constraint firstAttribute="height" constant="60" id="iev-FZ-KeB"/>
+                                </constraints>
+                                <state key="normal" title="그대로">
+                                    <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn1onClick:" destination="Wil-s5-Lqg" eventType="touchUpInside" id="zbl-PG-USq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btn2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilb-4Z-Gvg">
+                                <rect key="frame" x="76" y="554" width="262" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="Buv-Pl-d4O"/>
+                                    <constraint firstAttribute="height" constant="60" id="Dom-4j-3OY"/>
+                                </constraints>
+                                <state key="normal" title="사진 편집">
+                                    <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn2onClick:" destination="Wil-s5-Lqg" eventType="touchUpInside" id="z9v-U6-xif"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btn3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53W-uc-4HV">
+                                <rect key="frame" x="76" y="647" width="262" height="60"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="Rm6-ZW-y0W"/>
+                                    <constraint firstAttribute="height" constant="60" id="iuH-1V-Fli"/>
+                                </constraints>
+                                <state key="normal" title="텍스트 변환">
+                                    <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn3onClick:" destination="Wil-s5-Lqg" eventType="touchUpInside" id="pSw-Bq-MTN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d4c-b6-2XV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="centerX" secondItem="d4c-b6-2XV" secondAttribute="centerX" id="MfH-pf-iEk"/>
-                            <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="xD8-Vg-pdL" secondAttribute="trailing" constant="67" id="QEi-Xa-8qi"/>
-                            <constraint firstItem="d4c-b6-2XV" firstAttribute="bottom" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="328" id="pWZ-Oh-MfJ"/>
-                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="67" id="q30-jo-Xsa"/>
-                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="top" secondItem="d4c-b6-2XV" secondAttribute="top" constant="200" id="zdB-Lt-uBr"/>
+                            <constraint firstItem="53W-uc-4HV" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="76" id="Dqt-IM-bQr"/>
+                            <constraint firstItem="ilb-4Z-Gvg" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="76" id="I2q-m3-aP5"/>
+                            <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="53W-uc-4HV" secondAttribute="trailing" constant="76" id="KLo-42-fiA"/>
+                            <constraint firstItem="53W-uc-4HV" firstAttribute="top" secondItem="ilb-4Z-Gvg" secondAttribute="bottom" constant="33" id="MUg-Ke-6nX"/>
+                            <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="xD8-Vg-pdL" secondAttribute="trailing" constant="107" id="Wqe-4k-4aO"/>
+                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="107" id="fpn-3t-D4I"/>
+                            <constraint firstItem="R2A-B1-ndc" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="76" id="o4k-dn-ATy"/>
+                            <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="R2A-B1-ndc" secondAttribute="trailing" constant="76" id="oQV-Fi-CoR"/>
+                            <constraint firstItem="ilb-4Z-Gvg" firstAttribute="top" secondItem="R2A-B1-ndc" secondAttribute="bottom" constant="33" id="vHz-zk-9X5"/>
+                            <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="ilb-4Z-Gvg" secondAttribute="trailing" constant="76" id="yBe-G3-k4w"/>
+                            <constraint firstItem="R2A-B1-ndc" firstAttribute="top" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="101" id="yu3-Zt-0BP"/>
+                            <constraint firstItem="xD8-Vg-pdL" firstAttribute="top" secondItem="d4c-b6-2XV" secondAttribute="top" constant="160" id="z7O-DH-0jC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btn1" destination="R2A-B1-ndc" id="FRq-kX-peh"/>
+                        <outlet property="btn2" destination="ilb-4Z-Gvg" id="TZd-36-921"/>
+                        <outlet property="btn3" destination="53W-uc-4HV" id="pCB-HA-4F6"/>
                         <outlet property="imageView2" destination="xD8-Vg-pdL" id="qWs-Td-K55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJW-jx-1j8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="818"/>
+            <point key="canvasLocation" x="1731.8840579710147" y="817.63392857142856"/>
         </scene>
     </scenes>
     <resources>
@@ -694,11 +750,15 @@
         <image name="cameraimage" width="634" height="964"/>
         <image name="kakao_login_medium_wide" width="300" height="45"/>
         <image name="monthly" width="600" height="584"/>
+        <image name="selectimage" width="191" height="227"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

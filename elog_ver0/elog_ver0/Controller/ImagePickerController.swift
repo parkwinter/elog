@@ -12,15 +12,46 @@ class ImagePickerController: UIViewController{
     
     @IBOutlet weak var imageView2: UIImageView!
     let vc = WriteViewController()
+   
+    
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        photoL()
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(sender:)))
+        imageView2.isUserInteractionEnabled = true
+        imageView2.addGestureRecognizer(tapGestureRecognizer)
+
+        
+       //photoL()
 
         // Do any additional setup after loading the view.
     }
+
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+//         Your action
+        print("image tapped")
+        photoL()
+        
+    }
+    
+    @IBAction func btn1onClick(_ sender: Any) {
+        print("btn1onClick")
+    }
+    
+    @IBAction func btn2onClick(_ sender: Any) {
+        print("btn2onClick")
+    }
+    
+    @IBAction func btn3onClick(_ sender: Any) {
+        print("btn3onClick")
+    }
+    
     
     func photoL() {
         let vc = UIImagePickerController()
