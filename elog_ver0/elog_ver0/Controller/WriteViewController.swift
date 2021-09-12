@@ -23,6 +23,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
     
     var numOfwritings = 0
     
+    var changeImageUrl: String?
     
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var noteDate: UILabel!
@@ -68,9 +69,12 @@ class WriteViewController: UIViewController, FloatyDelegate{
     @IBAction func didTapSave(_ sender: Any) {
         print("저장버튼 클릭되었습니다.")
         let newWritings = textView.text ?? ""
+        let newImage = changeImageUrl ?? ""
         print(newWritings)
         
         updateWritings(change: newWritings)
+        updateImageWritings(change: newImage)
+        
         let alert = UIAlertController(title: "저장 완료~!", message: "",
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default) { _ in
@@ -262,6 +266,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         let newWritings = textView.text ?? ""
         let content = newWritings
         
+        
         NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img ?? "", noteId: noteId!){  allWritings in
             print("note에 글 추가 api 도착")
         
@@ -289,8 +294,26 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 //            self?.loadWritings()
         }
     
+    func updateImageWritings(change: String?){
+        print("Writings 수정 하기~!")
+        
+        let writing = UserManger.shared.currentWriting
+        print(writing!.id)
+        let postIdx = writing!.id
+
+        let change = changeImageUrl ?? ""
+        
+        NetworkManager.updateWriting(postIdx: postIdx, change: change ){  allWritings in
+            print("글 수정 api 도착")
+        }
+
+//            self?.loadWritings()
+        }
+    
     func onUserAction(data: String){
         print("data received : \(data)")
+        self.changeImageUrl = data
+        
     }
     
     func onUserAction2(data: UIImage) {

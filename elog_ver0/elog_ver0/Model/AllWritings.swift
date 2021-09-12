@@ -19,6 +19,7 @@ struct AllWritings: Codable {
 struct Writing: Codable {
     let createdAt, title, subtitle, content: String
     let id: Int
+   
 
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"

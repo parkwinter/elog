@@ -14,6 +14,7 @@ protocol AddImageDelegate {
 class ImagePickerController: UIViewController{
     
     var delegate: AddImageDelegate?
+    var imageURL: String?
     
     @IBOutlet weak var imageView2: UIImageView!
     let vcbefore = WriteViewController()
@@ -49,7 +50,7 @@ class ImagePickerController: UIViewController{
         print("btn1onClick (그대로 버튼)")
 //        vcbefore.imageView?.image = imageView2.image
         
-        vcbefore.onUserAction(data: "hey~")
+        vcbefore.onUserAction(data: self.imageURL!)
         vcbefore.onUserAction2(data: imageView2.image!)
         
 //        guard let pvc = self.presentingViewController else { return }
@@ -57,8 +58,9 @@ class ImagePickerController: UIViewController{
 //        self.dismiss(animated: true) {
 //            self.present(WriteViewController(), animated: true, completion: nil)
 //        }
-        
+        print("다시한번 이미지 유알엘은~ \(self.imageURL!)")
         delegate?.addImage(image: imageView2.image!)
+        
     }
     
     @IBAction func btn2onClick(_ sender: Any) {
@@ -90,6 +92,20 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             
 //            vc.imageView!.image = imagevc.imageView?.image = image
             
+            
+        }
+
+        if let imageUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{
+            
+                     print("image url : \(imageUrl) ")
+           
+            var myurl: NSURL
+            myurl = imageUrl as NSURL
+            var urlString: String = myurl.absoluteString!
+            self.imageURL = urlString
+            print("야 이건되냐?")
+            print(urlString)
+            print(self.imageURL!)
             
         }
 
