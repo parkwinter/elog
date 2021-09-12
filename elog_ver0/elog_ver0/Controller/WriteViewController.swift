@@ -20,6 +20,8 @@ class WriteViewController: UIViewController, FloatyDelegate{
     var note: Note? = UserManger.shared.currentNote
     var writings : [Writing] = []
     
+    var numOfwritings = 0
+    
     
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var noteDate: UILabel!
@@ -35,8 +37,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
         //floaty.addDragging()
         
         loadWritings()
-        
-        
+      
         beforeTransition()
         //hideKeyboard()
 
@@ -44,14 +45,15 @@ class WriteViewController: UIViewController, FloatyDelegate{
     }
 
     //기존 저장! 버튼 (floaty 때문에 안먹음)
-//    @IBAction func onClick(_ sender: Any) {
-//        print("저장! 버튼 클릭하였습니당")
-//        let newWritings = textView.text ?? ""
-//        print(newWritings)
-//
-//        putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
-//
-//    }
+    @IBAction func onClick(_ sender: Any) {
+        print("초기생성! 버튼 클릭하였습니당")
+        
+        let newWritings = textView.text ?? ""
+        print(newWritings)
+
+        putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
+
+    }
     
     @IBAction func didTapSave(_ sender: Any) {
         print("저장버튼 클릭되었습니다.")
@@ -75,9 +77,18 @@ class WriteViewController: UIViewController, FloatyDelegate{
         self.title = note?.title
         noteTitle.text = note?.title
         self.noteDate.text = note?.created_at
+    
         
-        textView.text="안녕! 무엇을 더 입력할까?"
-        textView.text.append("\n\n")
+        print("========================")
+        print(numOfwritings)
+        
+//        if writings.count == 0 {
+//            textView.text="안녕! 무엇을 더 입력할까?"
+//        } else {
+//            textView.text="이미 글 있음"
+//        }
+////        textView.text="안녕! 무엇을 더 입력할까?"
+//        textView.text.append("\n\n")
         
     }
     
@@ -191,6 +202,17 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             guard let self = self else { return }
             let writings = allWritings?.result ?? []
             self.writings = writings
+            print("전체 글 갯수 : \(writings.count)")
+            self.numOfwritings = writings.count
+            
+            if writings.count == 0 {
+                self.textView.text="안녕! 무엇을 더 입력할까?\n"
+            } else {
+                self.textView.text=""
+            }
+    //        textView.text="안녕! 무엇을 더 입력할까?"
+//            self.textView.text.append("\n\n")
+            
             print("전체 글 : \(writings)")
             print("content only : ")
             for i in 0..<writings.count{
@@ -204,22 +226,22 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 //            self.pager.reloadData()
 
         }
+        
+        
     }
     
     func putWritings(title: String?, subtitle: String?, content: String, img: String?){
         print("Writings 추가 하기~!")
         
-        let note_id = note?.id
+        let noteId = note?.id
         let newWritings = textView.text ?? ""
         let content = newWritings
         
-        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img ?? "", note_id: note_id!){  allWritings in
+        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img ?? "", noteId: noteId!){  allWritings in
             print("note에 글 추가 api 도착")
             
 //            self?.loadWritings()
         }
-            
-
-        }
+    }
     
 }

@@ -21,9 +21,9 @@ class SignViewController: UIViewController {
         isUser = UserManger.shared.isUser
 
         if isUser {
-            topLabel.text = "회원님 환영합니다!!"
+            topLabel.text = "환영합니다!!"
         } else {
-            topLabel.text = "앗 유저가 아니시군요"
+            topLabel.text = "환영합니다!"
         }
 
         // 로그인 정보를 보여주는 무언가!

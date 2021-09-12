@@ -129,6 +129,7 @@ class CreateViewController: UIViewController {
 
             // 생성하기 함수 호출
             self.createNote(title: title)
+            
         }
         alert.addAction(cancel)
         alert.addAction(action)
@@ -177,9 +178,13 @@ class CreateViewController: UIViewController {
             print("API Response 도착")
             //print(noteResponse)
             self?.loadNotes()
+        
+            
         }
     }
-
+    
+    
+    
     func editNote(note: Note) {
         // TODO: 이메일 지우고 edit Note 로 바꿔줘야 함
         let img = "empty"
