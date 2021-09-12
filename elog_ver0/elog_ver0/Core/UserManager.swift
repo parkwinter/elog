@@ -57,4 +57,6 @@ class UserManger {
     }
 
     var currentNote: Note?
+    
+    var currentWriting: Writing?
 }

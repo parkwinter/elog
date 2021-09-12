@@ -20,6 +20,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
     var note: Note? = UserManger.shared.currentNote
     var writings : [Writing] = []
     
+    
     var numOfwritings = 0
     
     
@@ -53,6 +54,8 @@ class WriteViewController: UIViewController, FloatyDelegate{
 
         putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
 
+        
+        
     }
     
     @IBAction func didTapSave(_ sender: Any) {
@@ -60,7 +63,8 @@ class WriteViewController: UIViewController, FloatyDelegate{
         let newWritings = textView.text ?? ""
         print(newWritings)
         
-        putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
+        updateWritings(change: newWritings)
+        
     }
     
 //    @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
@@ -198,10 +202,13 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
     func loadWritings(){
         print("Writings 로드 시작~!")
         
+        
         NetworkManager.getAllWritings(noteIdx: note!.id) { [weak self] allWritings in
             guard let self = self else { return }
             let writings = allWritings?.result ?? []
             self.writings = writings
+            
+            
             print("전체 글 갯수 : \(writings.count)")
             self.numOfwritings = writings.count
             
@@ -217,7 +224,11 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("content only : ")
             for i in 0..<writings.count{
                 print(writings[i].content)
-                self.textView.text.append("\n" + writings[i].content)
+                print(writings[i].id)
+//                self.textView.text.append("\n" + writings[i].content)
+                self.textView.text.append(writings[i].content)
+                UserManger.shared.currentWriting = writings[i]
+                
             }
      
             
@@ -239,9 +250,29 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         
         NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img ?? "", noteId: noteId!){  allWritings in
             print("note에 글 추가 api 도착")
+        
             
-//            self?.loadWritings()
+            
+            self.loadWritings()
         }
     }
+    
+    
+    func updateWritings(change: String?){
+        print("Writings 수정 하기~!")
+        
+        let writing = UserManger.shared.currentWriting
+        print(writing!.id)
+        let postIdx = writing!.id
+
+        let newWritings = textView.text ?? ""
+        let change = newWritings
+        
+        NetworkManager.updateWriting(postIdx: postIdx, change: change ){  allWritings in
+            print("글 수정 api 도착")
+        }
+
+//            self?.loadWritings()
+        }
     
 }
