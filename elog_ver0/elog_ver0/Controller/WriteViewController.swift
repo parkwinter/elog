@@ -53,7 +53,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
         let newWritings = textView.text ?? ""
         print(newWritings)
 
-        putWritings(title: "anytitle", subtitle: " ", content: newWritings, img: " ")
+        putWritings(title: "anytitle", subtitle: "any~", content: newWritings, img: " ")
 
         let alert = UIAlertController(title: "초기생성 완료~!", message: "",
                                       preferredStyle: .alert)
@@ -72,8 +72,9 @@ class WriteViewController: UIViewController, FloatyDelegate{
         let newImage = changeImageUrl ?? ""
         print(newWritings)
         
-        updateWritings(change: newWritings)
-        updateImageWritings(change: newImage)
+        
+        updateWritings(content: newWritings, title: "1", subtitle: "newSubtitle", img: newImage)
+        //updateImageWritings(change: newImage)
         
         let alert = UIAlertController(title: "저장 완료~!", message: "",
                                       preferredStyle: .alert)
@@ -247,8 +248,11 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 self.textView?.text.append(writings[i].content)
                 UserManger.shared.currentWriting = writings[i]
                 
+                
             }
-     
+            
+            
+            //print("저장된 이미지는 : \()")
             
             //pager 안써서 무시?
             // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
@@ -265,9 +269,9 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         let noteId = note?.id
         let newWritings = textView.text ?? ""
         let content = newWritings
+        let img = changeImageUrl ?? ""
         
-        
-        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img ?? "", noteId: noteId!){  allWritings in
+        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img , noteId: noteId!){  allWritings in
             print("note에 글 추가 api 도착")
         
             
@@ -277,7 +281,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
     }
     
     
-    func updateWritings(change: String?){
+    func updateWritings(content: String?, title: String?, subtitle: String?, img: String?){
         print("Writings 수정 하기~!")
         
         let writing = UserManger.shared.currentWriting
@@ -285,30 +289,38 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         let postIdx = writing!.id
 
         let newWritings = textView.text ?? ""
-        let change = newWritings
+        let content = newWritings
         
-        NetworkManager.updateWriting(postIdx: postIdx, change: change ){  allWritings in
+        
+        let img = changeImageUrl ?? ""
+        
+        print("api 호출 전 : \(writing?.content)")
+        print("app content : \(content)")
+        NetworkManager.updateWriting(postIdx: postIdx, content: content, title: title ?? "", subtitle: subtitle ?? "", img: img ){  allWritings in
             print("글 수정 api 도착")
+            print(title!)
+            print(subtitle!)
+            print("수정후 바뀐 거는 : \(writing?.content)")
         }
 
 //            self?.loadWritings()
         }
     
-    func updateImageWritings(change: String?){
-        print("Writings 수정 하기~!")
-        
-        let writing = UserManger.shared.currentWriting
-        print(writing!.id)
-        let postIdx = writing!.id
-
-        let change = changeImageUrl ?? ""
-        
-        NetworkManager.updateWriting(postIdx: postIdx, change: change ){  allWritings in
-            print("글 수정 api 도착")
-        }
-
-//            self?.loadWritings()
-        }
+//    func updateImageWritings(change: String?){
+//        print("Writings 수정 하기~!")
+//
+//        let writing = UserManger.shared.currentWriting
+//        print(writing!.id)
+//        let postIdx = writing!.id
+//
+//        let change = changeImageUrl ?? ""
+//
+//        NetworkManager.updateWriting(postIdx: postIdx, change: change ){  allWritings in
+//            print("글 수정 api 도착")
+//        }
+//
+////            self?.loadWritings()
+//        }
     
     func onUserAction(data: String){
         print("data received : \(data)")

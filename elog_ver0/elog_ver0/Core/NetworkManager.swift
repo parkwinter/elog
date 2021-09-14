@@ -218,9 +218,9 @@ class NetworkManager {
     }
     
     
-    static func updateWriting(postIdx: Int, change: String, completionHandler: @escaping (NoteResponse?) -> Void) {
+    static func updateWriting(postIdx: Int, content: String, title: String, subtitle: String, img: String, completionHandler: @escaping (NoteResponse?) -> Void) {
 
-        let parameter: [String: String] = ["change": change]
+        let parameter: [String: String] = ["title": title, "subtitle": subtitle, "content": content, "img":img]
 
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
@@ -234,6 +234,8 @@ class NetworkManager {
             .response { response in // Closure
 
                 print(response.data?.toString() ?? "")
+                //print("잘 받아오나 \(title)" )
+//                print("잘 받아오나 \(subtitle)" )
                 if let data = response.data {
                     let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
 
