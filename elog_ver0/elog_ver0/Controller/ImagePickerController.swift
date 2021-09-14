@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddImageDelegate {
-    func addImage(image: UIImage)
+    func addImage(image: UIImage, data: String)
 }
 
 class ImagePickerController: UIViewController{
@@ -59,7 +59,7 @@ class ImagePickerController: UIViewController{
 //            self.present(WriteViewController(), animated: true, completion: nil)
 //        }
         print("다시한번 이미지 유알엘은~ \(self.imageURL!)")
-        delegate?.addImage(image: imageView2.image!)
+        delegate?.addImage(image: imageView2.image!, data: self.imageURL!)
         
     }
     
@@ -95,13 +95,14 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             
         }
 
+        
         if let imageUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{
             
                      print("image url : \(imageUrl) ")
            
             var myurl: NSURL
             myurl = imageUrl as NSURL
-            var urlString: String = myurl.absoluteString!
+            let urlString: String = myurl.absoluteString!
             self.imageURL = urlString
             print("야 이건되냐?")
             print(urlString)

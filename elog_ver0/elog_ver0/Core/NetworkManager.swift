@@ -178,6 +178,7 @@ class NetworkManager {
             .response { response in // Closure
 
                 print(response.data?.toString() ?? "")
+                print("networkmanger 에서의 img : \(img)")
                 if let data = response.data {
                     let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
                     

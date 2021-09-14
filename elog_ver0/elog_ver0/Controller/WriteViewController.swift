@@ -23,6 +23,7 @@ class WriteViewController: UIViewController, FloatyDelegate{
     
     var numOfwritings = 0
     
+    var changeImage : UIImage?
     var changeImageUrl: String?
     
     @IBOutlet weak var noteTitle: UILabel!
@@ -246,12 +247,13 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 print(writings[i].id)
 //                self.textView.text.append("\n" + writings[i].content)
                 self.textView?.text.append(writings[i].content)
+                //self.textView?.text.append(writings[i].img)
                 UserManger.shared.currentWriting = writings[i]
                 
                 
             }
             
-            
+            print("loadWritings 에서 저장된 이미지는 \(self.changeImageUrl ?? "")")
             //print("저장된 이미지는 : \()")
             
             //pager 안써서 무시?
@@ -271,9 +273,11 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         let content = newWritings
         let img = changeImageUrl ?? ""
         
+        print("putWritings func 에서 확인하기 : \(self.changeImageUrl) &&&&&& \(img)")
+       
         NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img , noteId: noteId!){  allWritings in
             print("note에 글 추가 api 도착")
-        
+            print("createWritings API 에 들어간 이미지는 : \(img)")
             
             
             self.loadWritings()
@@ -338,10 +342,15 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 
 
 extension WriteViewController: AddImageDelegate {
-    func addImage(image: UIImage) {
+    func addImage(image: UIImage, data: String) {
         print("delegate 불러옴~")
         self.dismiss(animated: true){
             self.imageView.image = image
+            self.changeImage = self.imageView.image
         }
+        print("delegate에서 받아온 data : \(data)")
+        self.changeImageUrl = data
+        print("delegate에서 바꾼 data: \(self.changeImageUrl ?? "")")
     }
+    
 }
