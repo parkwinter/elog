@@ -249,12 +249,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 self.textView?.text.append(writings[i].content)
                 //self.textView?.text.append(writings[i].img)
                 UserManger.shared.currentWriting = writings[i]
-                print("loadWritings 에서 저장된 이미지는 \(writings[i].img)")
-                self.changeImageUrl = writings[i].img
                 
-                self.imageView.imageFromServerURL(urlString: "\(writings[i].img)")
-                //"https://drive.google.com/uc?id=1LCVzJpKrg_pB9yht4fQqTA2x8jgXOLGk"
-            
                 
             }
             

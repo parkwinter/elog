@@ -140,7 +140,6 @@ class NetworkManager {
         //3.34.116.127/app/notes/2/posts
         
         
-        
         let headers = HTTPHeaders(["x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
         
         //AF query string 찾아보기
