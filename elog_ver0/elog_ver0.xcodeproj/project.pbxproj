@@ -25,6 +25,7 @@
 		765D22DB26CEE2A400EAEF5B /* AllNoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22DA26CEE2A400EAEF5B /* AllNoteTest.swift */; };
 		765D22DF26D407BB00EAEF5B /* AllWritings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22DE26D407BB00EAEF5B /* AllWritings.swift */; };
 		76A5A26126DBE501006BD153 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A5A26026DBE501006BD153 /* ImagePickerController.swift */; };
+		76A5A26526F19D4B006BD153 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76A5A26426F19D4B006BD153 /* GoogleService-Info.plist */; };
 		76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8322652050100CD1D9A /* AppDelegate.swift */; };
 		76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8342652050100CD1D9A /* SceneDelegate.swift */; };
 		76E9F8372652050100CD1D9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8362652050100CD1D9A /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		765D22DA26CEE2A400EAEF5B /* AllNoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoteTest.swift; sourceTree = "<group>"; };
 		765D22DE26D407BB00EAEF5B /* AllWritings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWritings.swift; sourceTree = "<group>"; };
 		76A5A26026DBE501006BD153 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		76A5A26426F19D4B006BD153 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76E9F82F2652050100CD1D9A /* elog_ver0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elog_ver0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E9F8322652050100CD1D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76E9F8342652050100CD1D9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				76E9F83B2652050200CD1D9A /* Assets.xcassets */,
 				76E9F83D2652050200CD1D9A /* LaunchScreen.storyboard */,
 				76E9F8402652050200CD1D9A /* Info.plist */,
+				76A5A26426F19D4B006BD153 /* GoogleService-Info.plist */,
 			);
 			path = elog_ver0;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				76E9F83F2652050200CD1D9A /* LaunchScreen.storyboard in Resources */,
 				765D22D926C2FB6D00EAEF5B /* PagerCell.xib in Resources */,
+				76A5A26526F19D4B006BD153 /* GoogleService-Info.plist in Resources */,
 				76E9F83C2652050200CD1D9A /* Assets.xcassets in Resources */,
 				76E9F83A2652050100CD1D9A /* Main.storyboard in Resources */,
 			);
