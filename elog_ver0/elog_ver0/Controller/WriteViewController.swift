@@ -12,7 +12,7 @@ import BTNavigationDropdownMenu
 import FirebaseStorage
 import Firebase
 
-class WriteViewController: UIViewController, FloatyDelegate{
+class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
 
     let storage = Storage.storage()
     var fbURL : NSURL?
@@ -179,10 +179,26 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 //        floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon"))
         floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon")) { item in
             
+        
+            let picker = UIImagePickerController()
             
-            let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                // 사용가능
+                picker.sourceType = .camera
+            }else {
+                //사용불가능
+                let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            //picker.sourceType = .camera
+            picker.delegate = self
+            picker.allowsEditing = true
+            self.present(picker, animated: true)
+            
+//            let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
             
             
             //카메라 사용가능한지 체크
@@ -444,6 +460,18 @@ extension WriteViewController: AddImageDelegate {
         print("delegate에서 받아온 data : \(data)")
         self.changeImageUrl = data
         print("delegate에서 바꾼 data: \(self.changeImageUrl ?? "")")
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let camImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        imageView.image = camImage
     }
     
 }
