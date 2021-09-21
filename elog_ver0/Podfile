@@ -28,4 +28,6 @@ target 'elog_ver0' do
 pod 'Firebase/Analytics'
 pod 'Firebase/Storage'
   
+pod 'ZLImageEditor'
+
 end

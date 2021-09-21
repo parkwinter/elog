@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ZLImageEditor
 
 protocol AddImageDelegate {
     func addImage(image: UIImage, data: String)
@@ -64,7 +65,8 @@ class ImagePickerController: UIViewController{
     }
     
     @IBAction func btn2onClick(_ sender: Any) {
-        print("btn2onClick")
+        print("btn2onClick (photoEditor 버튼)")
+        
     }
     
     @IBAction func btn3onClick(_ sender: Any) {
