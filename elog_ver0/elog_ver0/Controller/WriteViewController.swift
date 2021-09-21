@@ -178,6 +178,8 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         //floaty.addItem(title: "I got a title")
 //        floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon"))
         floaty.addItem("오프라인 글 삽입", icon: UIImage(named: "camIcon")) { item in
+            
+            
             let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -403,27 +405,30 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         print("downloadImageFromCloud 함수 불러옴")
         
         let filePath = String(UserManger.shared.currentNote!.id)
-        let fbString = "gs://elog-d6ddd.appspot.com/\(filePath)"
+        var fbString : String!
         
-        if UserManger.shared.currentWriting?.img == "" {
-            if UserManger.shared.currentWriting?.img == nil {
-                print("찐으로 이미지 없음")
-            }else {
+        if (UserManger.shared.currentWriting?.img == "") {
+            
                 print("야야야야야야ㅑ야야야양 여기봐라")
                 print("저장된 이미지 없음(nil은 아니고 기본값으로 없음)")
-            }
+            fbString = "gs://elog-d6ddd.appspot.com/nocontentyet.png"
             
+        }else if (UserManger.shared.currentWriting?.img == nil) {
+            print("찐으로 이미지 없음")
+            fbString = "gs://elog-d6ddd.appspot.com/nocontentyet.png"
         }else {
-            print(UserManger.shared.currentWriting?.img)
-            storage.reference(forURL: fbString).downloadURL { [self] (url, error) in
-                let data = NSData(contentsOf: url!)
-                let image = UIImage(data: (data!) as Data)
-                //imgView.image = image
-                self.imageView.image = image
-            }
+            print("이미지 있음")
+            fbString = "gs://elog-d6ddd.appspot.com/\(filePath)"
+           
         }
         
-       
+        print(fbString)
+        storage.reference(forURL: fbString).downloadURL { [self] (url, error) in
+            let data = NSData(contentsOf: url!)
+            let image = UIImage(data: (data!) as Data)
+            //imgView.image = image
+            self.imageView.image = image
+        }
     }
     
 }

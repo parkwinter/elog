@@ -300,16 +300,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="textView" text="어떤 걸 기록해볼까 ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Lr-bR-guc">
-                                <rect key="frame" x="20" y="189" width="347" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWS-0f-a6I">
-                                <rect key="frame" x="67" y="342" width="280" height="280"/>
+                                <rect key="frame" x="67" y="134" width="280" height="280"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-3E-Kps">
                                 <rect key="frame" x="338" y="75" width="56" height="30"/>
@@ -321,22 +313,34 @@
                                     <action selector="onClick:" destination="HEK-q3-D57" eventType="touchUpInside" id="jqS-bO-L35"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="textView" text="어떤 걸 기록해볼까 ?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3Lr-bR-guc">
+                                <rect key="frame" x="32" y="437" width="350" height="128"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m5b-qR-iJs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bWS-0f-a6I" firstAttribute="centerX" secondItem="m5b-qR-iJs" secondAttribute="centerX" id="1hw-WU-hRx"/>
-                            <constraint firstItem="m5b-qR-iJs" firstAttribute="bottom" secondItem="bWS-0f-a6I" secondAttribute="bottom" constant="240" id="6wd-Nn-HMZ"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="bottom" secondItem="bWS-0f-a6I" secondAttribute="bottom" constant="448" id="6wd-Nn-HMZ"/>
                             <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="gPw-3E-Kps" secondAttribute="trailing" constant="20" id="8zc-77-UC0"/>
-                            <constraint firstItem="bWS-0f-a6I" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="298" id="FEY-0V-D3E"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="3Lr-bR-guc" secondAttribute="trailing" constant="32" id="F4x-XD-kcx"/>
+                            <constraint firstItem="bWS-0f-a6I" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="90" id="FEY-0V-D3E"/>
                             <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="bWS-0f-a6I" secondAttribute="trailing" constant="67" id="HrS-2O-CvV"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="top" secondItem="xcz-oK-zQI" secondAttribute="bottom" constant="8" symbolic="YES" id="JLY-PA-wk3"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="bottom" secondItem="3Lr-bR-guc" secondAttribute="bottom" constant="297" id="LJb-ee-oVR"/>
+                            <constraint firstItem="3Lr-bR-guc" firstAttribute="top" secondItem="bWS-0f-a6I" secondAttribute="bottom" constant="23" id="O0o-t2-7la"/>
                             <constraint firstItem="xcz-oK-zQI" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="31" id="OYl-01-qU3"/>
                             <constraint firstItem="bWS-0f-a6I" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="67" id="QMm-kS-8YR"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="top" secondItem="xcz-oK-zQI" secondAttribute="bottom" constant="8" symbolic="YES" id="Tog-Nx-L5i"/>
                             <constraint firstItem="xcz-oK-zQI" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="20" id="Wst-31-gQa"/>
                             <constraint firstItem="gPw-3E-Kps" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="31" id="gW4-7G-mrv"/>
+                            <constraint firstItem="3Lr-bR-guc" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="32" id="nDv-YI-uEn"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="20" id="v7P-Sz-kWn"/>
+                            <constraint firstItem="3Lr-bR-guc" firstAttribute="top" secondItem="bWS-0f-a6I" secondAttribute="bottom" constant="23" id="wcR-1u-faW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ggu-UB-ATb">
