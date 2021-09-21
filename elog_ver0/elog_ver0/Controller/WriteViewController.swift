@@ -227,7 +227,6 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
     func loadWritings(){
         print("Writings 로드 시작~!")
         
-        
         NetworkManager.getAllWritings(noteIdx: note!.id) { [weak self] allWritings in
             guard let self = self else { return }
             let writings = allWritings?.result ?? []
@@ -254,22 +253,33 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 self.textView?.text.append(writings[i].content)
                 //self.textView?.text.append(writings[i].img)
                 UserManger.shared.currentWriting = writings[i]
-                
-            
-                
-            }
+                }
+        
             
             print("loadWritings 에서 저장된 이미지는 \(self.changeImageUrl ?? "")")
-            
+            print("loadWritings 에서 저장된 이미지는 \(UserManger.shared.currentWriting?.img)")
             //print("저장된 이미지는 : \()")
             
             //pager 안써서 무시?
             // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
 //            self.pager.reloadData()
             
-            
+//            if UserManger.shared.currentWriting?.img == "" {
+//                if UserManger.shared.currentWriting?.img == nil {
+//                    print("찐으로 이미지 없음")
+//                }else {
+//                    print("야야야야야야ㅑ야야야양 여기봐라")
+//                    print("저장된 이미지 없음(nil은 아니고 기본값으로 없음)")
+//                }
+//
+//            }else {
+//                print(UserManger.shared.currentWriting?.img)
+//                //downloadImageFromCloud(imgView: self.imageView) 안됨 self explicit 어쩌구
+//                //downloadImageFromCloud()
+//            }
         }
         
+        downloadImageFromCloud()
         
     }
     
@@ -325,7 +335,8 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print(subtitle!)
             print("수정후 바뀐 거는 : \(writing?.content)")
         }
-
+        
+        uploadImage2Cloud(img: self.changeImage!)
 //            self?.loadWritings()
         }
     
@@ -387,15 +398,32 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         
     }
     
-    func downloadImageFromCloud(imgView: UIImageView, img: UIImage){
+    
+    func downloadImageFromCloud(){
         print("downloadImageFromCloud 함수 불러옴")
-        //let filePath = self.localPath
-        let filePath = String(UserManger.shared.currentWriting!.id)
-        storage.reference(forURL: "gs://elog-d6ddd.appspot.com/\(img)").downloadURL { (url, error) in
-            let data = NSData(contentsOf: url!)
-            let image = UIImage(data: (data!) as Data)
-            imgView.image = image
+        
+        let filePath = String(UserManger.shared.currentNote!.id)
+        let fbString = "gs://elog-d6ddd.appspot.com/\(filePath)"
+        
+        if UserManger.shared.currentWriting?.img == "" {
+            if UserManger.shared.currentWriting?.img == nil {
+                print("찐으로 이미지 없음")
+            }else {
+                print("야야야야야야ㅑ야야야양 여기봐라")
+                print("저장된 이미지 없음(nil은 아니고 기본값으로 없음)")
+            }
+            
+        }else {
+            print(UserManger.shared.currentWriting?.img)
+            storage.reference(forURL: fbString).downloadURL { [self] (url, error) in
+                let data = NSData(contentsOf: url!)
+                let image = UIImage(data: (data!) as Data)
+                //imgView.image = image
+                self.imageView.image = image
+            }
         }
+        
+       
     }
     
 }
@@ -414,3 +442,5 @@ extension WriteViewController: AddImageDelegate {
     }
     
 }
+
+
