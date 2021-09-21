@@ -9,9 +9,14 @@ import UIKit
 import Floaty
 import DropDown
 import BTNavigationDropdownMenu
+import FirebaseStorage
+import Firebase
 
 class WriteViewController: UIViewController, FloatyDelegate{
 
+    let storage = Storage.storage()
+    var fbURL : NSURL?
+    
     var floaty = Floaty()
     
     let transiton = SlideInTransition()
@@ -250,16 +255,19 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 //self.textView?.text.append(writings[i].img)
                 UserManger.shared.currentWriting = writings[i]
                 
+            
                 
             }
             
             print("loadWritings 에서 저장된 이미지는 \(self.changeImageUrl ?? "")")
+            
             //print("저장된 이미지는 : \()")
             
             //pager 안써서 무시?
             // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
 //            self.pager.reloadData()
-
+            
+            
         }
         
         
@@ -280,8 +288,19 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("createWritings API 에 들어간 이미지는 : \(img)")
             
             
+//            self.loadWritings()
+        }
+        if img != "" {
+            print("여기 이미지 저장할거라구요~")
+            print(UserManger.shared.currentNote?.id)
+            uploadImage2Cloud(img: self.changeImage!)
+            
+            self.loadWritings()
+        } else {
             self.loadWritings()
         }
+        
+        //self.loadWritings()
     }
     
     
@@ -338,6 +357,47 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
        
         
     }
+    
+    func uploadImage2Cloud(img : UIImage){
+        print("uploadImage2Cloud 함수 불러옴")
+        var data = Data()
+        data = img.jpegData(compressionQuality: 0.8)!
+        //let filePath = "\(UserManger.shared.currentWriting)+\(self.changeImageUrl)"
+        
+        let filePath = String(UserManger.shared.currentNote!.id)
+        let fbString = "gs://elog-d6ddd.appspot.com/\(filePath)"
+        self.fbURL = NSURL(string: fbString)
+        
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        storage.reference().child(filePath).putData(data,metadata: metaData){
+            (metaData,error) in if let error = error{
+                print(error.localizedDescription)
+                return
+            } else {
+                print("이미지 업로드 성공")
+                print("gs://elog-d6ddd.appspot.com/\(filePath)")
+                print(self.fbURL)
+                //self.localPath = "gs://elog-d6ddd.appspot.com/\(filePath)"
+                //print("self.local Path : \(self.localPath!)")
+//                self.localURL = URL(string: "gs://elog-d6ddd.appspot.com/\(self.changeImageUrl)")
+                
+            }
+        }
+        
+    }
+    
+    func downloadImageFromCloud(imgView: UIImageView, img: UIImage){
+        print("downloadImageFromCloud 함수 불러옴")
+        //let filePath = self.localPath
+        let filePath = String(UserManger.shared.currentWriting!.id)
+        storage.reference(forURL: "gs://elog-d6ddd.appspot.com/\(img)").downloadURL { (url, error) in
+            let data = NSData(contentsOf: url!)
+            let image = UIImage(data: (data!) as Data)
+            imgView.image = image
+        }
+    }
+    
 }
 
 

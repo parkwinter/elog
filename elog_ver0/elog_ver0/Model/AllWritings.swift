@@ -17,13 +17,13 @@ struct AllWritings: Codable {
 
 // MARK: - Result
 struct Writing: Codable {
-    let createdAt, title, subtitle, content: String
+    let createdAt, title, subtitle, content, img: String
     let id: Int
    
 
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
-        case title, subtitle, content, id
+        case title, subtitle, content, img, id
     }
 }
 

@@ -11,6 +11,9 @@ PODS:
     - FirebaseAnalytics (~> 8.7.0)
   - Firebase/CoreOnly (8.7.0):
     - FirebaseCore (= 8.7.0)
+  - Firebase/Storage (8.7.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 8.7.0)
   - FirebaseAnalytics (8.7.0):
     - FirebaseAnalytics/AdIdSupport (= 8.7.0)
     - FirebaseCore (~> 8.0)
@@ -43,6 +46,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseStorage (8.7.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - Floaty (4.2.0)
   - GoogleAppMeasurement (8.7.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.7.0)
@@ -80,6 +86,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.5.2):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.7.0)
   - HSCycleGalleryView (1.2.0)
   - KakaoSDKAuth (2.5.2):
     - KakaoSDKCommon (= 2.5.2)
@@ -108,6 +115,7 @@ DEPENDENCIES:
   - BTNavigationDropdownMenu
   - DropDown
   - Firebase/Analytics
+  - Firebase/Storage
   - Floaty (~> 4.2.0)
   - HSCycleGalleryView (from `https://github.com/parkwinter/HSCycleGalleryView.git`, commit `52718ced5558778cea351f169f36cc81b067ffc6`)
   - KakaoSDKAuth
@@ -128,10 +136,12 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
+    - FirebaseStorage
     - Floaty
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - GTMSessionFetcher
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
@@ -161,10 +171,12 @@ SPEC CHECKSUMS:
   FirebaseCore: f4804c1d3f4bbbefc88904d15653038f2c99ddf7
   FirebaseCoreDiagnostics: b63732f581a1c6a453ec7241f9ab60b3a5bd3450
   FirebaseInstallations: ede6fb72bb6337914e5888b399271259d0c4910c
+  FirebaseStorage: 2e6e58fe31fb0061fdce3f156d0ebc964e9de6ba
   Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
+  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   HSCycleGalleryView: 5101435175a26d08f1c062cf6cb245f58f09b425
   KakaoSDKAuth: 81715662c03e4c8c1a140f293e9fd6fd68b2e9dd
   KakaoSDKCommon: 887e22f7aa4647bd0a7d1397512fc5f6211b83d6
@@ -175,6 +187,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 383f930b9efcbcd09957bcb9554f98d087f76bc3
+PODFILE CHECKSUM: 4adf97ff8a719e21d2f81e765534bbdbfa635e6e
 
 COCOAPODS: 1.10.1

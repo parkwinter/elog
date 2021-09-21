@@ -26,5 +26,6 @@ target 'elog_ver0' do
   pod 'Kingfisher', '~> 6.3.1'
 
 pod 'Firebase/Analytics'
+pod 'Firebase/Storage'
   
 end
