@@ -17,6 +17,8 @@ class ImagePickerController: UIViewController{
     var delegate: AddImageDelegate?
     var imageURL: String?
     
+    var resultImageEditModel: ZLEditImageModel?
+    
     @IBOutlet weak var imageView2: UIImageView!
     let vcbefore = WriteViewController()
         
@@ -66,7 +68,7 @@ class ImagePickerController: UIViewController{
     
     @IBAction func btn2onClick(_ sender: Any) {
         print("btn2onClick (photoEditor 버튼)")
-        
+        photoEditor(self.imageView2.image!, editModel: self.resultImageEditModel)
     }
     
     @IBAction func btn3onClick(_ sender: Any) {
@@ -118,4 +120,28 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    
+    func photoEditor(_ image : UIImage, editModel: ZLEditImageModel?){
+        
+        
+        ZLImageEditorConfiguration.default().editImageTools = [.draw, .clip, .imageSticker, .textSticker, .mosaic, .filter]
+
+        ZLEditImageViewController.showEditImageVC(parentVC: self, image: image, editModel: editModel) { [weak self] (resImage, editModel) in
+            self?.imageView2.image = resImage
+            self?.resultImageEditModel = editModel
+        }
+    }
+    
+//    func editImage(_ image: UIImage, editModel: ZLEditImageModel?) {
+//            // Provide a image sticker container view
+//            ZLImageEditorConfiguration.default().imageStickerContainerView = ImageStickerContainerView()
+//            // Custom filter
+//    //        ZLImageEditorConfiguration.default().filters = [.normal, .apply1977, ZLFilter(name: "Custom", applier: CustomFilter.hazeRemovalFilter)]
+//
+//            ZLEditImageViewController.showEditImageVC(parentVC: self, image: image, editModel: editModel) { [weak self] (resImage, editModel) in
+//                self?.resultImageView.image = resImage
+//                self?.resultImageEditModel = editModel
+//            }
+//        }
 }
