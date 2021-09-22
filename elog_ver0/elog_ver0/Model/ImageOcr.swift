@@ -10,5 +10,6 @@ import Foundation
 struct ImageOcr: Codable {
     let isSuccess: Bool
     let code: Int
-    let message, result: String
+    let message: String
+    let result: String
 }

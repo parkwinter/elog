@@ -441,10 +441,12 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         print(fbString)
         storage.reference(forURL: fbString).downloadURL { [self] (url, error) in
             let data = NSData(contentsOf: url!)
+            
             let image = UIImage(data: (data!) as Data)
             //imgView.image = image
             self.imageView.image = image
         }
+        
     }
     
 }
