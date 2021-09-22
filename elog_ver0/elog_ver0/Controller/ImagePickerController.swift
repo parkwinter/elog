@@ -14,6 +14,9 @@ protocol AddImageDelegate {
 
 class ImagePickerController: UIViewController{
     
+    var ocrTexts: String?
+    var writings : [Writing] = []
+    
     var delegate: AddImageDelegate?
     var imageURL: String?
     
@@ -72,7 +75,9 @@ class ImagePickerController: UIViewController{
     }
     
     @IBAction func btn3onClick(_ sender: Any) {
-        print("btn3onClick")
+        print("btn3onClick (ocr 버튼)")
+        //fb 업로드 & url 가져온 후
+        //ocr(imageURL: <#T##String#>)
     }
     
     
@@ -133,15 +138,22 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         }
     }
     
-//    func editImage(_ image: UIImage, editModel: ZLEditImageModel?) {
-//            // Provide a image sticker container view
-//            ZLImageEditorConfiguration.default().imageStickerContainerView = ImageStickerContainerView()
-//            // Custom filter
-//    //        ZLImageEditorConfiguration.default().filters = [.normal, .apply1977, ZLFilter(name: "Custom", applier: CustomFilter.hazeRemovalFilter)]
-//
-//            ZLEditImageViewController.showEditImageVC(parentVC: self, image: image, editModel: editModel) { [weak self] (resImage, editModel) in
-//                self?.resultImageView.image = resImage
-//                self?.resultImageEditModel = editModel
-//            }
-//        }
+
+    func ocr(imageURL : String){
+        
+        
+        NetworkManager.ocr(imageURL: imageURL){ [weak self] imageOcr in
+            
+            guard let self = self else { return }
+            let imageToOcr = imageOcr?.result
+            
+            self.ocrTexts = imageToOcr
+            
+            print("ocr 돌린 결과는 : ")
+            print(imageToOcr)
+            
+        }
+        
+        
+    }
 }

@@ -247,6 +247,29 @@ class NetworkManager {
                 }
             }
     }
+    
+    
+    static func ocr(imageURL: String, completionHandler: @escaping (ImageOcr?) -> Void) {
+
+        let parameter: [String: String] = ["imageURL": imageURL]
+
+        AF.request(baseURL + "/app/ocr" ,
+                   method: .post,
+                   parameters: parameter)
+            .response { response in // Closure
+
+                print(response.data?.toString() ?? "")
+                
+                if let data = response.data {
+                    let response = try? JSONDecoder().decode(ImageOcr.self, from: data)
+                    
+                    completionHandler(response)
+
+                } else {
+                    completionHandler(nil)
+                }
+            }
+    }
 }
 
 
