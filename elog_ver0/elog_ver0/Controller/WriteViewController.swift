@@ -64,6 +64,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         let alert = UIAlertController(title: "초기생성 완료~!", message: "",
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "확인", style: .default) { _ in
+            self.loadWritings()
             print("초기생성 완료 확인 버튼 눌림")
         }
         alert.addAction(action)
@@ -295,9 +296,10 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 //                //downloadImageFromCloud(imgView: self.imageView) 안됨 self explicit 어쩌구
 //                //downloadImageFromCloud()
 //            }
+            self.downloadImageFromCloud()
         }
         
-        downloadImageFromCloud()
+        //downloadImageFromCloud()
         
     }
     
