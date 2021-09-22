@@ -12,6 +12,7 @@ import Firebase
 
 protocol AddImageDelegate {
     func addImage(image: UIImage, data: String)
+    func addOcrText(data: String)
 }
 
 class ImagePickerController: UIViewController{
@@ -159,7 +160,11 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             //self.ocrTexts = res
             
             print("ocr 돌린 결과는 : ")
-            print(res)
+            print(res!)
+            
+            self.vcbefore.getOcrText(data: res!)
+            self.delegate?.addOcrText(data: res!)
+            
             
         }
         

@@ -354,7 +354,10 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("수정후 바뀐 거는 : \(writing?.content)")
         }
         
-        uploadImage2Cloud(img: self.changeImage!)
+        if (self.changeImage != nil){
+            uploadImage2Cloud(img: self.changeImage!)
+        }
+        //uploadImage2Cloud(img: self.changeImage!)
 //            self?.loadWritings()
         }
     
@@ -385,6 +388,12 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         imageView?.image = data
        
         
+    }
+    
+    func getOcrText(data: String){
+        print("data ocr text received : \(data)")
+       // self.textView?.text.append(data)
+       // print(self.textView?.text)
     }
     
     func uploadImage2Cloud(img : UIImage){
@@ -474,6 +483,12 @@ extension WriteViewController: AddImageDelegate {
             return
         }
         imageView.image = camImage
+    }
+    
+    func addOcrText(data: String){
+        self.dismiss(animated: true){
+            self.textView.text.append(data)
+        }
     }
     
 }
