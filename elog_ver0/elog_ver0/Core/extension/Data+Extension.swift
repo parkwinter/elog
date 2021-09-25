@@ -2,7 +2,7 @@
 //  Data+Extension.swift
 //  elog_ver0
 //
-//  Created by 김선우 on 2021/08/21.
+//  Created by You Jong Park on 2021/08/21.
 //
 
 import Foundation
