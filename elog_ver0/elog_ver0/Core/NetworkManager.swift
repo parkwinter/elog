@@ -293,6 +293,34 @@ class NetworkManager {
                 }
             }
     }
+    
+    
+    static func getSentiment(content: String, completionHandler: @escaping (WritingSentiment?) -> Void) {
+        
+        //AF query string 찾아보기
+        let parameter: [String: String] = ["content": content]
+        
+        AF.request(baseURL + "/app/sentiment",
+                   method: .get,
+                   parameters: parameter).response { response in // Closure
+            
+            print(response.data?.toString() ?? "")
+            
+            if let data = response.data {
+//                let text = String(decoding: data, as: UTF8.self)
+                let sentiment = try? JSONDecoder().decode(WritingSentiment.self, from: data)
+                completionHandler(sentiment)
+                print("sentiment networkmanager에서 잘 받아왔습니다~ \(sentiment!.document.sentiment)")
+                //print(sentiment!.sentences.)
+                print("sentiment networkmanager에서 parameter \(parameter)")
+                UserManger.shared.currentSentiment = sentiment?.document.sentiment
+
+            } else {
+                print("2")
+                completionHandler(nil)
+            }
+        }
+    }
 }
 
 

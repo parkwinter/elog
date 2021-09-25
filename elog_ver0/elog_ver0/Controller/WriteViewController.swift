@@ -13,6 +13,7 @@ import FirebaseStorage
 import Firebase
 import SwiftUI
 import ConfettiSwiftUI
+import simd
 
 class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
 
@@ -56,7 +57,17 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
     }
     @IBAction func sentiment(_ sender: Any) {
         print("감정알아보기 버튼 클릭했움")
+        
+        if UserManger.shared.currentSentiment == nil {
+            getSentiment(content: self.textView.text)
+        } else {
+            let mySentiment2 = UserManger.shared.currentSentiment!
+            print("버튼 클릭 시 감정이 있네여 \(mySentiment2)")
+        }
+        
         let mySentiment = "p" // y or n or else
+        //let mySentiment2 = UserManger.shared.currentSentiment!
+        //print("감정알아보기 ~~~~~ \(mySentiment2)")
         let swiftuiview = SwiftUIView(sentiment: mySentiment)
         
         let host = UIHostingController(rootView: swiftuiview)
@@ -290,6 +301,11 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             
             print("loadWritings 에서 저장된 이미지는 \(self.changeImageUrl ?? "")")
             print("loadWritings 에서 저장된 이미지는 \(UserManger.shared.currentWriting?.img)")
+            
+//            self.getSentiment(content: UserManger.shared.currentWriting?.content ?? "")
+            self.getSentiment(content: self.textView.text ?? "")
+            print("감정감별에 들어간 텍스트는 \(self.textView.text)")
+            //print("loadWritings의 sentiment는 \()")
             //print("저장된 이미지는 : \()")
             
             //pager 안써서 무시?
@@ -314,7 +330,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             // MARK: 이미지 세팅
             // https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/nocontentyet.png?alt=media&token=01c76203-040c-460e-bd7b-90d9669fa23f
             print("하,,")
-            print(UserManger.shared.currentWriting?.img ?? "")
+            print(UserManger.shared.currentWriting?.content)
             
             self.imageView.imageFromServerURL2(urlString:UserManger.shared.currentWriting?.img  ?? "", PlaceHolderImage: UIImage(named:"nocontentyet" ))
 
@@ -348,6 +364,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("note에 글 추가 api 도착")
             print("createWritings API 에 들어간 이미지는 : \(img)")
             
+            //self.getSentiment(content: content)
             
             self.loadWritings()
         }
@@ -392,6 +409,8 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print(subtitle!)
             print("수정후 바뀐 거는 : \(writing?.content)")
             print("img느 \(img)")
+            
+            //self.getSentiment(content: content)
         }
         
 //        if (self.changeImage != nil){
@@ -434,6 +453,21 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         print("data ocr text received : \(data)")
        // self.textView?.text.append(data)
        // print(self.textView?.text)
+    }
+    
+    func getSentiment(content: String){
+        print("get sentiment 함수시작")
+        
+        NetworkManager.getSentiment(content: content){ writingSentiment in
+            let sentimentResult = writingSentiment?.document
+            
+            print("받아온 감성 결과 값은")
+            print(UserManger.shared.currentSentiment)
+            print(sentimentResult?.sentiment)
+            
+        }
+        
+        
     }
     
     func uploadImage2Cloud(img : UIImage){

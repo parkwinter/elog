@@ -19,6 +19,7 @@
 		76480DF826FF9555003CFB91 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DF726FF9555003CFB91 /* KakaoLogin.swift */; };
 		76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */; };
 		76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */; };
+		76480DFF26FFB8AE003CFB91 /* WritingSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -54,6 +55,7 @@
 		53F1F8AD26CD3043007BB8FB /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		76480DF726FF9555003CFB91 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 		76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingSentiment.swift; sourceTree = "<group>"; };
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				765D22DE26D407BB00EAEF5B /* AllWritings.swift */,
 				76A5A26826FB717C006BD153 /* ImageOcr.swift */,
 				76480DF726FF9555003CFB91 /* KakaoLogin.swift */,
+				76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */,
 				76E9F84D26521B5100CD1D9A /* WriteViewController.swift in Sources */,
 				53097CE226BABA6F006E7219 /* UserManager.swift in Sources */,
+				76480DFF26FFB8AE003CFB91 /* WritingSentiment.swift in Sources */,
 				76A5A26126DBE501006BD153 /* ImagePickerController.swift in Sources */,
 				765D22DF26D407BB00EAEF5B /* AllWritings.swift in Sources */,
 				76E9F8372652050100CD1D9A /* ViewController.swift in Sources */,

@@ -59,4 +59,6 @@ class UserManger {
     var currentNote: Note?
     
     var currentWriting: Writing?
+    
+    var currentSentiment: String?
 }

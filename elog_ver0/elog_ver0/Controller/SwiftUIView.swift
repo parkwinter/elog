@@ -5,6 +5,8 @@
 //  Created by You Jong Park on 2021/09/26.
 //
 
+// https://github.com/simibac/ConfettiSwiftUI 참고함
+
 import SwiftUI
 import ConfettiSwiftUI
 
