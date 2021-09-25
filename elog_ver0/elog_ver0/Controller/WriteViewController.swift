@@ -11,6 +11,8 @@ import DropDown
 import BTNavigationDropdownMenu
 import FirebaseStorage
 import Firebase
+import SwiftUI
+import ConfettiSwiftUI
 
 class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
 
@@ -52,7 +54,17 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
 
         
     }
-
+    @IBAction func sentiment(_ sender: Any) {
+        print("감정알아보기 버튼 클릭했움")
+        let mySentiment = "p" // y or n or else
+        let swiftuiview = SwiftUIView(sentiment: mySentiment)
+        
+        let host = UIHostingController(rootView: swiftuiview)
+        navigationController?.pushViewController(host, animated: true)
+        
+        
+    }
+    
     //기존 저장! 버튼 (floaty 때문에 안먹음)
     @IBAction func onClick(_ sender: Any) {
         print("초기생성! 버튼 클릭하였습니당")
@@ -525,5 +537,6 @@ extension WriteViewController: AddImageDelegate {
     }
     
 }
+
 
 

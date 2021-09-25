@@ -25,7 +25,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fF8-PG-NVn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1Go-o6-Uob"/>
+                            <constraint firstItem="fF8-PG-NVn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="7MG-8K-hbM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fF8-PG-NVn" secondAttribute="bottom" constant="334.5" id="UXF-Vi-y3M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fF8-PG-NVn" secondAttribute="trailing" constant="129" id="Y9W-ep-IIW"/>
                             <constraint firstItem="fF8-PG-NVn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Yoe-PO-KWO"/>
+                            <constraint firstItem="fF8-PG-NVn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="324.5" id="vhD-BY-wty"/>
                         </constraints>
                     </view>
                 </viewController>

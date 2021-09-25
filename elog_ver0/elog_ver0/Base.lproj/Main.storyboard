@@ -321,6 +321,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="sentiment" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJG-9T-mSE">
+                                <rect key="frame" x="53" y="618" width="308" height="31"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="감정 알아보기~!"/>
+                                <connections>
+                                    <action selector="sentiment:" destination="HEK-q3-D57" eventType="touchUpInside" id="z3d-01-JQg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="m5b-qR-iJs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -328,6 +337,7 @@
                             <constraint firstItem="bWS-0f-a6I" firstAttribute="centerX" secondItem="m5b-qR-iJs" secondAttribute="centerX" id="1hw-WU-hRx"/>
                             <constraint firstItem="m5b-qR-iJs" firstAttribute="bottom" secondItem="bWS-0f-a6I" secondAttribute="bottom" constant="448" id="6wd-Nn-HMZ"/>
                             <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="gPw-3E-Kps" secondAttribute="trailing" constant="20" id="8zc-77-UC0"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="cJG-9T-mSE" secondAttribute="trailing" constant="53" id="AaI-Mh-zX7"/>
                             <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="3Lr-bR-guc" secondAttribute="trailing" constant="32" id="F4x-XD-kcx"/>
                             <constraint firstItem="bWS-0f-a6I" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="90" id="FEY-0V-D3E"/>
                             <constraint firstItem="m5b-qR-iJs" firstAttribute="trailing" secondItem="bWS-0f-a6I" secondAttribute="trailing" constant="67" id="HrS-2O-CvV"/>
@@ -338,10 +348,12 @@
                             <constraint firstItem="bWS-0f-a6I" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="67" id="QMm-kS-8YR"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="top" secondItem="xcz-oK-zQI" secondAttribute="bottom" constant="8" symbolic="YES" id="Tog-Nx-L5i"/>
                             <constraint firstItem="xcz-oK-zQI" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="20" id="Wst-31-gQa"/>
+                            <constraint firstItem="cJG-9T-mSE" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="53" id="fis-5n-6Fx"/>
                             <constraint firstItem="gPw-3E-Kps" firstAttribute="top" secondItem="m5b-qR-iJs" secondAttribute="top" constant="31" id="gW4-7G-mrv"/>
                             <constraint firstItem="3Lr-bR-guc" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="32" id="nDv-YI-uEn"/>
                             <constraint firstItem="HBi-ue-fLG" firstAttribute="leading" secondItem="m5b-qR-iJs" secondAttribute="leading" constant="20" id="v7P-Sz-kWn"/>
                             <constraint firstItem="3Lr-bR-guc" firstAttribute="top" secondItem="bWS-0f-a6I" secondAttribute="bottom" constant="23" id="wcR-1u-faW"/>
+                            <constraint firstItem="m5b-qR-iJs" firstAttribute="bottom" secondItem="cJG-9T-mSE" secondAttribute="bottom" constant="213" id="xFp-Hh-h0E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ggu-UB-ATb">
@@ -400,14 +412,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qyF-HP-zpS">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qyF-HP-zpS" id="NCU-z7-tMP">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neh-3K-b1B">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
