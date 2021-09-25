@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		53F1F8AC26CD3006007BB8FB /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */; };
 		53F1F8AE26CD3043007BB8FB /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AD26CD3043007BB8FB /* Int+Extension.swift */; };
 		76480DF826FF9555003CFB91 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DF726FF9555003CFB91 /* KakaoLogin.swift */; };
+		76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */; };
+		76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -51,6 +53,7 @@
 		53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		53F1F8AD26CD3043007BB8FB /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		76480DF726FF9555003CFB91 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
+		76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */,
 				D8DDC1EE2D481DC6302BC545 /* Pods_elog_ver0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +106,7 @@
 				76E9F84826520DB400CD1D9A /* SignViewController.swift */,
 				765D22D026C2EF7A00EAEF5B /* CreateViewController.swift */,
 				76A5A26026DBE501006BD153 /* ImagePickerController.swift */,
+				76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +227,9 @@
 			dependencies = (
 			);
 			name = elog_ver0;
+			packageProductDependencies = (
+				76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */,
+			);
 			productName = elog_ver0;
 			productReference = 76E9F82F2652050100CD1D9A /* elog_ver0.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +257,9 @@
 				Base,
 			);
 			mainGroup = 76E9F8262652050100CD1D9A;
+			packageReferences = (
+				76480DF926FFA073003CFB91 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = 76E9F8302652050100CD1D9A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */,
 				76E9F84D26521B5100CD1D9A /* WriteViewController.swift in Sources */,
 				53097CE226BABA6F006E7219 /* UserManager.swift in Sources */,
 				76A5A26126DBE501006BD153 /* ImagePickerController.swift in Sources */,
@@ -548,6 +560,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		76480DF926FFA073003CFB91 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76480DF926FFA073003CFB91 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 76E9F8272652050100CD1D9A /* Project object */;
 }
