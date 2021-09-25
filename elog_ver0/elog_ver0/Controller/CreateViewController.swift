@@ -291,8 +291,9 @@ extension CreateViewController: HSCycleGalleryViewDelegate {
         UserManger.shared.currentNote = note
 
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: "WritingsListViewController")
         let viewController = storyboard.instantiateViewController(withIdentifier: "WriteViewController")
-        navigationController?.pushViewController(viewController, animated: true)
+       navigationController?.pushViewController(viewController, animated: true)
     }
 
 }

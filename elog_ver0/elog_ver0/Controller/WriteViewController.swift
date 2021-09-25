@@ -16,6 +16,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
 
     let storage = Storage.storage()
     var fbURL : NSURL?
+    var downloadString : String?
     
     var floaty = Floaty()
     
@@ -296,7 +297,16 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
 //                //downloadImageFromCloud(imgView: self.imageView) 안됨 self explicit 어쩌구
 //                //downloadImageFromCloud()
 //            }
-            self.downloadImageFromCloud()
+//             self.downloadImageFromCloud()
+            
+            // MARK: 이미지 세팅
+            // https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/nocontentyet.png?alt=media&token=01c76203-040c-460e-bd7b-90d9669fa23f
+            print("하,,")
+            print(UserManger.shared.currentWriting?.img ?? "")
+            
+            self.imageView.imageFromServerURL2(urlString:UserManger.shared.currentWriting?.img  ?? "", PlaceHolderImage: UIImage(named:"nocontentyet" ))
+
+            //self.downloadImageFromCloud()
         }
         
         //downloadImageFromCloud()
@@ -309,26 +319,35 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         let noteId = note?.id
         let newWritings = textView.text ?? ""
         let content = newWritings
-        let img = changeImageUrl ?? ""
+        //let img = changeImageUrl ?? ""
+        let img = self.downloadString ?? ""
         
         print("putWritings func 에서 확인하기 : \(self.changeImageUrl) &&&&&& \(img)")
-       
-        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img , noteId: noteId!){  allWritings in
-            print("note에 글 추가 api 도착")
-            print("createWritings API 에 들어간 이미지는 : \(img)")
-            
-            
-//            self.loadWritings()
-        }
+        
         if img != "" {
             print("여기 이미지 저장할거라구요~")
             print(UserManger.shared.currentNote?.id)
             uploadImage2Cloud(img: self.changeImage!)
             
-            self.loadWritings()
-        } else {
+            //self.loadWritings()
+        }
+        
+        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content, img: img , noteId: noteId!){  allWritings in
+            print("note에 글 추가 api 도착")
+            print("createWritings API 에 들어간 이미지는 : \(img)")
+            
+            
             self.loadWritings()
         }
+//        if img != "" {
+//            print("여기 이미지 저장할거라구요~")
+//            print(UserManger.shared.currentNote?.id)
+//            uploadImage2Cloud(img: self.changeImage!)
+//
+//            self.loadWritings()
+//        } else {
+//            self.loadWritings()
+//        }
         
         //self.loadWritings()
     }
@@ -344,21 +363,28 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         let newWritings = textView.text ?? ""
         let content = newWritings
         
-        
-        let img = changeImageUrl ?? ""
+//        let img = self.downloadString ?? ""
+        //let img = changeImageUrl ?? ""
         
         print("api 호출 전 : \(writing?.content)")
         print("app content : \(content)")
+        
+        if (self.changeImage != nil){
+            uploadImage2Cloud(img: self.changeImage!)
+        }
+        let img = self.downloadString ?? ""
+        
         NetworkManager.updateWriting(postIdx: postIdx, content: content, title: title ?? "", subtitle: subtitle ?? "", img: img ){  allWritings in
             print("글 수정 api 도착")
             print(title!)
             print(subtitle!)
             print("수정후 바뀐 거는 : \(writing?.content)")
+            print("img느 \(img)")
         }
         
-        if (self.changeImage != nil){
-            uploadImage2Cloud(img: self.changeImage!)
-        }
+//        if (self.changeImage != nil){
+//            uploadImage2Cloud(img: self.changeImage!)
+//        }
         //uploadImage2Cloud(img: self.changeImage!)
 //            self?.loadWritings()
         }
@@ -406,6 +432,10 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         
         let filePath = String(UserManger.shared.currentNote!.id)
         let fbString = "gs://elog-d6ddd.appspot.com/\(filePath)"
+//    https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/90ocr?alt=media
+        
+        self.downloadString = "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/\(filePath)?alt=media"
+        
         self.fbURL = NSURL(string: fbString)
         
         let metaData = StorageMetadata()
@@ -426,7 +456,6 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         }
         
     }
-    
     
     func downloadImageFromCloud(){
         print("downloadImageFromCloud 함수 불러옴")
@@ -450,15 +479,17 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         }
         
         print(fbString)
+        self.downloadString = fbString
         storage.reference(forURL: fbString).downloadURL { [self] (url, error) in
             let data = NSData(contentsOf: url!)
-            
-            let image = UIImage(data: (data!) as Data)
+            print("download 한 이미지 url은 \(data)")
+            //let image = UIImage(data: (data!) as Data)
             //imgView.image = image
-            self.imageView.image = image
+            //self.imageView.image = image
         }
         
     }
+    
     
 }
 
