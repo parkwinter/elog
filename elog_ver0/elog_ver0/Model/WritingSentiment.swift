@@ -8,31 +8,13 @@
 import Foundation
 
 struct WritingSentiment: Codable {
-    let document: Document
-    let sentences: [Sentence]
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+    let result: Result2
 }
 
-// MARK: - Document
-struct Document: Codable {
-    let sentiment: String
-    let confidence: Confidence
-}
-
-// MARK: - Confidence
-struct Confidence: Codable {
-    let negative, positive, neutral: Double
-}
-
-// MARK: - Sentence
-struct Sentence: Codable {
-    let content: String
-    let offset, length: Int
-    let sentiment: String
-    let confidence: Confidence
-    let highlights: [Highlight]
-}
-
-// MARK: - Highlight
-struct Highlight: Codable {
-    let offset, length: Int
+// MARK: - Result
+struct Result2: Codable {
+    let mood: String
 }

@@ -342,10 +342,11 @@ class NetworkManager {
     }
     
     
-    static func getSentiment(content: String, completionHandler: @escaping (WritingSentiment?) -> Void) {
+    static func getSentiment(content: String, id: Int, completionHandler: @escaping (WritingSentiment?) -> Void) {
         
         //AF query string 찾아보기
-        let parameter: [String: String] = ["content": content]
+        let parameter: Parameters = ["content": content, "id" : id]
+        //let parameter2: [String: Int] = ["id" : id]
         
         AF.request(baseURL + "/app/sentiment",
                    method: .post,
@@ -357,10 +358,12 @@ class NetworkManager {
 //                let text = String(decoding: data, as: UTF8.self)
                 let sentiment = try? JSONDecoder().decode(WritingSentiment.self, from: data)
                 completionHandler(sentiment)
-                print("sentiment networkmanager에서 잘 받아왔습니다~ \(sentiment!.document.sentiment)")
+                //print("sentiment networkmanager에서 잘 받아왔습니다~ \(sentiment!.document.sentiment)")
                 //print(sentiment!.sentences.)
                 print("sentiment networkmanager에서 parameter \(parameter)")
-                UserManger.shared.currentSentiment = sentiment?.document.sentiment
+                
+                UserManger.shared.currentSentiment = sentiment?.result.mood
+                print("sentiment networkmanger에서 감정은 \(UserManger.shared.currentSentiment)")
 
             } else {
                 print("2")

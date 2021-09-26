@@ -59,7 +59,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         print("감정알아보기 버튼 클릭했움")
         
         if UserManger.shared.currentSentiment == nil {
-            getSentiment(content: self.textView.text)
+            getSentiment(content: self.textView.text, id: UserManger.shared.currentNote!.id)
         } else {
             let mySentiment2 = UserManger.shared.currentSentiment!
             print("버튼 클릭 시 감정이 있네여 \(mySentiment2)")
@@ -303,7 +303,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("loadWritings 에서 저장된 이미지는 \(UserManger.shared.currentWriting?.img)")
             
 //            self.getSentiment(content: UserManger.shared.currentWriting?.content ?? "")
-            self.getSentiment(content: self.textView.text ?? "")
+            self.getSentiment(content: self.textView.text ?? "", id: UserManger.shared.currentWriting!.id)
             print("감정감별에 들어간 텍스트는 \(self.textView.text)")
             //print("loadWritings의 sentiment는 \()")
             //print("저장된 이미지는 : \()")
@@ -455,15 +455,15 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
        // print(self.textView?.text)
     }
     
-    func getSentiment(content: String){
+    func getSentiment(content: String, id:Int){
         print("get sentiment 함수시작")
         
-        NetworkManager.getSentiment(content: content){ writingSentiment in
-            let sentimentResult = writingSentiment?.document
+        NetworkManager.getSentiment(content: content, id: id){ writingSentiment in
+            let sentimentResult = writingSentiment?.result
             
             print("받아온 감성 결과 값은")
             print(UserManger.shared.currentSentiment)
-            print(sentimentResult?.sentiment)
+            print(sentimentResult?.mood)
             
         }
         

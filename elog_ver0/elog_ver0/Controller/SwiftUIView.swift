@@ -43,7 +43,7 @@ struct SwiftUIView: View {
             } else {
                 VStack(spacing: 20) {
                 Text("😎").font(.system(size: 50)).onTapGesture(){counter += 1}
-                Text("글이 중정적이네요~")
+                Text("글이 중성적이네요~")
                 }
                 ConfettiCannon(counter: $counter, repetitions: 3, repetitionInterval: 0.5)
             }
