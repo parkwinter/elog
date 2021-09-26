@@ -65,10 +65,10 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
             print("버튼 클릭 시 감정이 있네여 \(mySentiment2)")
         }
         
-        let mySentiment = "p" // y or n or else
-        //let mySentiment2 = UserManger.shared.currentSentiment!
+        //let mySentiment = "y" // y or n or else
+        let mySentiment2 = UserManger.shared.currentSentiment!
         //print("감정알아보기 ~~~~~ \(mySentiment2)")
-        let swiftuiview = SwiftUIView(sentiment: mySentiment)
+        let swiftuiview = SwiftUIView(sentiment: mySentiment2)
         
         let host = UIHostingController(rootView: swiftuiview)
         navigationController?.pushViewController(host, animated: true)

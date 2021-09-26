@@ -37,6 +37,7 @@ class SignViewController: UIViewController {
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { [weak self] oauthToken, error in
                 if let error = error {
+                    print("설마 카카오 오류나냐ㅠㅠㅠㅠㅠㅠㅠㅠ")
                     print(error)
                     return
                 }
@@ -47,10 +48,14 @@ class SignViewController: UIViewController {
                 //do something
                 _ = oauthToken
                 print(oauthToken)
+                print("카카오 어세스토큰만 뽑아내기 : ")
+                print(oauthToken!.accessToken)
+                self?.getJWT(access: oauthToken!.accessToken)
             }
         } else {
             UserApi.shared.loginWithKakaoAccount { [weak self] oauthToken, error in
                 if let error = error {
+                    print("설마 카카오 오류나냐ㅠㅠㅠㅠㅠㅠㅠㅠ")
                     print(error)
                     return
                 }
@@ -60,11 +65,45 @@ class SignViewController: UIViewController {
 
                 //do something
                 _ = oauthToken
+                print(oauthToken)
+                print("카카오 어세스토큰만 뽑아내기 : ")
+                print(oauthToken!.accessToken)
+                self?.getJWT(access: oauthToken!.accessToken)
 
+                
+                 //노트조회 테스트 -> 안됨 -> 엥 성공
+                NetworkManager.getAllNoteTest(userId: "1") { allNoteTest in
+                   if let noteArray = allNoteTest?.result {
+                        print(noteArray[1].title)
+                    //은지노트라고 잘 받아옴
+                    }
+                }
+                
+        
+                //글 조회 테스트
+                NetworkManager.getAllWritings(noteIdx: 3) { AllWritings in
+                   if let writingsArray = AllWritings?.result {
+                    print("글 조회 : (ggggg) =")
+                    print(writingsArray[0].content)
+                   } else {
+                    print("글 조회 실패")
+                   }
+                }
             }
         }
     }
 
+    func getJWT(access : String?){
+        NetworkManager.login(access: access!) { kakaoLogin in
+            //let writings = allWritings?.result ?? []
+            let result = kakaoLogin?.result.jwt
+            
+            print("세영이한테 받아온 jwt : \(result!)")
+            UserManger.shared.kakaoJwt = result
+            
+        }
+    }
+    
     func updateUserInfo() {
         UserApi.shared.me { user, error in
             print("save user info")

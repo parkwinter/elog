@@ -19,7 +19,7 @@ struct SwiftUIView: View {
         ZStack{
             
             
-            if sentiment == "y"{
+            if sentiment == "positive"{
                 VStack(spacing: 20) {
                     Text("🥳").font(.system(size: 50)).onTapGesture(){counter += 1}
                     Text("글이 대체로 긍정적이네요~")
@@ -30,7 +30,7 @@ struct SwiftUIView: View {
                                repetitions: 30, repetitionInterval: 0.1)
             
             
-            } else if sentiment == "n" {
+            } else if sentiment == "negative" {
                 VStack(spacing: 20) {
                 Text("😢").font(.system(size: 50)).onTapGesture(){counter += 1}
                 Text("글이 대체로 부정적이네요~")

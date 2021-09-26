@@ -12,8 +12,9 @@ class NetworkManager {
 
     static let baseURL = "http://3.34.116.127"
 
-    static let syToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+    static var syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
     
+    static let kakaoAcessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
     
     static func getUserInfos(completionHandler: @escaping (Users?) -> Void) {
         // https://medium.com/@jgj455/%EC%98%A4%EB%8A%98%EC%9D%98-swift-%EC%83%81%EC%8B%9D-closure-aa401f76b7ce
@@ -35,9 +36,13 @@ class NetworkManager {
     }
 
     // TODO: postman 확인 후 수정해야 함
-    static func login(accessToken: String, completionHandler: @escaping (KakaoLogin?) -> Void) {
+    static func login(access: String, completionHandler: @escaping (KakaoLogin?) -> Void) {
         
-        AF.request(baseURL + "/app/login").response { response in // Closure
+        let parameter: [String: String] = ["access": access]
+        
+        AF.request(baseURL + "/app/login",
+                   method: .post,
+                   parameters: parameter).response { response in // Closure
             
             print(response.data?.toString() ?? "")
             
@@ -58,6 +63,7 @@ class NetworkManager {
 
         let parameter: [String: String] = ["title": title]
 
+        //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
         let headers = HTTPHeaders(["x-access-token": syToken])
@@ -86,8 +92,9 @@ class NetworkManager {
     static func editNote(title: String, img: String, noteId: Int,completionHandler: @escaping (NoteResponse?) -> Void) {
 
         let parameter: [String: String] = ["title": title, "img": img]
-
+       // let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+        
         let headers = HTTPHeaders(["x-access-token": syToken])
         
         
@@ -134,7 +141,7 @@ class NetworkManager {
     static func getAllNoteTest(userId: String, completionHandler: @escaping (AllNoteTest?) -> Void) {
         // http://3.34.116.127/app/notes?userId=1
         
-        
+       // let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         let headers = HTTPHeaders(["x-access-token": syToken])
         
@@ -162,7 +169,7 @@ class NetworkManager {
         // http://3.34.116.127/app/notes/:noteIdx/posts
         //3.34.116.127/app/notes/2/posts
         
-        
+        //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         let headers = HTTPHeaders(["x-access-token": syToken])
         
         //AF query string 찾아보기
@@ -188,7 +195,7 @@ class NetworkManager {
     static func createWritings(title: String, subtitle: String, content: String, img: String, noteId: Int, completionHandler: @escaping (NoteResponse?) -> Void) {
 
         let parameter: [String: String] = ["title": title, "subtitle": subtitle, "content": content, "img": img]
-
+        //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
         let headers = HTTPHeaders(["x-access-token": syToken])
@@ -217,7 +224,7 @@ class NetworkManager {
     static func deleteNote(noteIdx: Int, completionHandler: @escaping (NoteResponse?) -> Void) {
 
         let parameter: [String: Int] = ["noteIdx": noteIdx]
-
+        //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
         let headers = HTTPHeaders(["x-access-token": syToken])
@@ -245,7 +252,7 @@ class NetworkManager {
     static func updateWriting(postIdx: Int, content: String, title: String, subtitle: String, img: String, completionHandler: @escaping (NoteResponse?) -> Void) {
 
         let parameter: [String: String] = ["title": title, "subtitle": subtitle, "content": content, "img":img]
-
+        //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
         let headers = HTTPHeaders(["x-access-token": syToken])
@@ -301,7 +308,7 @@ class NetworkManager {
         let parameter: [String: String] = ["content": content]
         
         AF.request(baseURL + "/app/sentiment",
-                   method: .get,
+                   method: .post,
                    parameters: parameter).response { response in // Closure
             
             print(response.data?.toString() ?? "")

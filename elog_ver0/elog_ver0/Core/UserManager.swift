@@ -61,4 +61,6 @@ class UserManger {
     var currentWriting: Writing?
     
     var currentSentiment: String?
+    
+    var kakaoJwt : String?
 }
