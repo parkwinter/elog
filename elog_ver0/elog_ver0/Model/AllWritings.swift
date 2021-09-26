@@ -24,6 +24,7 @@ struct Writing: Codable {
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
         case title, subtitle, content, img, id
+        
     }
 }
 

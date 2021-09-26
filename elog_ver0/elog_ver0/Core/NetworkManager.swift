@@ -192,7 +192,7 @@ class NetworkManager {
             print(response.data?.toString() ?? "")
             
             if let data = response.data {
-                print("1")
+               // print("1")
 //                let text = String(decoding: data, as: UTF8.self)
                 let notes = try? JSONDecoder().decode(AllNoteTest.self, from: data)
                 completionHandler(notes)
@@ -212,15 +212,20 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
         
+        print("get all writings 에서 받은 accesstoken은 \(UserManger.shared.kakaoJwt)")
         //AF query string 찾아보기
         print(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts")
         AF.request(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts", headers: headers).response { response in // Closure
             
+            print("뭐야뭐야")
             print(response.data?.toString() ?? "")
             
             if let data = response.data {
 //                let text = String(decoding: data, as: UTF8.self)
+                print("함수에 들어가긴함")
                 let writings = try? JSONDecoder().decode(AllWritings.self, from: data)
+                //let writings = try? JSONDecoder().decode(AllWritings.self, from: data)
+                print(writings)
                 completionHandler(writings)
                 print("writings networkmanager에서 잘 받아왔습니다~")
 

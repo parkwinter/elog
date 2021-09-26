@@ -133,7 +133,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
     
         
         print("========================")
-        print(numOfwritings)
+        print(numOfwritings) //0
         
 //        if writings.count == 0 {
 //            textView.text="안녕! 무엇을 더 입력할까?"
@@ -272,6 +272,8 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         
         NetworkManager.getAllWritings(noteIdx: note!.id) { [weak self] allWritings in
             guard let self = self else { return }
+            let writings2 = allWritings?.result ?? []
+            print("아 제발\(writings2)")
             let writings = allWritings?.result ?? []
             self.writings = writings
             
@@ -336,6 +338,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             
             if writings.count == 0 {
                 UserManger.shared.currentWriting?.img =  ""
+                ("이제 막 노트 만들었니? 글이 없는 상태니?")
             }
             
             self.imageView.imageFromServerURL2(urlString:UserManger.shared.currentWriting?.img  ?? "", PlaceHolderImage: UIImage(named:"nocontentyet" ))
