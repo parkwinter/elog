@@ -17,9 +17,10 @@
 		53F1F8AC26CD3006007BB8FB /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */; };
 		53F1F8AE26CD3043007BB8FB /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AD26CD3043007BB8FB /* Int+Extension.swift */; };
 		76480DF826FF9555003CFB91 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DF726FF9555003CFB91 /* KakaoLogin.swift */; };
-		76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */; };
+		76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (Required, ); }; };
 		76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */; };
 		76480DFF26FFB8AE003CFB91 /* WritingSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */; };
+		76480E0C27008D6A003CFB91 /* Pods_elog_ver0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B660E802BB6BC2803E011F5 /* Pods_elog_ver0.framework */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -40,7 +41,6 @@
 		76E9F84926520DB400CD1D9A /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F84826520DB400CD1D9A /* SignViewController.swift */; };
 		76E9F84B265215A000CD1D9A /* CreateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F84A265215A000CD1D9A /* CreateDiaryViewController.swift */; };
 		76E9F84D26521B5100CD1D9A /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F84C26521B5100CD1D9A /* WriteViewController.swift */; };
-		D8DDC1EE2D481DC6302BC545 /* Pods_elog_ver0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B660E802BB6BC2803E011F5 /* Pods_elog_ver0.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,8 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76480E0C27008D6A003CFB91 /* Pods_elog_ver0.framework in Frameworks */,
 				76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */,
-				D8DDC1EE2D481DC6302BC545 /* Pods_elog_ver0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9D4WD29579;
 				INFOPLIST_FILE = elog_ver0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -67,7 +67,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         
         //let mySentiment = "y" // y or n or else
         let mySentiment2 = UserManger.shared.currentSentiment!
-        //print("감정알아보기 ~~~~~ \(mySentiment2)")
+        
         let swiftuiview = SwiftUIView(sentiment: mySentiment2)
         
         let host = UIHostingController(rootView: swiftuiview)
