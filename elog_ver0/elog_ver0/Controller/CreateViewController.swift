@@ -228,11 +228,12 @@ class CreateViewController: UIViewController {
             //"https://drive.google.com/uc?id=1wBAMRRLzhVV7Es-BD8_wKnDc7WFxNBB9",
             //"https://drive.google.com/uc?id=1MwEhpGozfcrfMB3-SkORM7DhhalA6z-e",
             //"https://drive.google.com/uc?id=1NtesUSbMTSHF31D150yyQfV5yFOS_ZqN",
+            "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note5.png?alt=media&token=e0f90629-212a-4885-b2f6-f5d1a7ebd8f3",
             "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note1.png?alt=media&token=4e478256-3418-4525-b786-cdfbe2162add",
             "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note2.png?alt=media&token=6b2f3be3-a2ca-4e53-bd61-9beea2cdc748",
             "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note3.png?alt=media&token=d686d533-c002-4d91-893e-4c1c3f5acfd1",
-            "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note44.png?alt=media&token=87a25a7c-05ac-4456-8171-4f3bf686d0e8",
-            "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note5.png?alt=media&token=e0f90629-212a-4885-b2f6-f5d1a7ebd8f3"
+            "https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/note44.png?alt=media&token=87a25a7c-05ac-4456-8171-4f3bf686d0e8"
+            
             //"https://drive.google.com/uc?id=1J3-xbc_3EZJqXStVWbGlfb-_4KmidSt1",
             //"https://drive.google.com/uc?id=15uZm6KadmbK9l5sY-qw1ApUC3PS9fAfN",
             //"https://www.dliflc.edu/wp-content/uploads/2018/11/book.jpg",

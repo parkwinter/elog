@@ -290,6 +290,8 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("전체 글 : \(writings)")
             print("content only : ")
             for i in 0..<writings.count{
+                
+                
                 print(writings[i].content)
                 print(writings[i].id)
 //                self.textView.text.append("\n" + writings[i].content)
@@ -303,7 +305,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print("loadWritings 에서 저장된 이미지는 \(UserManger.shared.currentWriting?.img)")
             
 //            self.getSentiment(content: UserManger.shared.currentWriting?.content ?? "")
-            self.getSentiment(content: self.textView.text ?? "", id: UserManger.shared.currentWriting!.id)
+            self.getSentiment(content: self.textView.text ?? "", id: UserManger.shared.currentWriting?.id ?? 0)
             print("감정감별에 들어간 텍스트는 \(self.textView.text)")
             //print("loadWritings의 sentiment는 \()")
             //print("저장된 이미지는 : \()")
@@ -331,6 +333,10 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             // https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/nocontentyet.png?alt=media&token=01c76203-040c-460e-bd7b-90d9669fa23f
             print("하,,")
             print(UserManger.shared.currentWriting?.content)
+            
+            if writings.count == 0 {
+                UserManger.shared.currentWriting?.img =  ""
+            }
             
             self.imageView.imageFromServerURL2(urlString:UserManger.shared.currentWriting?.img  ?? "", PlaceHolderImage: UIImage(named:"nocontentyet" ))
 
