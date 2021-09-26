@@ -46,7 +46,7 @@ class CreateViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
+        print("CreateViewWillAppear")
         loadNotes()
         
 
@@ -81,7 +81,7 @@ class CreateViewController: UIViewController {
         //self.pager.reloadData()
         
 
-                NetworkManager.getAllNoteTest(userId: "1") { [weak self] allNoteTest in
+                NetworkManager.getAllNoteTest() { [weak self] allNoteTest in
                     guard let self = self else { return }
                     let notes = allNoteTest?.result ?? []
                     self.notes = notes
@@ -93,7 +93,10 @@ class CreateViewController: UIViewController {
                     }
         
                     // 그 다음 reloadData 를 해줘야지만 ui가 갱신됩니다.
-                    self.pager.reloadData()
+                    if notes.count >= 1 {
+                        self.pager.reloadData()
+                    }
+                    //self.pager.reloadData()
         
                 }
 

@@ -43,7 +43,7 @@ class SignViewController: UIViewController {
                 }
 
                 print("loginWithKakaoTalk() success.")
-                self?.updateUserInfo()
+                //self?.updateUserInfo()
 
                 //do something
                 _ = oauthToken
@@ -51,6 +51,7 @@ class SignViewController: UIViewController {
                 print("카카오 어세스토큰만 뽑아내기 : ")
                 print(oauthToken!.accessToken)
                 self?.getJWT(access: oauthToken!.accessToken)
+                
             }
         } else {
             UserApi.shared.loginWithKakaoAccount { [weak self] oauthToken, error in
@@ -61,7 +62,7 @@ class SignViewController: UIViewController {
                 }
 
                 print("loginWithKakaoAccount() success.")
-                self?.updateUserInfo()
+                //self?.updateUserInfo()
 
                 //do something
                 _ = oauthToken
@@ -69,26 +70,26 @@ class SignViewController: UIViewController {
                 print("카카오 어세스토큰만 뽑아내기 : ")
                 print(oauthToken!.accessToken)
                 self?.getJWT(access: oauthToken!.accessToken)
-
                 
-                 //노트조회 테스트 -> 안됨 -> 엥 성공
-                NetworkManager.getAllNoteTest(userId: "1") { allNoteTest in
-                   if let noteArray = allNoteTest?.result {
-                        print(noteArray[1].title)
-                    //은지노트라고 잘 받아옴
-                    }
-                }
                 
-        
-                //글 조회 테스트
-                NetworkManager.getAllWritings(noteIdx: 3) { AllWritings in
-                   if let writingsArray = AllWritings?.result {
-                    print("글 조회 : (ggggg) =")
-                    print(writingsArray[0].content)
-                   } else {
-                    print("글 조회 실패")
-                   }
-                }
+//                 //노트조회 테스트 -> 안됨 -> 엥 성공
+//                NetworkManager.getAllNoteTest() { allNoteTest in
+//                   if let noteArray = allNoteTest?.result {
+//                        print(noteArray[1].title)
+//                    //은지노트라고 잘 받아옴
+//                    }
+//                }
+//                
+//
+//                //글 조회 테스트
+//                NetworkManager.getAllWritings(noteIdx: 3) { AllWritings in
+//                   if let writingsArray = AllWritings?.result {
+//                    print("글 조회 : (ggggg) =")
+//                    print(writingsArray[0].content)
+//                   } else {
+//                    print("글 조회 실패")
+//                   }
+//                }
             }
         }
     }
@@ -100,6 +101,7 @@ class SignViewController: UIViewController {
             
             print("세영이한테 받아온 jwt : \(result!)")
             UserManger.shared.kakaoJwt = result
+            self.enterCreateViewController()
             
         }
     }

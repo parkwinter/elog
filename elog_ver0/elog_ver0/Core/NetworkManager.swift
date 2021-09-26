@@ -12,7 +12,9 @@ class NetworkManager {
 
     static let baseURL = "http://3.34.116.127"
 
-    static var syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+//    static var syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+    
+    
     
     static let kakaoAcessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
     
@@ -51,6 +53,17 @@ class NetworkManager {
                 let kakaoInfo = try? JSONDecoder().decode(KakaoLogin.self, from: data)
                 completionHandler(kakaoInfo)
                 print("kakaoLogin networkmanager에서 잘 받아왔습니다~")
+//                syToken = kakaoInfo?.result.jwt
+                guard let kakaoInfo = kakaoInfo else {
+                    UserManger.shared.kakaoJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+                    return
+                    
+                }
+//                if let kakaoInfo.result.jwt != nil {
+//
+//                }
+                UserManger.shared.kakaoJwt = kakaoInfo.result.jwt
+                print("usermanager shared kakao jwt : \(UserManger.shared.kakaoJwt)")
 
             } else {
                 print("2")
@@ -66,7 +79,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt!])
        
         
         AF.request(baseURL + "/app/note" ,
@@ -95,7 +108,7 @@ class NetworkManager {
        // let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt!])
         
         
         AF.request(baseURL + "/app/note" + "?noteIdx=\(noteId)",
@@ -138,17 +151,44 @@ class NetworkManager {
 //    }
 
     
-    static func getAllNoteTest(userId: String, completionHandler: @escaping (AllNoteTest?) -> Void) {
+//    static func getAllNoteTest(userId: String, completionHandler: @escaping (AllNoteTest?) -> Void) {
+//        // http://3.34.116.127/app/notes?userId=1
+//
+//       // let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+//        // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+//        let headers = HTTPHeaders(["x-access-token": syToken])
+//
+//        //AF query string 찾아보기
+//        print(baseURL + "/app/notes" + "?userId=\(userId)")
+//        AF.request(baseURL + "/app/notes" + "?userId=\(userId)", headers: headers).response { response in // Closure
+//
+//            print(response.data?.toString() ?? "")
+//
+//            if let data = response.data {
+//                print("1")
+////                let text = String(decoding: data, as: UTF8.self)
+//                let notes = try? JSONDecoder().decode(AllNoteTest.self, from: data)
+//                completionHandler(notes)
+//
+//            } else {
+//                print("2")
+//                completionHandler(nil)
+//            }
+//        }
+//    }
+    static func getAllNoteTest( completionHandler: @escaping (AllNoteTest?) -> Void) {
         // http://3.34.116.127/app/notes?userId=1
         
        // let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
         
         //AF query string 찾아보기
-        print(baseURL + "/app/notes" + "?userId=\(userId)")
-        AF.request(baseURL + "/app/notes" + "?userId=\(userId)", headers: headers).response { response in // Closure
-            
+        print(baseURL + "/app/notes")
+        print(UserManger.shared.kakaoJwt)
+        
+        AF.request(baseURL + "/app/notes", headers: headers).response { response in // Closure
+            print("getAllNoteTest headers : \(headers) ")
             print(response.data?.toString() ?? "")
             
             if let data = response.data {
@@ -170,7 +210,7 @@ class NetworkManager {
         //3.34.116.127/app/notes/2/posts
         
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
         
         //AF query string 찾아보기
         print(baseURL + "/app/notes/" + "\(noteIdx)" + "/posts")
@@ -198,7 +238,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt!])
        
         
         AF.request(baseURL + "/app/post" + "?noteId=\(noteId)",
@@ -227,7 +267,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
        
         
         AF.request(baseURL + "/app/note" + "/\(noteIdx)" + "/status",
@@ -255,7 +295,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": syToken])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
        
         
         AF.request(baseURL + "/app/posts" + "/\(postIdx)" ,
