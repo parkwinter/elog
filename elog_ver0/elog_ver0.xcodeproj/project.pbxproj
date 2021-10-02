@@ -21,6 +21,7 @@
 		76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */; };
 		76480DFF26FFB8AE003CFB91 /* WritingSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */; };
 		76480E0C27008D6A003CFB91 /* Pods_elog_ver0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B660E802BB6BC2803E011F5 /* Pods_elog_ver0.framework */; };
+		76480E1127086103003CFB91 /* WritingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480E1027086103003CFB91 /* WritingListViewController.swift */; };
 		76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF62656F89700F3FDB1 /* MenuViewController.swift */; };
 		76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */; };
 		76558EFB26592F1E00F3FDB1 /* MonthlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */; };
@@ -56,6 +57,7 @@
 		76480DF726FF9555003CFB91 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
 		76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingSentiment.swift; sourceTree = "<group>"; };
+		76480E1027086103003CFB91 /* WritingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingListViewController.swift; sourceTree = "<group>"; };
 		76558EF62656F89700F3FDB1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		76558EF82656FE6500F3FDB1 /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				76E9F8362652050100CD1D9A /* ViewController.swift */,
+				76480E1027086103003CFB91 /* WritingListViewController.swift */,
 				76558EFA26592F1E00F3FDB1 /* MonthlyViewController.swift */,
 				76558EF62656F89700F3FDB1 /* MenuViewController.swift */,
 				76E9F84C26521B5100CD1D9A /* WriteViewController.swift */,
@@ -359,6 +362,7 @@
 				5397E57026C8C4BC00E63679 /* AllNoteResponse.swift in Sources */,
 				5326D0C126D0A05400EF62E8 /* Data+Extension.swift in Sources */,
 				5326D0C326D0B26100EF62E8 /* UIViewController+Extension.swift in Sources */,
+				76480E1127086103003CFB91 /* WritingListViewController.swift in Sources */,
 				53F1F8AC26CD3006007BB8FB /* UIImageView+Kingfisher.swift in Sources */,
 				76E9F84926520DB400CD1D9A /* SignViewController.swift in Sources */,
 			);

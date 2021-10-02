@@ -24,7 +24,7 @@ class NetworkManager {
 
         AF.request(baseURL + "/app/users").response { response in // Closure
 
-            print(response.data?.toString() ?? "")
+            //print(response.data?.toString() ?? "")
             if let data = response.data {
 //                let text = String(decoding: data, as: UTF8.self)
                 let users = try? JSONDecoder().decode(Users.self, from: data)
@@ -184,7 +184,7 @@ class NetworkManager {
         let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
         
         //AF query string 찾아보기
-        print(baseURL + "/app/notes")
+        //print(baseURL + "/app/notes")
         print(UserManger.shared.kakaoJwt)
         
         AF.request(baseURL + "/app/notes", headers: headers).response { response in // Closure

@@ -337,7 +337,10 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print(UserManger.shared.currentWriting?.content)
             
             if writings.count == 0 {
-                UserManger.shared.currentWriting?.img =  ""
+                //UserManger.shared.currentWriting?.img =  ""
+                //위에꺼 지우면 이미지 처리 문제생김
+                // 안지우면 writing 받아올 때 img let이어서 빨간 줄
+                // img var 로 바꾸면 글 못 받아오
                 ("이제 막 노트 만들었니? 글이 없는 상태니?")
             }
             
