@@ -51,11 +51,14 @@ class WritingListViewController: UIViewController {
 
 
     func loadWritings(){
+        print("view will appear loadWritings함수 호출")
+        print(self.note?.title)
+        
         NetworkManager.getAllWritings(noteIdx: note!.id){ [weak self] allWritings in
             guard let self = self else { return }
             let writings = allWritings?.result ?? []
             self.writings = writings
-            print("writings 시발 갯수는~ \(self.writings.count)")
+            print("writings 갯수는~ \(self.writings.count)")
         }
         
         print("writings 갯수는~ \(self.writings.count)")
