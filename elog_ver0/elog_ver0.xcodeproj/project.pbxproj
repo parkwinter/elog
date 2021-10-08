@@ -15,10 +15,13 @@
 		53513735271051BB00F93160 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53513734271051BB00F93160 /* GoogleService-Info.plist */; };
 		5397E56E26C8BA3800E63679 /* NoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5397E56D26C8BA3800E63679 /* NoteResponse.swift */; };
 		5397E57026C8C4BC00E63679 /* AllNoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */; };
+		53D43817271064EC00DA5B66 /* RoundedCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D43813271064EC00DA5B66 /* RoundedCross.swift */; };
+		53D43818271064EC00DA5B66 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D43814271064EC00DA5B66 /* Triangle.swift */; };
+		53D43819271064EC00DA5B66 /* SlimRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D43815271064EC00DA5B66 /* SlimRectangle.swift */; };
+		53D4381A271064EC00DA5B66 /* ConfettiSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D43816271064EC00DA5B66 /* ConfettiSwiftUI.swift */; };
 		53F1F8AC26CD3006007BB8FB /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */; };
 		53F1F8AE26CD3043007BB8FB /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AD26CD3043007BB8FB /* Int+Extension.swift */; };
 		76480DF826FF9555003CFB91 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DF726FF9555003CFB91 /* KakaoLogin.swift */; };
-		76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (Required, ); }; };
 		76480DFD26FFA2C5003CFB91 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFC26FFA2C5003CFB91 /* SwiftUIView.swift */; };
 		76480DFF26FFB8AE003CFB91 /* WritingSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76480DFE26FFB8AE003CFB91 /* WritingSentiment.swift */; };
 		76480E0C27008D6A003CFB91 /* Pods_elog_ver0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B660E802BB6BC2803E011F5 /* Pods_elog_ver0.framework */; };
@@ -44,6 +47,19 @@
 		76E9F84D26521B5100CD1D9A /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F84C26521B5100CD1D9A /* WriteViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		53D4380E2710642900DA5B66 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		53097CE126BABA6F006E7219 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		53097CE826BABF4C006E7219 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -53,6 +69,10 @@
 		53513734271051BB00F93160 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5397E56D26C8BA3800E63679 /* NoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteResponse.swift; sourceTree = "<group>"; };
 		5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoteResponse.swift; sourceTree = "<group>"; };
+		53D43813271064EC00DA5B66 /* RoundedCross.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCross.swift; sourceTree = "<group>"; };
+		53D43814271064EC00DA5B66 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		53D43815271064EC00DA5B66 /* SlimRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimRectangle.swift; sourceTree = "<group>"; };
+		53D43816271064EC00DA5B66 /* ConfettiSwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiSwiftUI.swift; sourceTree = "<group>"; };
 		53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		53F1F8AD26CD3043007BB8FB /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		76480DF726FF9555003CFB91 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
@@ -91,7 +111,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76480E0C27008D6A003CFB91 /* Pods_elog_ver0.framework in Frameworks */,
-				76480DFB26FFA073003CFB91 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +171,41 @@
 			path = Core/Cell;
 			sourceTree = "<group>";
 		};
+		53D4380F271064D400DA5B66 /* ConfettiSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				53D43810271064EC00DA5B66 /* Sources */,
+			);
+			path = ConfettiSwiftUI;
+			sourceTree = "<group>";
+		};
+		53D43810271064EC00DA5B66 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				53D43811271064EC00DA5B66 /* ConfettiSwiftUI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		53D43811271064EC00DA5B66 /* ConfettiSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				53D43812271064EC00DA5B66 /* Shapes */,
+				53D43816271064EC00DA5B66 /* ConfettiSwiftUI.swift */,
+			);
+			path = ConfettiSwiftUI;
+			sourceTree = "<group>";
+		};
+		53D43812271064EC00DA5B66 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				53D43813271064EC00DA5B66 /* RoundedCross.swift */,
+				53D43814271064EC00DA5B66 /* Triangle.swift */,
+				53D43815271064EC00DA5B66 /* SlimRectangle.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		53F1F8AA26CD2FF0007BB8FB /* extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +251,7 @@
 				53097CE526BABEE8006E7219 /* Controller */,
 				5397E57626C8D2F400E63679 /* Cell */,
 				76E9F8342652050100CD1D9A /* SceneDelegate.swift */,
+				53D4380F271064D400DA5B66 /* ConfettiSwiftUI */,
 				76E9F8382652050100CD1D9A /* Main.storyboard */,
 				76E9F83B2652050200CD1D9A /* Assets.xcassets */,
 				76E9F83D2652050200CD1D9A /* LaunchScreen.storyboard */,
@@ -227,6 +282,7 @@
 				76E9F82C2652050100CD1D9A /* Frameworks */,
 				76E9F82D2652050100CD1D9A /* Resources */,
 				10BDF8BE5890D8367728E362 /* [CP] Embed Pods Frameworks */,
+				53D4380E2710642900DA5B66 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,7 +290,6 @@
 			);
 			name = elog_ver0;
 			packageProductDependencies = (
-				76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */,
 			);
 			productName = elog_ver0;
 			productReference = 76E9F82F2652050100CD1D9A /* elog_ver0.app */;
@@ -355,14 +410,18 @@
 				76558EF72656F89700F3FDB1 /* MenuViewController.swift in Sources */,
 				76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */,
 				765D22D126C2EF7A00EAEF5B /* CreateViewController.swift in Sources */,
+				53D43819271064EC00DA5B66 /* SlimRectangle.swift in Sources */,
 				765D22DB26CEE2A400EAEF5B /* AllNoteTest.swift in Sources */,
 				76A5A26926FB717C006BD153 /* ImageOcr.swift in Sources */,
 				76558EF92656FE6500F3FDB1 /* SlideInTransition.swift in Sources */,
 				76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */,
+				53D4381A271064EC00DA5B66 /* ConfettiSwiftUI.swift in Sources */,
 				5397E57026C8C4BC00E63679 /* AllNoteResponse.swift in Sources */,
 				5326D0C126D0A05400EF62E8 /* Data+Extension.swift in Sources */,
+				53D43817271064EC00DA5B66 /* RoundedCross.swift in Sources */,
 				5326D0C326D0B26100EF62E8 /* UIViewController+Extension.swift in Sources */,
 				76480E1127086103003CFB91 /* WritingListViewController.swift in Sources */,
+				53D43818271064EC00DA5B66 /* Triangle.swift in Sources */,
 				53F1F8AC26CD3006007BB8FB /* UIImageView+Kingfisher.swift in Sources */,
 				76E9F84926520DB400CD1D9A /* SignViewController.swift in Sources */,
 			);
@@ -513,13 +572,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9D4WD29579;
+				DEVELOPMENT_TEAM = 6394U65F42;
 				INFOPLIST_FILE = elog_ver0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youjong.elog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.elog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,13 +593,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9D4WD29579;
+				DEVELOPMENT_TEAM = 6394U65F42;
 				INFOPLIST_FILE = elog_ver0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youjong.elog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.elog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -580,14 +639,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		76480DFA26FFA073003CFB91 /* ConfettiSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 76480DF926FFA073003CFB91 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
-			productName = ConfettiSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 76E9F8272652050100CD1D9A /* Project object */;
 }

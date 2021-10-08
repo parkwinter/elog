@@ -67,12 +67,12 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         if UserManger.shared.currentSentiment == nil {
             getSentiment(content: self.textView.text, id: UserManger.shared.currentNote!.id)
         } else {
-            let mySentiment2 = UserManger.shared.currentSentiment!
+            let mySentiment2 = UserManger.shared.currentSentiment ?? ""
             print("버튼 클릭 시 감정이 있네여 \(mySentiment2)")
         }
         
         //let mySentiment = "y" // y or n or else
-        let mySentiment2 = UserManger.shared.currentSentiment!
+        let mySentiment2 = UserManger.shared.currentSentiment ?? ""
         
         let swiftuiview = SwiftUIView(sentiment: mySentiment2)
         
