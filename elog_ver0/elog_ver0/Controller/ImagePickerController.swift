@@ -31,7 +31,7 @@ class ImagePickerController: UIViewController{
     
     @IBOutlet weak var imageView2: UIImageView!
     let vcbefore = WriteViewController()
-        
+
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
@@ -47,13 +47,13 @@ class ImagePickerController: UIViewController{
 
         
         
-       //photoL()
+        //photoL()
 
         // Do any additional setup after loading the view.
     }
 
     @objc func imageTapped(sender: UITapGestureRecognizer) {
-//         Your action
+        //         Your action
         print("image tapped")
         photoL()
         
@@ -61,30 +61,61 @@ class ImagePickerController: UIViewController{
     
     @IBAction func btn1onClick(_ sender: Any) {
         print("btn1onClick (그대로 버튼)")
-//        vcbefore.imageView?.image = imageView2.image
+        //        vcbefore.imageView?.image = imageView2.image
+
+        guard let imageURL = imageURL,
+              let image = imageView2.image else {
+
+                  let alertViewController = UIAlertController(title: "이미지가 없습니다.", message: "손가락을 눌러서 이미지를 추가해주세요.", preferredStyle: .alert)
+                  alertViewController.addAction(.init(title: "OK", style: .default))
+                  present(alertViewController, animated: true)
+                  return
+
+              }
+        vcbefore.onUserAction(data: imageURL)
+        vcbefore.onUserAction2(data: image)
         
-        vcbefore.onUserAction(data: self.imageURL!)
-        vcbefore.onUserAction2(data: imageView2.image!)
-        
-//        guard let pvc = self.presentingViewController else { return }
-//
-//        self.dismiss(animated: true) {
-//            self.present(WriteViewController(), animated: true, completion: nil)
-//        }
-        print("다시한번 이미지 유알엘은~ \(self.imageURL!)")
-        delegate?.addImage(image: imageView2.image!, data: self.imageURL!)
+        //        guard let pvc = self.presentingViewController else { return }
+        //
+        //        self.dismiss(animated: true) {
+        //            self.present(WriteViewController(), animated: true, completion: nil)
+        //        }
+        print("다시한번 이미지 유알엘은~ \(imageURL)")
+        delegate?.addImage(image: image, data: imageURL)
         
     }
     
     @IBAction func btn2onClick(_ sender: Any) {
+
+        guard let image = imageView2.image else {
+
+            let alertViewController = UIAlertController(title: "이미지가 없습니다.", message: "손가락을 눌러서 이미지를 추가해주세요.", preferredStyle: .alert)
+            alertViewController.addAction(.init(title: "OK", style: .default))
+            present(alertViewController, animated: true)
+            return
+
+        }
+
         print("btn2onClick (photoEditor 버튼)")
-        photoEditor(self.imageView2.image!, editModel: self.resultImageEditModel)
+        photoEditor(image, editModel: self.resultImageEditModel)
     }
     
     @IBAction func btn3onClick(_ sender: Any) {
+
+
+        guard let imageURL = imageURL,
+              let image = imageView2.image else {
+
+                  let alertViewController = UIAlertController(title: "이미지가 없습니다.", message: "손가락을 눌러서 이미지를 추가해주세요.", preferredStyle: .alert)
+                  alertViewController.addAction(.init(title: "OK", style: .default))
+                  present(alertViewController, animated: true)
+                  return
+
+              }
+
         print("btn3onClick (ocr 버튼)")
         //fb 업로드 & url 가져온 후
-        uploadImage2Cloud(img: self.imageView2.image!)
+        uploadImage2Cloud(img: image)
         print("여기서~~~~~\(self.ocrURL)" ) // nil 로 받아옴 왜냐면 위에 함수 시간이 너무 오래걸려서ㅠ
         //ocr(imageURL: <#T##String#>)
     }
@@ -108,7 +139,7 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
 
             imageView2.image = image
             
-//            vc.imageView!.image = imagevc.imageView?.image = image
+            //            vc.imageView!.image = imagevc.imageView?.image = image
             
             
         }
@@ -116,8 +147,8 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
         
         if let imageUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{
             
-                     print("image url : \(imageUrl) ")
-           
+            print("image url : \(imageUrl) ")
+
             var myurl: NSURL
             myurl = imageUrl as NSURL
             let urlString: String = myurl.absoluteString!
