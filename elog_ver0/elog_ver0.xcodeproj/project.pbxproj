@@ -12,6 +12,7 @@
 		53097CEB26BACA45006E7219 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53097CEA26BACA45006E7219 /* Users.swift */; };
 		5326D0C126D0A05400EF62E8 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326D0C026D0A05400EF62E8 /* Data+Extension.swift */; };
 		5326D0C326D0B26100EF62E8 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326D0C226D0B26100EF62E8 /* UIViewController+Extension.swift */; };
+		53513735271051BB00F93160 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53513734271051BB00F93160 /* GoogleService-Info.plist */; };
 		5397E56E26C8BA3800E63679 /* NoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5397E56D26C8BA3800E63679 /* NoteResponse.swift */; };
 		5397E57026C8C4BC00E63679 /* AllNoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */; };
 		53F1F8AC26CD3006007BB8FB /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */; };
@@ -31,7 +32,6 @@
 		765D22DB26CEE2A400EAEF5B /* AllNoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22DA26CEE2A400EAEF5B /* AllNoteTest.swift */; };
 		765D22DF26D407BB00EAEF5B /* AllWritings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D22DE26D407BB00EAEF5B /* AllWritings.swift */; };
 		76A5A26126DBE501006BD153 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A5A26026DBE501006BD153 /* ImagePickerController.swift */; };
-		76A5A26526F19D4B006BD153 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76A5A26426F19D4B006BD153 /* GoogleService-Info.plist */; };
 		76A5A26926FB717C006BD153 /* ImageOcr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A5A26826FB717C006BD153 /* ImageOcr.swift */; };
 		76E9F8332652050100CD1D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8322652050100CD1D9A /* AppDelegate.swift */; };
 		76E9F8352652050100CD1D9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E9F8342652050100CD1D9A /* SceneDelegate.swift */; };
@@ -50,6 +50,7 @@
 		53097CEA26BACA45006E7219 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		5326D0C026D0A05400EF62E8 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		5326D0C226D0B26100EF62E8 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		53513734271051BB00F93160 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5397E56D26C8BA3800E63679 /* NoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteResponse.swift; sourceTree = "<group>"; };
 		5397E56F26C8C4BC00E63679 /* AllNoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoteResponse.swift; sourceTree = "<group>"; };
 		53F1F8AB26CD3006007BB8FB /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		765D22DA26CEE2A400EAEF5B /* AllNoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNoteTest.swift; sourceTree = "<group>"; };
 		765D22DE26D407BB00EAEF5B /* AllWritings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllWritings.swift; sourceTree = "<group>"; };
 		76A5A26026DBE501006BD153 /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
-		76A5A26426F19D4B006BD153 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76A5A26826FB717C006BD153 /* ImageOcr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOcr.swift; sourceTree = "<group>"; };
 		76E9F82F2652050100CD1D9A /* elog_ver0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elog_ver0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E9F8322652050100CD1D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 				76E9F83B2652050200CD1D9A /* Assets.xcassets */,
 				76E9F83D2652050200CD1D9A /* LaunchScreen.storyboard */,
 				76E9F8402652050200CD1D9A /* Info.plist */,
-				76A5A26426F19D4B006BD153 /* GoogleService-Info.plist */,
+				53513734271051BB00F93160 /* GoogleService-Info.plist */,
 			);
 			path = elog_ver0;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			files = (
 				76E9F83F2652050200CD1D9A /* LaunchScreen.storyboard in Resources */,
 				765D22D926C2FB6D00EAEF5B /* PagerCell.xib in Resources */,
-				76A5A26526F19D4B006BD153 /* GoogleService-Info.plist in Resources */,
+				53513735271051BB00F93160 /* GoogleService-Info.plist in Resources */,
 				76E9F83C2652050200CD1D9A /* Assets.xcassets in Resources */,
 				76E9F83A2652050100CD1D9A /* Main.storyboard in Resources */,
 			);
