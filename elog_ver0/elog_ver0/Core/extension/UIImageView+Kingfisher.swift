@@ -8,13 +8,11 @@
 import UIKit
 import Kingfisher
 
-
-
 extension UIImageView {
-    func imageFromServerURL(urlString: String, PlaceHolderImage: UIImage? = nil) {
+    func imageFromServerURL(urlString: String, placeHolderImage: UIImage? = nil) {
 
         if self.image == nil {
-            self.image = PlaceHolderImage
+            self.image = placeHolderImage
             return
         }
 
@@ -37,10 +35,10 @@ extension UIImageView {
         //}.resume()
     }
     
-    func imageFromServerURL2(urlString: String, PlaceHolderImage: UIImage? = nil) {
+    func imageFromServerURL2(urlString: String, placeHolderImage: UIImage? = nil) {
 
         if urlString == "" {
-            self.image = PlaceHolderImage
+            self.image = placeHolderImage
             print("킹피셔에 이미지 비어있어서 nocontentyet으로 채움")
             return
         }
@@ -54,7 +52,8 @@ extension UIImageView {
         let url = URL(string: urlString)
         
         print("내가 킹피셔로 세팅할 이미지는 \(url!)")
-        self.kf.setImage(with: url!)
+        self.kf.indicatorType = .activity
+        self.kf.setImage(with: url!, placeholder: placeHolderImage)
         
 //        URLSession.shared.dataTask(with: url) { data, response, error in
 //            if error != nil {

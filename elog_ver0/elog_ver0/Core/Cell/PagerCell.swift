@@ -20,7 +20,7 @@ class PagerCell: UICollectionViewCell {
     }
 
     func setImage(url: String) {
-        imageView.imageFromServerURL(urlString: url, PlaceHolderImage: nil)
+        imageView.imageFromServerURL(urlString: url, placeHolderImage: nil)
     }
 
     @IBAction func titleButtonTapped(_ sender: Any) {

@@ -14,6 +14,7 @@ import Firebase
 import SwiftUI
 import ConfettiSwiftUI
 import simd
+import Kingfisher
 
 class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
 
@@ -357,7 +358,8 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             
             self.imageView
                 .imageFromServerURL2(urlString: UserManger.shared.currentWriting?.img ?? "",
-                                     PlaceHolderImage: UIImage(named:"nocontentyet"))
+                                     placeHolderImage: UIImage(named:"nocontentyet"))
+
 
             //self.downloadImageFromCloud()
         }
@@ -442,7 +444,12 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             print(subtitle!)
             print("수정후 바뀐 거는 : \(writing?.content)")
             print("img느 \(img)")
-            
+
+
+            // URL 주소가 이전 이미지랑 동일해서, 캐싱되고 있어서, 이미지 로딩이 기존 이미지로 되는 문제가 있어서,
+            // 이 URL에 대해서만 캐시를 제거함.
+            KingfisherManager.shared.cache.removeImage(forKey: imageURL)
+
             //self.getSentiment(content: content)
         }
         
