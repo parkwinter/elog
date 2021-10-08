@@ -55,6 +55,11 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
 
         
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     @IBAction func sentiment(_ sender: Any) {
         print("감정알아보기 버튼 클릭했움")
         
