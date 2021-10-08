@@ -105,11 +105,17 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
     @IBAction func didTapSave(_ sender: Any) {
         print("저장버튼 클릭되었습니다.")
         let newWritings = textView.text ?? ""
-        let newImage = changeImageUrl ?? ""
-        print(newWritings)
-        
-        
-        updateWritings(content: newWritings, title: "1", subtitle: "newSubtitle", img: newImage)
+
+        print("didTapSave() - newWritings: \(newWritings)")
+
+        let imageString: String
+        if let changeImageUrl = changeImageUrl, !changeImageUrl.isEmpty {
+            imageString = changeImageUrl
+        } else {
+            imageString = UserManger.shared.currentWriting?.img ?? ""
+        }
+
+        updateWritings(content: newWritings, title: "1", subtitle: "newSubtitle", img: imageString)
         //updateImageWritings(change: newImage)
         
         let alert = UIAlertController(title: "저장 완료~!", message: "",
@@ -287,16 +293,16 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             self.numOfwritings = writings.count
             
             if writings.count == 0 {
-                self.textView.text="안녕! 무엇을 더 입력할까?\n"
+                self.textView.text = "안녕! 무엇을 더 입력할까?\n"
             } else {
-                self.textView?.text=""
+                self.textView?.text = ""
             }
     //        textView.text="안녕! 무엇을 더 입력할까?"
 //            self.textView.text.append("\n\n")
             
             print("전체 글 : \(writings)")
             print("content only : ")
-            for i in 0..<writings.count{
+            for i in 0..<writings.count {
                 
                 
                 print(writings[i].content)
@@ -349,7 +355,9 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                 ("이제 막 노트 만들었니? 글이 없는 상태니?")
             }
             
-            self.imageView.imageFromServerURL2(urlString:UserManger.shared.currentWriting?.img  ?? "", PlaceHolderImage: UIImage(named:"nocontentyet" ))
+            self.imageView
+                .imageFromServerURL2(urlString: UserManger.shared.currentWriting?.img ?? "",
+                                     PlaceHolderImage: UIImage(named:"nocontentyet"))
 
             //self.downloadImageFromCloud()
         }
@@ -414,13 +422,21 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         
         print("api 호출 전 : \(writing?.content)")
         print("app content : \(content)")
-        
-        if (self.changeImage != nil){
-            uploadImage2Cloud(img: self.changeImage!)
+
+        let imageURL: String
+        if let changeImage = self.changeImage {
+            uploadImage2Cloud(img: changeImage)
+            imageURL = downloadString ?? UserManger.shared.currentWriting?.img ?? ""
+        } else {
+            imageURL = UserManger.shared.currentWriting?.img ?? ""
+
         }
-        let img = self.downloadString ?? ""
-        
-        NetworkManager.updateWriting(postIdx: postIdx, content: content, title: title ?? "", subtitle: subtitle ?? "", img: img ){  allWritings in
+
+        NetworkManager.updateWriting(postIdx: postIdx,
+                                     content: content,
+                                     title: title ?? "",
+                                     subtitle: subtitle ?? "",
+                                     img: imageURL) {  allWritings in
             print("글 수정 api 도착")
             print(title!)
             print(subtitle!)
