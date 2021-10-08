@@ -20,7 +20,7 @@ struct Writing: Codable {
     let createdAt, title, subtitle, content, img: String
     
     let id, noteID: Int
-    let mood: String
+    let mood: String?
     
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
