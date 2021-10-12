@@ -29,7 +29,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
 
     var note: Note? = UserManger.shared.currentNote
     var writings : [Writing] = []
-    
+    var currentWriting : Writing? = UserManger.shared.currentWriting
     
     var numOfwritings = 0
     
@@ -303,16 +303,17 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             
             print("전체 글 : \(writings)")
             print("content only : ")
-            for i in 0..<writings.count {
-                
-                
-                print(writings[i].content)
-                print(writings[i].id)
-//                self.textView.text.append("\n" + writings[i].content)
-                self.textView?.text.append(writings[i].content)
-                //self.textView?.text.append(writings[i].img)
-                UserManger.shared.currentWriting = writings[i]
-                }
+            print("\(self.currentWriting?.content)")
+            self.textView?.text.append(self.currentWriting?.content ?? "")
+//            for i in 0..<writings.count {
+//
+//
+//                print(writings[i].content)
+//                print(writings[i].id)
+//                self.textView?.text.append(writings[i].content)
+//
+//                UserManger.shared.currentWriting = writings[i]
+//                }
         
             
             print("loadWritings 에서 저장된 이미지는 \(self.changeImageUrl ?? "")")
