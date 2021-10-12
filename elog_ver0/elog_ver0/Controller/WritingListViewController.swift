@@ -59,6 +59,7 @@ class WritingListViewController: UIViewController {
             let writings = allWritings?.result ?? []
             self.writings = writings
             print("writings 갯수는~ \(self.writings.count)")
+            self.tableView.reloadData()
         }
         
         print("writings 갯수는~ \(self.writings.count)")
@@ -73,15 +74,18 @@ extension WritingListViewController : UITableViewDataSource, UITableViewDelegate
         print("writings count~")
         print(self.writings.count)
         return self.writings.count
+        //return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
     
         var writing = self.writings[indexPath.row]
-        print("시발,, \(writing)")
-        print("노트에 있는 롸이팅들은 \(self.writings[indexPath.row])")
-        cell.textLabel?.text = writing.title
+        //print("시발,, \(writing)")
+        //
+        //print("노트에 있는 롸이팅들은 \(self.writings[indexPath.row])")
+        print("writings title : \(writing.title)")
+        cell.textLabel?.text = writing.content
         //cell.textLabel?.text = note?.title[indexPath]
         //cell.textLabel?.text = "\(indexPath.row)"
 
