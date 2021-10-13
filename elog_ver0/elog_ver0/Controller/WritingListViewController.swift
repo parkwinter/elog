@@ -46,7 +46,7 @@ class WritingListViewController: UIViewController {
     func showCreateWritingAlert() {
         
         let alert = UIAlertController(title: "글을 추가해보자 !",
-                                      message: "여러가지 설정해줘",
+                                      message: "제목, 부제목 설졍해줘",
                                       preferredStyle: .alert)
 
         alert.addTextField { textField in textField.text = "Title" }
@@ -60,21 +60,27 @@ class WritingListViewController: UIViewController {
          */
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let action = UIAlertAction(title: "생성하기", style: .default) { [weak alert] _ in
-            let textField = alert?.textFields![0]
-            let title = textField?.text ?? ""
-            print("생성하기가 눌렸습니다. \(title)")
+            //let textField = alert?.textFields![0]
+//            let title = textField?.text ?? ""
+            let title = alert?.textFields![0].text ?? ""
+            let subtitle = alert?.textFields![1].text ?? ""
+            
+            print("생성하기가 눌렸습니다. \(title) & \(subtitle)")
 
             // 생성하기 함수 호출
             //self.createNote(title: title)
+            self.putWritings(title: title, subtitle: subtitle, content: "안녕! 무엇을 더 입력할까?")
             
         }
         alert.addAction(cancel)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    
     func beforeTransition() {
         navigationItem.title = note?.title
         self.noteDate?.text = note?.created_at
+        
         
     }
 
@@ -94,7 +100,19 @@ class WritingListViewController: UIViewController {
         print("writings 갯수는~ \(self.writings.count)")
     }
     
-    
+    func putWritings(title: String?, subtitle: String?, content: String?){
+        // 글 생성
+        
+        let noteId = self.note?.id
+        //let content = ""
+        let img = ""
+        
+        NetworkManager.createWritings(title: title ?? "", subtitle: subtitle ?? "", content: content ?? "", img: img, noteId: noteId!){ allWritings in
+            
+            print("note에 글 생성 api 호출")
+            self.loadWritings()
+        }
+    }
     
 }
 
