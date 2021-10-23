@@ -147,6 +147,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         print("========================")
         print(numOfwritings) //0
         
+        self.loadWritings()
 //        if writings.count == 0 {
 //            textView.text="안녕! 무엇을 더 입력할까?"
 //        } else {
@@ -301,10 +302,12 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
     //        textView.text="안녕! 무엇을 더 입력할까?"
 //            self.textView.text.append("\n\n")
             
-            print("전체 글 : \(writings)")
+            //print("전체 글 : \(writings)")
             print("content only : ")
-            print("\(self.currentWriting?.content)")
-            self.textView?.text.append(self.currentWriting?.content ?? "")
+            print(UserManger.shared.currentWriting?.content)
+            //print("\(self.currentWriting?.content)")
+            self.textView?.text.append(UserManger.shared.currentWriting?.content ?? "")
+//            self.textView?.text.append(self.currentWriting?.content ?? "")
 //            for i in 0..<writings.count {
 //
 //
