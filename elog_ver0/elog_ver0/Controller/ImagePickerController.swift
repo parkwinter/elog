@@ -36,15 +36,22 @@ class ImagePickerController: UIViewController{
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
     
-    @IBOutlet weak var camBtn: UIButton!
+    
+    @IBOutlet weak var cameraBtn: UIImageView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(sender:)))
+        
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(cameraBtnTapped(sender:)))
+        
         imageView2?.isUserInteractionEnabled = true
         imageView2?.addGestureRecognizer(tapGestureRecognizer)
+        
+        cameraBtn?.isUserInteractionEnabled = true
+        cameraBtn?.addGestureRecognizer(tapGestureRecognizer2)
 
         
         
@@ -60,8 +67,15 @@ class ImagePickerController: UIViewController{
         
     }
     
-    @IBAction func camClick(_ sender: Any) {
-        print("cam btn click")
+    @objc func cameraBtnTapped(sender: UITapGestureRecognizer) {
+        //         Your action
+        print("camera button tapped")
+        camClick()
+        
+    }
+    
+    func camClick() {
+        //print("cam btn click")
         
         let picker = UIImagePickerController()
         

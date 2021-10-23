@@ -708,7 +708,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btn1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2A-B1-ndc">
-                                <rect key="frame" x="76" y="370" width="262" height="60"/>
+                                <rect key="frame" x="76" y="398" width="262" height="60"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="4Wb-zA-a37"/>
@@ -723,7 +723,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btn2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilb-4Z-Gvg">
-                                <rect key="frame" x="76" y="463" width="262" height="60"/>
+                                <rect key="frame" x="76" y="491" width="262" height="60"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="Buv-Pl-d4O"/>
@@ -738,7 +738,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="btn3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53W-uc-4HV">
-                                <rect key="frame" x="76" y="556" width="262" height="60"/>
+                                <rect key="frame" x="76" y="584" width="262" height="60"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="53W-uc-4HV" secondAttribute="height" multiplier="131:30" id="E6G-XV-tJy"/>
@@ -752,48 +752,45 @@
                                     <action selector="btn3onClick:" destination="Wil-s5-Lqg" eventType="touchUpInside" id="pSw-Bq-MTN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2m5-pR-bNK">
-                                <rect key="frame" x="300" y="218" width="61" height="51"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cam" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-FM-AFv">
+                                <rect key="frame" x="136.5" y="328" width="141" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="2m5-pR-bNK" secondAttribute="height" multiplier="61:51" id="sy9-ub-U6Y"/>
+                                    <constraint firstAttribute="width" constant="141" id="OWw-iH-ih0"/>
+                                    <constraint firstAttribute="width" secondItem="Ufd-FM-AFv" secondAttribute="height" multiplier="141:31" id="pbt-ns-yL4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="카메라"/>
-                                <connections>
-                                    <action selector="camClick:" destination="Wil-s5-Lqg" eventType="touchUpInside" id="MgY-L3-HUZ"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d4c-b6-2XV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2m5-pR-bNK" firstAttribute="top" secondItem="d4c-b6-2XV" secondAttribute="top" constant="218" id="45V-hE-4hI"/>
+                            <constraint firstItem="Ufd-FM-AFv" firstAttribute="top" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="8" symbolic="YES" id="DUr-VB-Blj"/>
                             <constraint firstItem="53W-uc-4HV" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="76" id="Dqt-IM-bQr"/>
                             <constraint firstItem="ilb-4Z-Gvg" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="76" id="I2q-m3-aP5"/>
                             <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="53W-uc-4HV" secondAttribute="trailing" constant="76" id="KLo-42-fiA"/>
                             <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="xD8-Vg-pdL" secondAttribute="trailing" constant="107" id="Wqe-4k-4aO"/>
-                            <constraint firstItem="2m5-pR-bNK" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="300" id="YKY-PA-h76"/>
                             <constraint firstItem="53W-uc-4HV" firstAttribute="top" secondItem="ilb-4Z-Gvg" secondAttribute="bottom" constant="33" id="bFI-yb-OKq"/>
                             <constraint firstItem="xD8-Vg-pdL" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="107" id="fpn-3t-D4I"/>
+                            <constraint firstItem="Ufd-FM-AFv" firstAttribute="centerX" secondItem="aDh-Eu-8mD" secondAttribute="centerX" id="hgM-rW-ztR"/>
+                            <constraint firstItem="R2A-B1-ndc" firstAttribute="top" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="78" id="ifb-4q-XFY"/>
                             <constraint firstItem="R2A-B1-ndc" firstAttribute="leading" secondItem="d4c-b6-2XV" secondAttribute="leading" constant="76" id="o4k-dn-ATy"/>
                             <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="R2A-B1-ndc" secondAttribute="trailing" constant="76" id="oQV-Fi-CoR"/>
                             <constraint firstItem="ilb-4Z-Gvg" firstAttribute="top" secondItem="R2A-B1-ndc" secondAttribute="bottom" constant="33" id="vHz-zk-9X5"/>
                             <constraint firstItem="d4c-b6-2XV" firstAttribute="trailing" secondItem="ilb-4Z-Gvg" secondAttribute="trailing" constant="76" id="yBe-G3-k4w"/>
-                            <constraint firstItem="R2A-B1-ndc" firstAttribute="top" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="50" id="yu3-Zt-0BP"/>
                             <constraint firstItem="xD8-Vg-pdL" firstAttribute="top" secondItem="d4c-b6-2XV" secondAttribute="top" constant="120" id="z7O-DH-0jC"/>
+                            <constraint firstItem="Ufd-FM-AFv" firstAttribute="top" secondItem="xD8-Vg-pdL" secondAttribute="bottom" constant="8" symbolic="YES" id="ze6-jc-bUN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btn1" destination="R2A-B1-ndc" id="FRq-kX-peh"/>
                         <outlet property="btn2" destination="ilb-4Z-Gvg" id="TZd-36-921"/>
                         <outlet property="btn3" destination="53W-uc-4HV" id="pCB-HA-4F6"/>
-                        <outlet property="camBtn" destination="2m5-pR-bNK" id="Qzr-Le-Zf2"/>
+                        <outlet property="cameraBtn" destination="Ufd-FM-AFv" id="53N-MF-SHW"/>
                         <outlet property="imageView2" destination="xD8-Vg-pdL" id="qWs-Td-K55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJW-jx-1j8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731.8840579710147" y="817.63392857142856"/>
+            <point key="canvasLocation" x="1828" y="818"/>
         </scene>
     </scenes>
     <resources>
@@ -802,6 +799,7 @@
         <image name="3" width="75" height="70"/>
         <image name="4" width="94" height="93"/>
         <image name="5" width="80" height="67"/>
+        <image name="cam" width="1024" height="1024"/>
         <image name="cameraimage" width="634" height="964"/>
         <image name="kakao_login_medium_wide" width="300" height="45"/>
         <image name="monthly" width="600" height="584"/>
