@@ -268,7 +268,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         }
         //floaty.addItem(item: item)
         //floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
-        floaty.paddingY = self.view.frame.height/10
+        floaty.paddingY = self.view.frame.height/20
         floaty.fabDelegate = self
 
         floaty.buttonColor = UIColor.gray
