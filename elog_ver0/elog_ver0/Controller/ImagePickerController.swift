@@ -36,14 +36,15 @@ class ImagePickerController: UIViewController{
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
     
+    @IBOutlet weak var camBtn: UIButton!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(sender:)))
-        imageView2.isUserInteractionEnabled = true
-        imageView2.addGestureRecognizer(tapGestureRecognizer)
+        imageView2?.isUserInteractionEnabled = true
+        imageView2?.addGestureRecognizer(tapGestureRecognizer)
 
         
         
@@ -59,13 +60,37 @@ class ImagePickerController: UIViewController{
         
     }
     
+    @IBAction func camClick(_ sender: Any) {
+        print("cam btn click")
+        
+        let picker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            // 사용가능
+            picker.sourceType = .camera
+        }else {
+            //사용불가능
+            let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        //picker.sourceType = .camera
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true)
+        
+    }
+    
     @IBAction func btn1onClick(_ sender: Any) {
         print("btn1onClick (그대로 버튼)")
         //        vcbefore.imageView?.image = imageView2.image
 
-        guard let imageURL = imageURL,
+        guard
+            let imageURL = imageURL ,
               let image = imageView2.image else {
 
+                  
+                  
                   let alertViewController = UIAlertController(title: "이미지가 없습니다.", message: "손가락을 눌러서 이미지를 추가해주세요.", preferredStyle: .alert)
                   alertViewController.addAction(.init(title: "OK", style: .default))
                   present(alertViewController, animated: true)
@@ -87,7 +112,8 @@ class ImagePickerController: UIViewController{
     
     @IBAction func btn2onClick(_ sender: Any) {
 
-        guard let image = imageView2.image else {
+        guard let image = imageView2.image ,
+        let imageURL = imageURL else {
 
             let alertViewController = UIAlertController(title: "이미지가 없습니다.", message: "손가락을 눌러서 이미지를 추가해주세요.", preferredStyle: .alert)
             alertViewController.addAction(.init(title: "OK", style: .default))
@@ -133,6 +159,8 @@ class ImagePickerController: UIViewController{
 }
 
 extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+        
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")]as? UIImage {
@@ -157,6 +185,9 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             print(urlString)
             print(self.imageURL!)
             
+        }
+        else {
+            self.imageURL = "no_url"
         }
 
         picker.dismiss(animated: true, completion: nil)

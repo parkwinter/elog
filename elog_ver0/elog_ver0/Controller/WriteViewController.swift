@@ -57,9 +57,9 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//    }
 
     @IBAction func sentiment(_ sender: Any) {
         print("감정알아보기 버튼 클릭했움")
@@ -233,6 +233,9 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
             picker.delegate = self
             picker.allowsEditing = true
             self.present(picker, animated: true)
+            
+            
+            
             
 //            let alert = UIAlertController(title: "안녕", message: "여기 카메라 켜질거야", preferredStyle: .alert)
 //            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -602,10 +605,29 @@ extension WriteViewController: AddImageDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        guard let camImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
-            return
+//        guard let camImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+//            return
+//        }
+        
+        //imageView.image = camImage
+        //print("모달 불러오기 전 camImage 정보 : \(camImage.imageAsset)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let svc = storyboard.instantiateViewController(withIdentifier: "imagePickerController") as! ImagePickerController
+        svc.delegate = self
+        
+        if let camImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage  {
+            //svc.imageView2?.image = camImage
+            //print("==============!!!!!!!!!!!!!!!")
+//            self.present(svc, animated: true, completion: nil)
+//            svc.imageView2?.image = camImage
+//            imageView.image = camImage
+            svc.imageView2?.image = camImage
+            self.present(svc, animated: true, completion: nil)
+            svc.imageView2?.image = camImage
         }
-        imageView.image = camImage
+        //self.present(svc, animated: true, completion: nil)
+        
+        
     }
     
     func addOcrText(data: String){
