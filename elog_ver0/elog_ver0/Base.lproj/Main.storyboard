@@ -133,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmy-vQ-I5b">
-                                <rect key="frame" x="56" y="510" width="303" height="45"/>
+                                <rect key="frame" x="55.5" y="510" width="303" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gmy-vQ-I5b" secondAttribute="height" multiplier="101:15" id="k1I-vs-e1k"/>
                                 </constraints>
@@ -148,11 +148,12 @@
                         <constraints>
                             <constraint firstItem="xxh-fY-kQP" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="2i5-dG-nVT"/>
                             <constraint firstItem="uWg-Ef-Lvs" firstAttribute="centerX" secondItem="Cw5-S4-R9k" secondAttribute="centerX" id="4OS-6t-pBc"/>
+                            <constraint firstItem="gmy-vQ-I5b" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="PpT-jf-8cN"/>
                             <constraint firstItem="gmy-vQ-I5b" firstAttribute="top" secondItem="myX-Yg-sRe" secondAttribute="bottom" constant="45" id="R0L-Mc-1H3"/>
                             <constraint firstItem="xxh-fY-kQP" firstAttribute="top" secondItem="uWg-Ef-Lvs" secondAttribute="bottom" constant="40" id="Ss8-Uz-Alk"/>
-                            <constraint firstItem="gmy-vQ-I5b" firstAttribute="leading" secondItem="Cw5-S4-R9k" secondAttribute="leading" constant="56" id="YQo-O7-Ae5"/>
+                            <constraint firstItem="gmy-vQ-I5b" firstAttribute="leading" secondItem="Cw5-S4-R9k" secondAttribute="leading" constant="55.5" id="YQo-O7-Ae5"/>
                             <constraint firstItem="myX-Yg-sRe" firstAttribute="top" secondItem="xxh-fY-kQP" secondAttribute="bottom" constant="40" id="lNw-gZ-jo9"/>
-                            <constraint firstItem="Cw5-S4-R9k" firstAttribute="trailing" secondItem="gmy-vQ-I5b" secondAttribute="trailing" constant="55" id="mWe-zR-tZ4"/>
+                            <constraint firstItem="Cw5-S4-R9k" firstAttribute="trailing" secondItem="gmy-vQ-I5b" secondAttribute="trailing" constant="55.5" id="mWe-zR-tZ4"/>
                             <constraint firstItem="myX-Yg-sRe" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="pmB-Ue-4k4"/>
                             <constraint firstItem="myX-Yg-sRe" firstAttribute="centerY" secondItem="Hun-fC-f4d" secondAttribute="centerY" id="s7k-SG-63o"/>
                             <constraint firstItem="gmy-vQ-I5b" firstAttribute="centerX" secondItem="Hun-fC-f4d" secondAttribute="centerX" id="xKc-sJ-Ha1"/>

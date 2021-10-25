@@ -17,7 +17,7 @@ struct AllWritings: Codable {
 
 // MARK: - Result
 struct Writing: Codable {
-    let createdAt, title, subtitle, content, img: String
+    var createdAt, title, subtitle, content, img: String
     
     let id, noteID: Int
     let mood: String?

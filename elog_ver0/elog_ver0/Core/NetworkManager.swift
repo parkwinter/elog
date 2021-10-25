@@ -324,6 +324,32 @@ class NetworkManager {
     }
     
     
+    static func deleteWriting(postIdx: Int, completionHandler: @escaping (NoteResponse?) -> Void) {
+
+        let parameter: [String: Int] = ["postIdx": postIdx]
+        //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+        // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
+        //let headers = HTTPHeaders()
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        
+        
+        AF.request(baseURL + "/app/posts" + "/\(postIdx)" + "/status",
+                   method: .patch,
+                   parameters: parameter,
+                   headers: headers)
+            .response { response in // Closure
+
+                print(response.data?.toString() ?? "")
+                if let data = response.data {
+                    let response = try? JSONDecoder().decode(NoteResponse.self, from: data)
+
+                    completionHandler(response)
+
+                } else {
+                    completionHandler(nil)
+                }
+            }
+    }
     static func ocr(imageURL: String, completionHandler: @escaping (ImageOcr?) -> Void) {
 
         let parameter: [String: String] = ["imageURL": imageURL]

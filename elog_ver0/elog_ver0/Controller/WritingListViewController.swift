@@ -111,6 +111,61 @@ class WritingListViewController: UIViewController {
             
             print("note에 글 생성 api 호출")
             self.loadWritings()
+            print("삭제 후 갯수는 : \(self.writings.count)")
+        }
+    }
+    
+    func deleteWriting(num: Int){
+        print("받아온 인덱스는 : \(num)")
+        
+        for i in 0..<writings.count {
+            if i == num {
+               var currentWriting = writings[i]
+                let postIdx = currentWriting.id
+                print("삭제할 아이디: \(postIdx)")
+                NetworkManager.deleteWriting(postIdx: postIdx){ allWritings in
+                    self.loadWritings()
+                }
+            }
+        }
+        
+        
+    }
+    func showEditWritingAlert(writing : Writing){
+        let alert = UIAlertController(title: "글 제목/부제목 수정해줘 !", message: "",preferredStyle: .alert)
+        
+        alert.addTextField { textField in textField.text = writing.title }
+        alert.addTextField { textField in textField.text = writing.subtitle }
+        
+        let action1 = UIAlertAction(title: "수정하기", style: .default) { [weak alert] _ in
+            let textField = alert?.textFields![0]
+            let textField2 = alert?.textFields![1]
+            let title = textField?.text ?? ""
+            let subtitle = textField2?.text ?? ""
+            print("수정하기가 눌렸습니다. \(title)")
+            var writing = writing
+            writing.title = title
+            writing.subtitle = subtitle
+            
+            self.updateWritingTitles(writing: writing)
+//            self.editNote(note: note)
+        }
+
+        let action2 = UIAlertAction(title: "취소하기", style: .cancel) { _ in
+            print("취소 되었습니다.")
+        }
+        alert.addAction(action1)
+        alert.addAction(action2)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    func updateWritingTitles(writing: Writing){
+        
+        NetworkManager.updateWriting(postIdx: writing.id, content: writing.content, title: writing.title, subtitle: writing.subtitle, img: writing.img) { [weak self] noteResponse in
+            
+            self?.loadWritings()
         }
     }
     
@@ -135,7 +190,7 @@ extension WritingListViewController : UITableViewDataSource, UITableViewDelegate
         //
         //print("노트에 있는 롸이팅들은 \(self.writings[indexPath.row])")
         print("writings title : \(writing.title)")
-        cell.textLabel?.text = writing.content
+        cell.textLabel?.text = writing.title
         //cell.textLabel?.text = note?.title[indexPath]
         //cell.textLabel?.text = "\(indexPath.row)"
 
@@ -154,4 +209,31 @@ extension WritingListViewController : UITableViewDataSource, UITableViewDelegate
         
     }
     
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//            if editingStyle == .delete {
+//
+//
+//                deleteWriting(num: indexPath.row)
+//               // tableView.deleteRows(at: [indexPath], with: .fade)
+//                print("삭제할 인덱스: \(indexPath.row)")
+//
+//            } else if editingStyle == .insert {
+//
+//            }
+//        }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "삭제") { (action, indexPath) in
+            self.deleteWriting(num: indexPath.row)
+        }
+
+        let update = UITableViewRowAction(style: .normal, title: "수정") { (action, indexPath) in
+            self.showEditWritingAlert(writing: self.writings[indexPath.row])
+        }
+
+        //update.backgroundColor = UIColor.grey
+
+        return [delete, update]
+    }
 }
