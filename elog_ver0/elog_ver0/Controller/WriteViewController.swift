@@ -52,7 +52,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
         loadWritings()
       
         beforeTransition()
-        //hideKeyboard()
+        hideKeyboard()
 
         
     }
@@ -106,7 +106,8 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
     @IBAction func didTapSave(_ sender: Any) {
         print("저장버튼 클릭되었습니다.")
         let newWritings = textView.text ?? ""
-
+        let writing = UserManger.shared.currentWriting
+        
         print("didTapSave() - newWritings: \(newWritings)")
 
         let imageString: String
@@ -116,7 +117,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
             imageString = UserManger.shared.currentWriting?.img ?? ""
         }
 
-        updateWritings(content: newWritings, title: "1", subtitle: "newSubtitle", img: imageString)
+        updateWritings(content: newWritings, title: writing?.title, subtitle: writing?.subtitle, img: imageString)
         //updateImageWritings(change: newImage)
         
         let alert = UIAlertController(title: "저장 완료~!", message: "",
@@ -450,8 +451,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
                                      subtitle: subtitle ?? "",
                                      img: imageURL) {  allWritings in
             print("글 수정 api 도착")
-            print(title!)
-            print(subtitle!)
+            
             print("수정후 바뀐 거는 : \(writing?.content)")
             print("img느 \(img)")
 
