@@ -45,14 +45,17 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //hideKeyboard()
+        
+        resetImageView()
         layoutFAB()
         //floaty.addDragging()
+        
         
         loadWritings()
       
         beforeTransition()
-        hideKeyboard()
+        
 
         
     }
@@ -138,6 +141,10 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
 //        menuViewController.transitioningDelegate = self
 //        present(menuViewController, animated: true)
 //    }
+    func resetImageView(){
+        changeImage = nil
+    }
+    
     
     func beforeTransition() {
         self.title = UserManger.shared.currentWriting?.title
@@ -526,7 +533,7 @@ extension WriteViewController: UIViewControllerTransitioningDelegate {
         data = img.jpegData(compressionQuality: 0.8)!
         //let filePath = "\(UserManger.shared.currentWriting)+\(self.changeImageUrl)"
         
-        let filePath = String(UserManger.shared.currentNote!.id)
+        let filePath = String(UserManger.shared.currentWriting!.id)
         let fbString = "gs://elog-d6ddd.appspot.com/\(filePath)"
 //    https://firebasestorage.googleapis.com/v0/b/elog-d6ddd.appspot.com/o/90ocr?alt=media
         
