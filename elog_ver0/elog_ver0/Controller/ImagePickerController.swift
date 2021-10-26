@@ -238,8 +238,35 @@ extension ImagePickerController: UIImagePickerControllerDelegate, UINavigationCo
             print("ocr 돌린 결과는 : ")
             print(res!)
             
-            self.vcbefore.getOcrText(data: res!)
-            self.delegate?.addOcrText(data: res!)
+            // 알림창 이미지 포함 / 미포함
+            let alert = UIAlertController(title: "이미지도 함께 삽입하겠습니까?",
+                                          message: "",
+                                          preferredStyle: .alert)
+            
+            let action1 = UIAlertAction(title: "포함 O", style: .default) { [weak alert] _ in
+                    let imageURL = imageURL
+                    let image = self.imageView2.image
+                
+                self.vcbefore.onUserAction(data: imageURL)
+                self.vcbefore.onUserAction2(data: image!)
+                self.delegate?.addImage(image: image!, data: imageURL)
+                
+                self.vcbefore.getOcrText(data: res!)
+                self.delegate?.addOcrText(data: res!)
+            }
+
+            let action2 = UIAlertAction(title: "미포함", style: .cancel) { _ in
+                self.vcbefore.getOcrText(data: res!)
+                self.delegate?.addOcrText(data: res!)
+            }
+            
+            alert.addAction(action1)
+            alert.addAction(action2)
+            self.present(alert, animated: true, completion: nil)
+            
+            
+//            self.vcbefore.getOcrText(data: res!)
+//            self.delegate?.addOcrText(data: res!)
             
             
         }
