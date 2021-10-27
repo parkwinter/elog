@@ -125,7 +125,7 @@ class SignViewController: UIViewController {
     
     
     @IBAction func carouselButton(_ sender: Any) {
-        UserManger.shared.kakaoJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+        UserManger.shared.kakaoJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"
         enterCreateViewController()
     }
 

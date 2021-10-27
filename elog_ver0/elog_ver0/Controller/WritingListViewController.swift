@@ -163,7 +163,7 @@ class WritingListViewController: UIViewController {
     
     func updateWritingTitles(writing: Writing){
         
-        NetworkManager.updateWriting(postIdx: writing.id, content: writing.content, title: writing.title, subtitle: writing.subtitle, img: writing.img) { [weak self] noteResponse in
+        NetworkManager.updateWriting(postIdx: writing.id, content: writing.content, title: writing.title, subtitle: writing.subtitle, img: writing.img ?? "") { [weak self] noteResponse in
             
             self?.loadWritings()
         }

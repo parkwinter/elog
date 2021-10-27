@@ -16,7 +16,7 @@ class NetworkManager {
     
     
     
-    static let kakaoAcessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+    static let kakaoAcessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"
     
     static func getUserInfos(completionHandler: @escaping (Users?) -> Void) {
         // https://medium.com/@jgj455/%EC%98%A4%EB%8A%98%EC%9D%98-swift-%EC%83%81%EC%8B%9D-closure-aa401f76b7ce
@@ -55,7 +55,7 @@ class NetworkManager {
                 print("kakaoLogin networkmanager에서 잘 받아왔습니다~")
 //                syToken = kakaoInfo?.result.jwt
                 guard let kakaoInfo = kakaoInfo else {
-                    UserManger.shared.kakaoJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
+                    UserManger.shared.kakaoJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"
                     return
                     
                 }
@@ -181,7 +181,7 @@ class NetworkManager {
         
        // let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
-        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"])
         
         //AF query string 찾아보기
         //print(baseURL + "/app/notes")
@@ -210,7 +210,7 @@ class NetworkManager {
         //3.34.116.127/app/notes/2/posts
         
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
-        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"])
         
         print("get all writings 에서 받은 accesstoken은 \(UserManger.shared.kakaoJwt)")
         //AF query string 찾아보기
@@ -272,7 +272,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"])
        
         
         AF.request(baseURL + "/app/note" + "/\(noteIdx)" + "/status",
@@ -300,7 +300,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"])
        
         
         AF.request(baseURL + "/app/posts" + "/\(postIdx)" ,
@@ -330,7 +330,7 @@ class NetworkManager {
         //let syToken : String = UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"
         // let headers = HTTPHeaders(["kakaoAuth": "kjfdhfksdjfjwl3k2jtkl"])
         //let headers = HTTPHeaders()
-        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYzMDQ3NjUxNSwiZXhwIjoxNjYyMDEyNTE1LCJzdWIiOiJ1c2VySW5mbyJ9.uZFEPTzRFKNGY0tU1xflUCN-1dCNzY4y0gE09OJmrxI"])
+        let headers = HTTPHeaders(["x-access-token": UserManger.shared.kakaoJwt ?? "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEzLCJpYXQiOjE2MzUzMzIzNDYsImV4cCI6MTY2Njg2ODM0Niwic3ViIjoidXNlckluZm8ifQ.ZBxnR64Zn7U5GVOcVv2GuVyJqUFJ7b_2FXxSmHlrp4k"])
         
         
         AF.request(baseURL + "/app/posts" + "/\(postIdx)" + "/status",

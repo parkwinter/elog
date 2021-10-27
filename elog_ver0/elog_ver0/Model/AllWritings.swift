@@ -17,18 +17,26 @@ struct AllWritings: Codable {
 
 // MARK: - Result
 struct Writing: Codable {
-    var createdAt, title, subtitle, content, img: String
+//    var createdAt, title, subtitle, content, img: String
+    var created_at, title, subtitle, content: String
+    var img: String?
     
-    let id, noteID: Int
+//    let id, noteID: Int
+    let id, note_id: Int
     let mood: String?
     
-    enum CodingKeys: String, CodingKey {
-        case createdAt = "created_at"
-        case title, subtitle, content, img, id
-        case noteID = "note_id"
-        case mood
-        
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case createdAt = "created_at"
+//        //case title, subtitle, content, img, id
+//        case title = "title"
+//        case subtitle = "subtitle"
+//        case content = "content"
+//        case img = "img"
+//        case id = "id"
+//        case noteID = "note_id"
+//        case mood
+//
+//    }
 }
 //class JSONNull: Codable, Hashable {
 //

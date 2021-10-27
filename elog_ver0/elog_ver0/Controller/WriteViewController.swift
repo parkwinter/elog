@@ -149,7 +149,7 @@ class WriteViewController: UIViewController, FloatyDelegate, UIImagePickerContro
     func beforeTransition() {
         self.title = UserManger.shared.currentWriting?.title
         noteTitle?.text = UserManger.shared.currentWriting?.subtitle
-        self.noteDate?.text = UserManger.shared.currentWriting?.createdAt
+        self.noteDate?.text = UserManger.shared.currentWriting?.created_at
 //        self.title = note?.title
 //        noteTitle?.text = note?.title
 //        self.noteDate?.text = note?.created_at
